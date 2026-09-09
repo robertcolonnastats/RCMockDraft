@@ -1,0 +1,2402 @@
+[
+ {
+  "overall": 1,
+  "round": 1,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": true,
+  "keeper_player": "Ronald Acuna Jr."
+ },
+ {
+  "overall": 2,
+  "round": 1,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 3,
+  "round": 1,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 4,
+  "round": 1,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": true,
+  "keeper_player": "Tarik Skubal"
+ },
+ {
+  "overall": 5,
+  "round": 1,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 6,
+  "round": 1,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 7,
+  "round": 1,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 8,
+  "round": 1,
+  "slot": 8,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 9,
+  "round": 1,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 10,
+  "round": 1,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": true,
+  "keeper_player": "Elly De La Cruz"
+ },
+ {
+  "overall": 11,
+  "round": 1,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 12,
+  "round": 1,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 13,
+  "round": 2,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 14,
+  "round": 2,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 15,
+  "round": 2,
+  "slot": 10,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 16,
+  "round": 2,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 17,
+  "round": 2,
+  "slot": 8,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 18,
+  "round": 2,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 19,
+  "round": 2,
+  "slot": 6,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 20,
+  "round": 2,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 21,
+  "round": 2,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 22,
+  "round": 2,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": true,
+  "keeper_player": "Junior Caminero"
+ },
+ {
+  "overall": 23,
+  "round": 2,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 24,
+  "round": 2,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 25,
+  "round": 3,
+  "slot": 1,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": true,
+  "keeper_player": "Chris Sale"
+ },
+ {
+  "overall": 26,
+  "round": 3,
+  "slot": 2,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 27,
+  "round": 3,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 28,
+  "round": 3,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 29,
+  "round": 3,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": true,
+  "keeper_player": "Cal Raleigh"
+ },
+ {
+  "overall": 30,
+  "round": 3,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 31,
+  "round": 3,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 32,
+  "round": 3,
+  "slot": 8,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 33,
+  "round": 3,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 34,
+  "round": 3,
+  "slot": 10,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 35,
+  "round": 3,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 36,
+  "round": 3,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 37,
+  "round": 4,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 38,
+  "round": 4,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 39,
+  "round": 4,
+  "slot": 10,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 40,
+  "round": 4,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 41,
+  "round": 4,
+  "slot": 8,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 42,
+  "round": 4,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 43,
+  "round": 4,
+  "slot": 6,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 44,
+  "round": 4,
+  "slot": 5,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 45,
+  "round": 4,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 46,
+  "round": 4,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 47,
+  "round": 4,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 48,
+  "round": 4,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": true,
+  "keeper_player": "Byron Buxton"
+ },
+ {
+  "overall": 49,
+  "round": 5,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 50,
+  "round": 5,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 51,
+  "round": 5,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 52,
+  "round": 5,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 53,
+  "round": 5,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 54,
+  "round": 5,
+  "slot": 6,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 55,
+  "round": 5,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 56,
+  "round": 5,
+  "slot": 8,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 57,
+  "round": 5,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 58,
+  "round": 5,
+  "slot": 10,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 59,
+  "round": 5,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 60,
+  "round": 5,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 61,
+  "round": 6,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 62,
+  "round": 6,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 63,
+  "round": 6,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 64,
+  "round": 6,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 65,
+  "round": 6,
+  "slot": 8,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 66,
+  "round": 6,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 67,
+  "round": 6,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 68,
+  "round": 6,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 69,
+  "round": 6,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 70,
+  "round": 6,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 71,
+  "round": 6,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 72,
+  "round": 6,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 73,
+  "round": 7,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 74,
+  "round": 7,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 75,
+  "round": 7,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 76,
+  "round": 7,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 77,
+  "round": 7,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": true,
+  "keeper_player": "Pete Crow-Armstrong"
+ },
+ {
+  "overall": 78,
+  "round": 7,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": true,
+  "keeper_player": "Drake Baldwin"
+ },
+ {
+  "overall": 79,
+  "round": 7,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 80,
+  "round": 7,
+  "slot": 8,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 81,
+  "round": 7,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 82,
+  "round": 7,
+  "slot": 10,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 83,
+  "round": 7,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 84,
+  "round": 7,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 85,
+  "round": 8,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 86,
+  "round": 8,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 87,
+  "round": 8,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 88,
+  "round": 8,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 89,
+  "round": 8,
+  "slot": 8,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 90,
+  "round": 8,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 91,
+  "round": 8,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 92,
+  "round": 8,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": true,
+  "keeper_player": "Garrett Crochet"
+ },
+ {
+  "overall": 93,
+  "round": 8,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 94,
+  "round": 8,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 95,
+  "round": 8,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 96,
+  "round": 8,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 97,
+  "round": 9,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 98,
+  "round": 9,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 99,
+  "round": 9,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 100,
+  "round": 9,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 101,
+  "round": 9,
+  "slot": 5,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 102,
+  "round": 9,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 103,
+  "round": 9,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 104,
+  "round": 9,
+  "slot": 8,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 105,
+  "round": 9,
+  "slot": 9,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 106,
+  "round": 9,
+  "slot": 10,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": true,
+  "keeper_player": "Sandy Alcantara"
+ },
+ {
+  "overall": 107,
+  "round": 9,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 108,
+  "round": 9,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 109,
+  "round": 10,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 110,
+  "round": 10,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": true,
+  "keeper_player": "Hunter Goodman"
+ },
+ {
+  "overall": 111,
+  "round": 10,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 112,
+  "round": 10,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 113,
+  "round": 10,
+  "slot": 8,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 114,
+  "round": 10,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 115,
+  "round": 10,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": true,
+  "keeper_player": "Nolan McLean"
+ },
+ {
+  "overall": 116,
+  "round": 10,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": true,
+  "keeper_player": "Nick Kurtz"
+ },
+ {
+  "overall": 117,
+  "round": 10,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 118,
+  "round": 10,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": true,
+  "keeper_player": "Brent Rooker"
+ },
+ {
+  "overall": 119,
+  "round": 10,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 120,
+  "round": 10,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 121,
+  "round": 11,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 122,
+  "round": 11,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 123,
+  "round": 11,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 124,
+  "round": 11,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 125,
+  "round": 11,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 126,
+  "round": 11,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": true,
+  "keeper_player": "Hunter Brown"
+ },
+ {
+  "overall": 127,
+  "round": 11,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": true,
+  "keeper_player": "Maikel Garcia"
+ },
+ {
+  "overall": 128,
+  "round": 11,
+  "slot": 8,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 129,
+  "round": 11,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 130,
+  "round": 11,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 131,
+  "round": 11,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 132,
+  "round": 11,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": true,
+  "keeper_player": "Brandon Lowe"
+ },
+ {
+  "overall": 133,
+  "round": 12,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 134,
+  "round": 12,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 135,
+  "round": 12,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 136,
+  "round": 12,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 137,
+  "round": 12,
+  "slot": 8,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 138,
+  "round": 12,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 139,
+  "round": 12,
+  "slot": 6,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 140,
+  "round": 12,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 141,
+  "round": 12,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": true,
+  "keeper_player": "Mason Miller"
+ },
+ {
+  "overall": 142,
+  "round": 12,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 143,
+  "round": 12,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 144,
+  "round": 12,
+  "slot": 1,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 145,
+  "round": 13,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 146,
+  "round": 13,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 147,
+  "round": 13,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 148,
+  "round": 13,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 149,
+  "round": 13,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 150,
+  "round": 13,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 151,
+  "round": 13,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 152,
+  "round": 13,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 153,
+  "round": 13,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 154,
+  "round": 13,
+  "slot": 10,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 155,
+  "round": 13,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 156,
+  "round": 13,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 157,
+  "round": 14,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 158,
+  "round": 14,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 159,
+  "round": 14,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": true,
+  "keeper_player": "Paul Skenes"
+ },
+ {
+  "overall": 160,
+  "round": 14,
+  "slot": 9,
+  "team": "Ball Knower",
+  "is_keeper": true,
+  "keeper_player": "Blake Snell"
+ },
+ {
+  "overall": 161,
+  "round": 14,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 162,
+  "round": 14,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 163,
+  "round": 14,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 164,
+  "round": 14,
+  "slot": 5,
+  "team": "The Hunter Gatherers",
+  "is_keeper": true,
+  "keeper_player": "Kevin McGonigle"
+ },
+ {
+  "overall": 165,
+  "round": 14,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 166,
+  "round": 14,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": true,
+  "keeper_player": "Edwin Diaz"
+ },
+ {
+  "overall": 167,
+  "round": 14,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": true,
+  "keeper_player": "Jacob deGrom"
+ },
+ {
+  "overall": 168,
+  "round": 14,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 169,
+  "round": 15,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 170,
+  "round": 15,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 171,
+  "round": 15,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": true,
+  "keeper_player": "Cristopher Sanchez"
+ },
+ {
+  "overall": 172,
+  "round": 15,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": true,
+  "keeper_player": "James Wood"
+ },
+ {
+  "overall": 173,
+  "round": 15,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 174,
+  "round": 15,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 175,
+  "round": 15,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": true,
+  "keeper_player": "Nick Pivetta"
+ },
+ {
+  "overall": 176,
+  "round": 15,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 177,
+  "round": 15,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 178,
+  "round": 15,
+  "slot": 10,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 179,
+  "round": 15,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": true,
+  "keeper_player": "CJ Abrams"
+ },
+ {
+  "overall": 180,
+  "round": 15,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 181,
+  "round": 16,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 182,
+  "round": 16,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 183,
+  "round": 16,
+  "slot": 10,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 184,
+  "round": 16,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 185,
+  "round": 16,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 186,
+  "round": 16,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 187,
+  "round": 16,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 188,
+  "round": 16,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 189,
+  "round": 16,
+  "slot": 4,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 190,
+  "round": 16,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 191,
+  "round": 16,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": true,
+  "keeper_player": "Jackson Merrill"
+ },
+ {
+  "overall": 192,
+  "round": 16,
+  "slot": 1,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 193,
+  "round": 17,
+  "slot": 1,
+  "team": "New York No Sox",
+  "is_keeper": true,
+  "keeper_player": "Konnor Griffin"
+ },
+ {
+  "overall": 194,
+  "round": 17,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 195,
+  "round": 17,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 196,
+  "round": 17,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 197,
+  "round": 17,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 198,
+  "round": 17,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 199,
+  "round": 17,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 200,
+  "round": 17,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 201,
+  "round": 17,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 202,
+  "round": 17,
+  "slot": 10,
+  "team": "Acuna & Friends",
+  "is_keeper": true,
+  "keeper_player": "Jackson Chourio"
+ },
+ {
+  "overall": 203,
+  "round": 17,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 204,
+  "round": 17,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 205,
+  "round": 18,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 206,
+  "round": 18,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 207,
+  "round": 18,
+  "slot": 10,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 208,
+  "round": 18,
+  "slot": 9,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 209,
+  "round": 18,
+  "slot": 8,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 210,
+  "round": 18,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": true,
+  "keeper_player": "Aroldis Chapman"
+ },
+ {
+  "overall": 211,
+  "round": 18,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 212,
+  "round": 18,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 213,
+  "round": 18,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 214,
+  "round": 18,
+  "slot": 3,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 215,
+  "round": 18,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 216,
+  "round": 18,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 217,
+  "round": 19,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 218,
+  "round": 19,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 219,
+  "round": 19,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 220,
+  "round": 19,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 221,
+  "round": 19,
+  "slot": 5,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 222,
+  "round": 19,
+  "slot": 6,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 223,
+  "round": 19,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": true,
+  "keeper_player": "Ranger Suarez"
+ },
+ {
+  "overall": 224,
+  "round": 19,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 225,
+  "round": 19,
+  "slot": 9,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 226,
+  "round": 19,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 227,
+  "round": 19,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 228,
+  "round": 19,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 229,
+  "round": 20,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": true,
+  "keeper_player": "Chase Burns"
+ },
+ {
+  "overall": 230,
+  "round": 20,
+  "slot": 11,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 231,
+  "round": 20,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": true,
+  "keeper_player": "Chandler Simpson"
+ },
+ {
+  "overall": 232,
+  "round": 20,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": true,
+  "keeper_player": "Ben Rice"
+ },
+ {
+  "overall": 233,
+  "round": 20,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 234,
+  "round": 20,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 235,
+  "round": 20,
+  "slot": 6,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": true,
+  "keeper_player": "Shane McClanahan"
+ },
+ {
+  "overall": 236,
+  "round": 20,
+  "slot": 5,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": true,
+  "keeper_player": "Gerrit Cole"
+ },
+ {
+  "overall": 237,
+  "round": 20,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 238,
+  "round": 20,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 239,
+  "round": 20,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": true,
+  "keeper_player": "JJ Wetherholt"
+ },
+ {
+  "overall": 240,
+  "round": 20,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 241,
+  "round": 21,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 242,
+  "round": 21,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 243,
+  "round": 21,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 244,
+  "round": 21,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": true,
+  "keeper_player": "Carlos Rodon"
+ },
+ {
+  "overall": 245,
+  "round": 21,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 246,
+  "round": 21,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 247,
+  "round": 21,
+  "slot": 7,
+  "team": "The Hunter Gatherers",
+  "is_keeper": true,
+  "keeper_player": "Jac Caglianone"
+ },
+ {
+  "overall": 248,
+  "round": 21,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 249,
+  "round": 21,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": true,
+  "keeper_player": "Roman Anthony"
+ },
+ {
+  "overall": 250,
+  "round": 21,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 251,
+  "round": 21,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 252,
+  "round": 21,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": true,
+  "keeper_player": "Zach Neto"
+ },
+ {
+  "overall": 253,
+  "round": 22,
+  "slot": 12,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 254,
+  "round": 22,
+  "slot": 11,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 255,
+  "round": 22,
+  "slot": 10,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 256,
+  "round": 22,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 257,
+  "round": 22,
+  "slot": 8,
+  "team": "The Hunter Gatherers",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 258,
+  "round": 22,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 259,
+  "round": 22,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 260,
+  "round": 22,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 261,
+  "round": 22,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 262,
+  "round": 22,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 263,
+  "round": 22,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 264,
+  "round": 22,
+  "slot": 1,
+  "team": "Acuna & Friends",
+  "is_keeper": true,
+  "keeper_player": "Ian Seymour"
+ },
+ {
+  "overall": 265,
+  "round": 23,
+  "slot": 1,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 266,
+  "round": 23,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 267,
+  "round": 23,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 268,
+  "round": 23,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 269,
+  "round": 23,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 270,
+  "round": 23,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": true,
+  "keeper_player": "Payton Tolle"
+ },
+ {
+  "overall": 271,
+  "round": 23,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 272,
+  "round": 23,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 273,
+  "round": 23,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 274,
+  "round": 23,
+  "slot": 10,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 275,
+  "round": 23,
+  "slot": 11,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 276,
+  "round": 23,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 277,
+  "round": 24,
+  "slot": 12,
+  "team": "X BLADZ",
+  "is_keeper": true,
+  "keeper_player": "Walker Jenkins"
+ },
+ {
+  "overall": 278,
+  "round": 24,
+  "slot": 11,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 279,
+  "round": 24,
+  "slot": 10,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 280,
+  "round": 24,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 281,
+  "round": 24,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 282,
+  "round": 24,
+  "slot": 7,
+  "team": "Moonlight Graham",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 283,
+  "round": 24,
+  "slot": 6,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 284,
+  "round": 24,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 285,
+  "round": 24,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 286,
+  "round": 24,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 287,
+  "round": 24,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 288,
+  "round": 24,
+  "slot": 1,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 289,
+  "round": 25,
+  "slot": 1,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": true,
+  "keeper_player": "Jett Williams"
+ },
+ {
+  "overall": 290,
+  "round": 25,
+  "slot": 2,
+  "team": "Ball Knower",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 291,
+  "round": 25,
+  "slot": 3,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 292,
+  "round": 25,
+  "slot": 4,
+  "team": "For Whom Skubal Tolls",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 293,
+  "round": 25,
+  "slot": 5,
+  "team": "jd",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 294,
+  "round": 25,
+  "slot": 6,
+  "team": "Lightning McLean",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 295,
+  "round": 25,
+  "slot": 7,
+  "team": "The Boss Hogg Brigade",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 296,
+  "round": 25,
+  "slot": 8,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 297,
+  "round": 25,
+  "slot": 9,
+  "team": "New York No Sox",
+  "is_keeper": true,
+  "keeper_player": "A.J. Ewing"
+ },
+ {
+  "overall": 298,
+  "round": 25,
+  "slot": 10,
+  "team": "Cruz Control",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 299,
+  "round": 25,
+  "slot": 11,
+  "team": "New York No Sox",
+  "is_keeper": false,
+  "keeper_player": ""
+ },
+ {
+  "overall": 300,
+  "round": 25,
+  "slot": 12,
+  "team": "My Filipina ❤️'s Dried Fish",
+  "is_keeper": false,
+  "keeper_player": ""
+ }
+]

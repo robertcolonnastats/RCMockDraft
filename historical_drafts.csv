@@ -1,0 +1,827 @@
+year,round,pick_in_round,ov_pick,pos,player,mlb_team,canonical_team
+2026,1,1,1,OF,Corbin Carroll,ARI,New York No Sox
+2026,1,2,2,OF,Aaron Judge,NYY,My Filipina ❤️'s Dried Fish
+2026,1,3,3,OF,Fernando Tatis Jr.,SD,Ball Knower
+2026,1,4,4,OF,Yordan Alvarez,HOU,jd
+2026,1,5,5,1B,Vladimir Guerrero Jr.,TOR,The Hunter Gatherers
+2026,1,6,6,OF,Ronald Acuna Jr.,ATL,Acuna & Friends
+2026,1,7,7,3B,Jose Ramirez,CLE,The Boss Hogg Brigade
+2026,1,8,8,OF,Julio Rodriguez,SEA,Moonlight Graham
+2026,1,9,9,SS,Elly De La Cruz,CIN,Cruz Control
+2026,1,10,10,UT,Shohei Ohtani-H,LAD,X BLADZ
+2026,1,11,11,OF,Juan Soto,NYM,Lightning McLean
+2026,1,12,12,SS,Bobby Witt Jr.,KC,For Whom Skubal Tolls
+2026,2,1,13,SP,Tarik Skubal,DET,For Whom Skubal Tolls
+2026,2,2,14,SP,Yoshinobu Yamamoto,LAD,Lightning McLean
+2026,2,3,15,SS,Gunnar Henderson,BAL,X BLADZ
+2026,2,4,16,1B,Pete Alonso,BAL,Cruz Control
+2026,2,5,17,SS,Francisco Lindor,NYM,My Filipina ❤️'s Dried Fish
+2026,2,6,18,OF,Kyle Tucker,LAD,The Boss Hogg Brigade
+2026,2,7,19,2B,Ketel Marte,ARI,Acuna & Friends
+2026,2,8,20,2B,Jazz Chisholm Jr.,NYY,New York No Sox
+2026,2,9,21,SS,Corey Seager,TEX,jd
+2026,2,10,22,3B,Manny Machado,SD,Ball Knower
+2026,2,11,23,SS,Trea Turner,PHI,Moonlight Graham
+2026,2,12,24,SP,Logan Gilbert,SEA,The Hunter Gatherers
+2026,3,1,25,UT,Kyle Schwarber,PHI,The Hunter Gatherers
+2026,3,2,26,OF,Wyatt Langford,TEX,Moonlight Graham
+2026,3,3,27,SP,Cole Ragans,KC,New York No Sox
+2026,3,4,28,SP,Zack Wheeler,PHI,jd
+2026,3,5,29,3B,Austin Riley,ATL,New York No Sox
+2026,3,6,30,1B,Matt Olson,ATL,Acuna & Friends
+2026,3,7,31,1B,Bryce Harper,PHI,The Boss Hogg Brigade
+2026,3,8,32,UT,Rafael Devers,SF,Ball Knower
+2026,3,9,33,2B,Brice Turang,MIL,Cruz Control
+2026,3,10,34,SS,Mookie Betts,LAD,X BLADZ
+2026,3,11,35,1B,Vinnie Pasquantino,KC,Lightning McLean
+2026,3,12,36,1B,Josh Naylor,SEA,For Whom Skubal Tolls
+2026,4,1,37,SP,Max Fried,NYY,For Whom Skubal Tolls
+2026,4,2,38,OF,Jarren Duran,BOS,Lightning McLean
+2026,4,3,39,SP,Logan Webb,SF,X BLADZ
+2026,4,4,40,3B,Junior Caminero,TB,Cruz Control
+2026,4,5,41,OF,Randy Arozarena,SEA,X BLADZ
+2026,4,6,42,OF,Cody Bellinger,NYY,The Boss Hogg Brigade
+2026,4,7,43,SS,Geraldo Perdomo,ARI,Ball Knower
+2026,4,8,44,SP,George Kirby,SEA,New York No Sox
+2026,4,9,45,1B,Freddie Freeman,LAD,jd
+2026,4,10,46,SP,Framber Valdez,DET,Ball Knower
+2026,4,11,47,OF,Riley Greene,DET,Moonlight Graham
+2026,4,12,48,SP,Joe Ryan,MIN,The Hunter Gatherers
+2026,5,1,49,OF,Tyler Soderstrom,ATH,New York No Sox
+2026,5,2,50,C,Shea Langeliers,ATH,Moonlight Graham
+2026,5,3,51,OF,Oneil Cruz,PIT,Ball Knower
+2026,5,4,52,SP,Dylan Cease,TOR,jd
+2026,5,5,53,SS,Bo Bichette,NYM,New York No Sox
+2026,5,6,54,SP,Kyle Bradish,BAL,The Hunter Gatherers
+2026,5,7,55,SP,Eury Perez,MIA,The Boss Hogg Brigade
+2026,5,8,56,SP,Freddy Peralta,NYM,My Filipina ❤️'s Dried Fish
+2026,5,9,57,UT,Yandy Diaz,TB,The Hunter Gatherers
+2026,5,10,58,SP,Chris Sale,ATL,Acuna & Friends
+2026,5,11,59,RP,Andres Munoz,SEA,The Hunter Gatherers
+2026,5,12,60,UT,Christian Yelich,MIL,For Whom Skubal Tolls
+2026,6,1,61,RP,Jhoan Duran,PHI,For Whom Skubal Tolls
+2026,6,2,62,OF,Taylor Ward,BAL,The Hunter Gatherers
+2026,6,3,63,SP,Spencer Strider,ATL,X BLADZ
+2026,6,4,64,3B,Alex Bregman,CHC,Cruz Control
+2026,6,5,65,RP,David Bednar,NYY,Moonlight Graham
+2026,6,6,66,SP,Jacob Misiorowski,MIL,Moonlight Graham
+2026,6,7,67,OF,Byron Buxton,MIN,Acuna & Friends
+2026,6,8,68,2B,Luke Keaschall,MIN,New York No Sox
+2026,6,9,69,C,Cal Raleigh,SEA,jd
+2026,6,10,70,SP,Nick Lodolo,CIN,Ball Knower
+2026,6,11,71,1B,Michael Busch,CHC,Moonlight Graham
+2026,6,12,72,SP,Sonny Gray,BOS,Lightning McLean
+2026,7,1,73,OF,Luis Robert Jr.,NYM,New York No Sox
+2026,7,2,74,OF,Michael Harris II,ATL,My Filipina ❤️'s Dried Fish
+2026,7,3,75,2B,Nico Hoerner,CHC,Ball Knower
+2026,7,4,76,UT,Seiya Suzuki,CHC,jd
+2026,7,5,77,SP,Emmet Sheehan,LAD,The Hunter Gatherers
+2026,7,6,78,RP,Ryan Helsley,BAL,New York No Sox
+2026,7,7,79,RP,Jeff Hoffman,TOR,The Boss Hogg Brigade
+2026,7,8,80,RP,Josh Hader,HOU,Ball Knower
+2026,7,9,81,OF,Teoscar Hernandez,LAD,Cruz Control
+2026,7,10,82,OF,Brandon Nimmo,TEX,X BLADZ
+2026,7,11,83,SP,Tyler Glasnow,LAD,Lightning McLean
+2026,7,12,84,2B,Jose Altuve,HOU,For Whom Skubal Tolls
+2026,8,1,85,C,William Contreras,MIL,For Whom Skubal Tolls
+2026,8,2,86,OF,George Springer,TOR,Lightning McLean
+2026,8,3,87,1B,Christian Walker,HOU,X BLADZ
+2026,8,4,88,SP,Jesus Luzardo,PHI,Cruz Control
+2026,8,5,89,SP,Tanner Bibee,CLE,jd
+2026,8,6,90,SP,Bubba Chandler,PIT,The Boss Hogg Brigade
+2026,8,7,91,OF,Jakob Marsee,MIA,Acuna & Friends
+2026,8,8,92,RP,Trevor Megill,MIL,New York No Sox
+2026,8,9,93,OF,Bryan Reynolds,PIT,jd
+2026,8,10,94,OF,Kyle Stowers,MIA,Ball Knower
+2026,8,11,95,SP,Kevin Gausman,TOR,Moonlight Graham
+2026,8,12,96,OF,Andy Pages,LAD,The Hunter Gatherers
+2026,9,1,97,OF,Steven Kwan,CLE,New York No Sox
+2026,9,2,98,OF,Lawrence Butler,ATH,Moonlight Graham
+2026,9,3,99,3B,Matt Chapman,SF,My Filipina ❤️'s Dried Fish
+2026,9,4,100,2B,Ozzie Albies,ATL,The Boss Hogg Brigade
+2026,9,5,101,RP,Daniel Palencia,CHC,The Hunter Gatherers
+2026,9,6,102,SP,Brandon Woodruff,MIL,Acuna & Friends
+2026,9,7,103,SP,Ryan Pepiot,TB,The Boss Hogg Brigade
+2026,9,8,104,SP,Michael King,SD,My Filipina ❤️'s Dried Fish
+2026,9,9,105,SP,MacKenzie Gore,TEX,Cruz Control
+2026,9,10,106,C,Salvador Perez,KC,X BLADZ
+2026,9,11,107,C,Drake Baldwin,ATL,Lightning McLean
+2026,9,12,108,RP,Raisel Iglesias,ATL,For Whom Skubal Tolls
+2026,10,1,109,SS,Willy Adames,SF,For Whom Skubal Tolls
+2026,10,2,110,UT,Mike Trout,LAA,Lightning McLean
+2026,10,3,111,RP,Carlos Estevez,KC,X BLADZ
+2026,10,4,112,RP,Bryan Abreu,HOU,Cruz Control
+2026,10,5,113,RP,Pete Fairbanks,MIA,X BLADZ
+2026,10,6,114,SP,Garrett Crochet,BOS,jd
+2026,10,7,115,RP,Emilio Pagan,CIN,Moonlight Graham
+2026,10,8,116,SP,Bryan Woo,SEA,New York No Sox
+2026,10,9,117,OF,Pete Crow-Armstrong,CHC,jd
+2026,10,10,118,C,Agustin Ramirez,MIA,Ball Knower
+2026,10,11,119,OF,Ceddanne Rafaela,BOS,Moonlight Graham
+2026,10,12,120,SS,Trevor Story,BOS,The Hunter Gatherers
+2026,11,1,121,3B,Royce Lewis,MIN,The Hunter Gatherers
+2026,11,2,122,OF,Jo Adell,LAA,Moonlight Graham
+2026,11,3,123,RP,Kenley Jansen,DET,Ball Knower
+2026,11,4,124,RP,Robert Suarez,ATL,jd
+2026,11,5,125,SS,Jacob Wilson,ATH,New York No Sox
+2026,11,6,126,SS,Jeremy Pena,HOU,Acuna & Friends
+2026,11,7,127,RP,Griffin Jax,TB,The Boss Hogg Brigade
+2026,11,8,128,2B,Xavier Edwards,MIA,My Filipina ❤️'s Dried Fish
+2026,11,9,129,SP,Drew Rasmussen,TB,Cruz Control
+2026,11,10,130,1B,Spencer Torkelson,DET,X BLADZ
+2026,11,11,131,1B,Munetaka Murakami,CHW,Lightning McLean
+2026,11,12,132,OF,Ian Happ,CHC,For Whom Skubal Tolls
+2026,12,1,133,SP,Nathan Eovaldi,TEX,For Whom Skubal Tolls
+2026,12,2,134,SS,Dansby Swanson,CHC,The Boss Hogg Brigade
+2026,12,3,135,2B,Bryson Stott,PHI,X BLADZ
+2026,12,4,136,3B,Addison Barger,TOR,Moonlight Graham
+2026,12,5,137,1B,Willson Contreras,BOS,My Filipina ❤️'s Dried Fish
+2026,12,6,138,SP,Nolan McLean,NYM,Lightning McLean
+2026,12,7,139,OF,Noelvi Marte,CIN,Acuna & Friends
+2026,12,8,140,RP,Abner Uribe,MIL,New York No Sox
+2026,12,9,141,1B,Nick Kurtz,ATH,jd
+2026,12,10,142,RP,Ryan Walker,SF,Ball Knower
+2026,12,11,143,UT,Brent Rooker,ATH,Cruz Control
+2026,12,12,144,C,Hunter Goodman,COL,The Hunter Gatherers
+2026,13,1,145,3B,Kazuma Okamoto,TOR,New York No Sox
+2026,13,2,146,C,Will Smith,LAD,Cruz Control
+2026,13,3,147,RP,Seranthony Dominguez,CHW,Ball Knower
+2026,13,4,148,SP,Bryce Miller,SEA,jd
+2026,13,5,149,SP,Hunter Brown,HOU,The Hunter Gatherers
+2026,13,6,150,SP,Gavin Williams,CLE,Acuna & Friends
+2026,13,7,151,OF,Adolis Garcia,PHI,Cruz Control
+2026,13,8,152,SP,Sandy Alcantara,MIA,My Filipina ❤️'s Dried Fish
+2026,13,9,153,3B,Maikel Garcia,KC,Moonlight Graham
+2026,13,10,154,2B,Brandon Lowe,PIT,X BLADZ
+2026,13,11,155,SP,Tatsuya Imai,HOU,Lightning McLean
+2026,13,12,156,SP,Cam Schlittler,NYY,For Whom Skubal Tolls
+2026,14,1,157,1B,Jonathan Aranda,TB,The Boss Hogg Brigade
+2026,14,2,158,1B,Luis Arraez,SF,Lightning McLean
+2026,14,3,159,OF,Evan Carter,TEX,X BLADZ
+2026,14,4,160,1B,Sal Stewart,CIN,Ball Knower
+2026,14,5,161,RP,Adrian Morejon,SD,Ball Knower
+2026,14,6,162,RP,Mason Miller,SD,For Whom Skubal Tolls
+2026,14,7,163,SP,Trevor Rogers,BAL,Acuna & Friends
+2026,14,8,164,SP,Hunter Greene,CIN,New York No Sox
+2026,14,9,165,OF,Jordan Walker,STL,jd
+2026,14,10,166,2B,Brendan Donovan,SEA,My Filipina ❤️'s Dried Fish
+2026,14,11,167,2B,Matt McLain,CIN,Moonlight Graham
+2026,14,12,168,1B,Alec Burleson,STL,The Hunter Gatherers
+2026,15,1,169,2B,Jackson Holliday,BAL,The Hunter Gatherers
+2026,15,2,170,RP,Dennis Santana,PIT,Moonlight Graham
+2026,15,3,171,SP,Shane Baz,BAL,Ball Knower
+2026,15,4,172,RP,Jason Adam,SD,jd
+2026,15,5,173,C,Samuel Basallo,BAL,New York No Sox
+2026,15,6,174,3B,Isaac Paredes,HOU,Ball Knower
+2026,15,7,175,SP,Edward Cabrera,CHC,The Boss Hogg Brigade
+2026,15,8,176,RP,Devin Williams,NYM,My Filipina ❤️'s Dried Fish
+2026,15,9,177,OF,Sal Frelick,MIL,Cruz Control
+2026,15,10,178,OF,Jasson Dominguez,NYY,X BLADZ
+2026,15,11,179,UT,Jorge Polanco,NYM,Lightning McLean
+2026,15,12,180,3B,Max Muncy,LAD,For Whom Skubal Tolls
+2026,16,1,181,OF,Heliot Ramos,SF,For Whom Skubal Tolls
+2026,16,2,182,SS,Kevin McGonigle,DET,The Hunter Gatherers
+2026,16,3,183,SP,Paul Skenes,PIT,X BLADZ
+2026,16,4,184,SP,Shota Imanaga,CHC,Cruz Control
+2026,16,5,185,SP,Kodai Senga,NYM,My Filipina ❤️'s Dried Fish
+2026,16,6,186,SP,Blake Snell,LAD,Ball Knower
+2026,16,7,187,SS,Colson Montgomery,CHW,Acuna & Friends
+2026,16,8,188,SP,Jacob deGrom,TEX,New York No Sox
+2026,16,9,189,UT,Colt Keith,DET,jd
+2026,16,10,190,OF,Daulton Varsho,TOR,Ball Knower
+2026,16,11,191,OF,Wilyer Abreu,BOS,Moonlight Graham
+2026,16,12,192,3B,Eugenio Suarez,CIN,The Boss Hogg Brigade
+2026,17,1,193,RP,Braxton Ashcraft,PIT,New York No Sox
+2026,17,2,194,SS,Ezequiel Tovar,COL,The Boss Hogg Brigade
+2026,17,3,195,SP,Justin Steele,CHC,Ball Knower
+2026,17,4,196,SP,Taj Bradley,MIN,jd
+2026,17,5,197,SS,CJ Abrams,WSH,The Hunter Gatherers
+2026,17,6,198,OF,TJ Friedl,CIN,Acuna & Friends
+2026,17,7,199,SP,Nick Pivetta,SD,Moonlight Graham
+2026,17,8,200,OF,Trent Grisham,NYY,My Filipina ❤️'s Dried Fish
+2026,17,9,201,SP,Cristopher Sanchez,PHI,Cruz Control
+2026,17,10,202,3B,Jordan Lawlar,ARI,X BLADZ
+2026,17,11,203,RP,Edwin Diaz,LAD,Lightning McLean
+2026,17,12,204,RP,Jeremiah Estrada,SD,For Whom Skubal Tolls
+2026,18,1,205,OF,James Wood,WSH,For Whom Skubal Tolls
+2026,18,2,206,RP,Tanner Scott,LAD,New York No Sox
+2026,18,3,207,2B,Luis Garcia Jr.,WSH,X BLADZ
+2026,18,4,208,3B,Alec Bohm,PHI,Cruz Control
+2026,18,5,209,RP,Robert Garcia,TEX,My Filipina ❤️'s Dried Fish
+2026,18,6,210,SP,Aaron Nola,PHI,The Boss Hogg Brigade
+2026,18,7,211,RP,Grant Taylor,CHW,Acuna & Friends
+2026,18,8,212,RP,Cade Smith,CLE,Lightning McLean
+2026,18,9,213,3B,Nolan Gorman,STL,jd
+2026,18,10,214,OF,Jackson Merrill,SD,Ball Knower
+2026,18,11,215,SP,Luis Castillo,SEA,Moonlight Graham
+2026,18,12,216,OF,Kerry Carpenter,DET,New York No Sox
+2026,19,1,217,UT,Ivan Herrera,STL,The Hunter Gatherers
+2026,19,2,218,SP,Trey Yesavage,TOR,Moonlight Graham
+2026,19,3,219,SP,Shohei Ohtani-P,LAD,Ball Knower
+2026,19,4,220,3B,Marcelo Mayer,BOS,jd
+2026,19,5,221,SS,Konnor Griffin,PIT,New York No Sox
+2026,19,6,222,UT,Kyle Manzardo,CLE,Acuna & Friends
+2026,19,7,223,RP,Tyler Rogers,TOR,Cruz Control
+2026,19,8,224,SP,Zac Gallen,ARI,My Filipina ❤️'s Dried Fish
+2026,19,9,225,OF,Jackson Chourio,MIL,The Boss Hogg Brigade
+2026,19,10,226,SS,Masyn Winn,STL,X BLADZ
+2026,19,11,227,SS,Carlos Correa,HOU,Lightning McLean
+2026,19,12,228,3B,Caleb Durbin,BOS,For Whom Skubal Tolls
+2026,20,1,229,SP,Cade Horton,CHC,For Whom Skubal Tolls
+2026,20,2,230,OF,Carson Benge,NYM,Lightning McLean
+2026,20,3,231,OF,Jung Hoo Lee,SF,X BLADZ
+2026,20,4,232,SS,Xander Bogaerts,SD,Cruz Control
+2026,20,5,233,OF,Brenton Doyle,COL,My Filipina ❤️'s Dried Fish
+2026,20,6,234,SP,Connelly Early,BOS,The Boss Hogg Brigade
+2026,20,7,235,3B,Ernie Clement,TOR,Acuna & Friends
+2026,20,8,236,SP,Clay Holmes,NYM,New York No Sox
+2026,20,9,237,SP,Roki Sasaki,LAD,jd
+2026,20,10,238,RP,Garrett Whitlock,BOS,Ball Knower
+2026,20,11,239,RP,Aroldis Chapman,BOS,Moonlight Graham
+2026,20,12,240,SP,Zebby Matthews,MIN,The Hunter Gatherers
+2026,21,1,241,OF,Chase DeLauter,CLE,The Hunter Gatherers
+2026,21,2,242,RP,Matt Strahm,KC,Cruz Control
+2026,21,3,243,UT,Marcell Ozuna,PIT,Ball Knower
+2026,21,4,244,SP,Grayson Rodriguez,LAA,jd
+2026,21,5,245,SP,Jonah Tong,NYM,New York No Sox
+2026,21,6,246,SP,Cody Ponce,TOR,Acuna & Friends
+2026,21,7,247,2B,Marcus Semien,NYM,Ball Knower
+2026,21,8,248,SS,Leo De Vries,ATH,The Boss Hogg Brigade
+2026,21,9,249,SP,Ranger Suarez,BOS,Moonlight Graham
+2026,21,10,250,OF,Jordan Beck,COL,X BLADZ
+2026,21,11,251,SP,Jack Flaherty,DET,Lightning McLean
+2026,21,12,252,OF,Ramon Laureano,SD,For Whom Skubal Tolls
+2026,22,1,253,1B,Jake Burger,TEX,For Whom Skubal Tolls
+2026,22,2,254,OF,Justin Crawford,PHI,Lightning McLean
+2026,22,3,255,SP,Bobby Miller,LAD,X BLADZ
+2026,22,4,256,RP,Brad Keller,PHI,Cruz Control
+2026,22,5,257,SP,Shane McClanahan,TB,My Filipina ❤️'s Dried Fish
+2026,22,6,258,OF,Chandler Simpson,TB,The Boss Hogg Brigade
+2026,22,7,259,SS,JJ Wetherholt,STL,Acuna & Friends
+2026,22,8,260,SP,Jared Jones,PIT,New York No Sox
+2026,22,9,261,3B,Matt Shaw,CHC,jd
+2026,22,10,262,SP,Kris Bubic,KC,Ball Knower
+2026,22,11,263,1B,Ben Rice,NYY,New York No Sox
+2026,22,12,264,SP,Gerrit Cole,NYY,My Filipina ❤️'s Dried Fish
+2026,23,1,265,1B,Bryce Eldridge,SF,New York No Sox
+2026,23,2,266,SS,Jesus Made,MIL,The Boss Hogg Brigade
+2026,23,3,267,OF,Roman Anthony,BOS,Ball Knower
+2026,23,4,268,SP,Chase Burns,CIN,X BLADZ
+2026,23,5,269,SP,Robby Snelling,MIA,New York No Sox
+2026,23,6,270,SP,Thomas White,MIA,The Hunter Gatherers
+2026,23,7,271,RP,Luke Weaver,NYM,My Filipina ❤️'s Dried Fish
+2026,23,8,272,OF,Jac Caglianone,KC,The Hunter Gatherers
+2026,23,9,273,SS,Otto Lopez,MIA,Cruz Control
+2026,23,10,274,SS,Zach Neto,LAA,X BLADZ
+2026,23,11,275,RP,Alex Vesia,LAD,Lightning McLean
+2026,23,12,276,SP,Carlos Rodon,NYY,For Whom Skubal Tolls
+2026,24,1,277,2B,Travis Bazzana,CLE,For Whom Skubal Tolls
+2026,24,2,278,SP,Robbie Ray,SF,Lightning McLean
+2026,24,3,279,RP,DL Hall,MIL,X BLADZ
+2026,24,4,280,RP,Clayton Beeter,WSH,The Boss Hogg Brigade
+2026,24,5,281,RP,Matt Brash,SEA,My Filipina ❤️'s Dried Fish
+2026,24,6,282,1B,Spencer Steer,CIN,jd
+2026,24,7,283,C,Carter Jensen,KC,Acuna & Friends
+2026,24,8,284,3B,Jordan Westburg,BAL,New York No Sox
+2026,24,9,285,SP,Brandon Pfaadt,ARI,jd
+2026,24,10,286,C,Yainer Diaz,HOU,The Boss Hogg Brigade
+2026,24,11,287,OF,Daylen Lile,WSH,Moonlight Graham
+2026,24,12,288,SP,Parker Messick,CLE,The Hunter Gatherers
+2026,25,1,289,SS,Sebastian Walcott,TEX,The Hunter Gatherers
+2026,25,2,290,SP,Kade Anderson,SEA,The Boss Hogg Brigade
+2026,25,3,291,SP,Andrew Painter,PHI,Ball Knower
+2026,25,4,292,UT,Giancarlo Stanton,NYY,The Boss Hogg Brigade
+2026,25,5,293,SS,Jose Caballero,NYY,New York No Sox
+2026,25,6,294,SP,J.R. Ritchie,ATL,Acuna & Friends
+2026,25,7,295,OF,Mickey Moniak,COL,Cruz Control
+2026,25,8,296,1B,Andrew Vaughn,MIL,My Filipina ❤️'s Dried Fish
+2026,25,9,297,RP,Kyle Finnegan,DET,Cruz Control
+2026,25,10,298,2B,Termarr Johnson,PIT,X BLADZ
+2026,25,11,299,P,Payton Tolle,BOS,Lightning McLean
+2026,25,12,300,2B,Cole Young,SEA,For Whom Skubal Tolls
+2025,1,1,1,UT,Shohei Ohtani-H,LAD,Ball Knower
+2025,1,2,2,OF,Juan Soto,NYM,Lightning McLean
+2025,1,3,3,SS,Elly De La Cruz,CIN,Cruz Control
+2025,1,4,4,3B,Jose Ramirez,CLE,X BLADZ
+2025,1,5,5,OF,Mookie Betts,LAD,jd
+2025,1,6,6,OF,Corbin Carroll,ARI,Moonlight Graham
+2025,1,8,8,1B,Vladimir Guerrero Jr.,TOR,The Boss Hogg Brigade
+2025,1,9,9,OF,Aaron Judge,NYY,My Filipina ❤️'s Dried Fish
+2025,1,10,10,OF,Julio Rodriguez,SEA,New York No Sox
+2025,1,11,11,SS,Bobby Witt Jr.,KC,For Whom Skubal Tolls
+2025,1,12,12,OF,Kyle Tucker,CHC,Acuna & Friends
+2025,2,1,13,SP,Zack Wheeler,PHI,Lightning McLean
+2025,2,2,14,OF,Fernando Tatis Jr.,SD,For Whom Skubal Tolls
+2025,2,3,15,OF,Ronald Acuna Jr.,ATL,Acuna & Friends
+2025,2,4,16,1B,Pete Alonso,NYM,My Filipina ❤️'s Dried Fish
+2025,2,5,17,OF,Yordan Alvarez,HOU,The Boss Hogg Brigade
+2025,2,7,19,3B,Rafael Devers,BOS,Moonlight Graham
+2025,2,8,20,SS,Trea Turner,PHI,jd
+2025,2,9,21,1B,Freddie Freeman,LAD,X BLADZ
+2025,2,10,22,2B,Ketel Marte,ARI,Cruz Control
+2025,2,11,23,SP,Logan Gilbert,SEA,New York No Sox
+2025,2,12,24,3B,Manny Machado,SD,Ball Knower
+2025,3,1,25,SS,Corey Seager,TEX,Ball Knower
+2025,3,2,26,3B,Austin Riley,ATL,The Boss Hogg Brigade
+2025,3,3,27,SS,Oneil Cruz,PIT,Cruz Control
+2025,3,4,28,2B,Marcus Semien,TEX,X BLADZ
+2025,3,5,29,SP,Cole Ragans,KC,jd
+2025,3,6,30,OF,Teoscar Hernandez,LAD,Moonlight Graham
+2025,3,7,31,SP,Corbin Burnes,ARI,My Filipina ❤️'s Dried Fish
+2025,3,8,32,UT,Kyle Schwarber,PHI,The Boss Hogg Brigade
+2025,3,9,33,SP,Dylan Cease,SD,My Filipina ❤️'s Dried Fish
+2025,3,10,34,OF,Wyatt Langford,TEX,New York No Sox
+2025,3,11,35,SP,Tarik Skubal,DET,For Whom Skubal Tolls
+2025,3,12,36,SP,Pablo Lopez,MIN,X BLADZ
+2025,4,1,37,2B,Ozzie Albies,ATL,Acuna & Friends
+2025,4,2,38,SP,Framber Valdez,HOU,For Whom Skubal Tolls
+2025,4,3,39,2B,Jose Altuve,HOU,Lightning McLean
+2025,4,4,40,OF,Mike Trout,LAA,My Filipina ❤️'s Dried Fish
+2025,4,5,41,SP,Yoshinobu Yamamoto,LAD,The Boss Hogg Brigade
+2025,4,7,43,SP,Aaron Nola,PHI,Moonlight Graham
+2025,4,8,44,OF,Anthony Santander,TOR,jd
+2025,4,9,45,OF,Randy Arozarena,SEA,X BLADZ
+2025,4,10,46,SP,Max Fried,NYY,Cruz Control
+2025,4,11,47,SS,Gunnar Henderson,BAL,New York No Sox
+2025,4,12,48,OF,Jazz Chisholm Jr.,NYY,Ball Knower
+2025,5,1,49,SP,Logan Webb,SF,Ball Knower
+2025,5,2,50,C,Adley Rutschman,BAL,Lightning McLean
+2025,5,3,51,OF,Michael Harris II,ATL,Cruz Control
+2025,5,4,52,RP,Emmanuel Clase,CLE,X BLADZ
+2025,5,5,53,OF,Brenton Doyle,COL,jd
+2025,5,6,54,C,Yainer Diaz,HOU,Moonlight Graham
+2025,5,8,56,RP,Raisel Iglesias,ATL,jd
+2025,5,9,57,SP,Spencer Strider,ATL,My Filipina ❤️'s Dried Fish
+2025,5,10,58,SP,George Kirby,SEA,New York No Sox
+2025,5,11,59,1B,Christian Walker,HOU,For Whom Skubal Tolls
+2025,5,12,60,SP,Luis Castillo,SEA,Lightning McLean
+2025,6,1,61,OF,Bryan Reynolds,PIT,Acuna & Friends
+2025,6,2,62,3B,Junior Caminero,TB,Cruz Control
+2025,6,3,63,C,Willson Contreras,STL,New York No Sox
+2025,6,4,64,1B,Josh Naylor,ARI,My Filipina ❤️'s Dried Fish
+2025,6,5,65,SP,Bailey Ober,MIN,The Boss Hogg Brigade
+2025,6,7,67,SP,Zac Gallen,ARI,Moonlight Graham
+2025,6,8,68,3B,Mark Vientos,NYM,jd
+2025,6,9,69,OF,Seiya Suzuki,CHC,X BLADZ
+2025,6,10,70,3B,Alex Bregman,BOS,Cruz Control
+2025,6,11,71,OF,Christian Yelich,MIL,Lightning McLean
+2025,6,12,72,SP,Tanner Bibee,CLE,Ball Knower
+2025,7,1,73,SP,Freddy Peralta,MIL,Ball Knower
+2025,7,2,74,C,Salvador Perez,KC,Lightning McLean
+2025,7,3,75,SP,Joe Ryan,MIN,Cruz Control
+2025,7,4,76,OF,Adolis Garcia,TEX,X BLADZ
+2025,7,5,77,SP,Blake Snell,LAD,jd
+2025,7,6,78,SS,Matt McLain,CIN,Moonlight Graham
+2025,7,8,80,1B,Bryce Harper,PHI,The Boss Hogg Brigade
+2025,7,9,81,SS,Bo Bichette,TOR,My Filipina ❤️'s Dried Fish
+2025,7,10,82,SP,Justin Steele,CHC,New York No Sox
+2025,7,11,83,SS,Ezequiel Tovar,COL,For Whom Skubal Tolls
+2025,7,12,84,SP,Chris Sale,ATL,Acuna & Friends
+2025,8,1,85,1B,Vinnie Pasquantino,KC,Acuna & Friends
+2025,8,2,86,OF,Ian Happ,CHC,For Whom Skubal Tolls
+2025,8,3,87,SP,Roki Sasaki,LAD,Lightning McLean
+2025,8,4,88,C,Will Smith,LAD,My Filipina ❤️'s Dried Fish
+2025,8,5,89,RP,Jhoan Duran,MIN,The Boss Hogg Brigade
+2025,8,7,91,UT,Marcell Ozuna,ATL,Moonlight Graham
+2025,8,8,92,C,Cal Raleigh,SEA,jd
+2025,8,9,93,SP,Mitch Keller,PIT,X BLADZ
+2025,8,10,94,3B,Alec Bohm,PHI,Cruz Control
+2025,8,11,95,SP,Kevin Gausman,TOR,Lightning McLean
+2025,8,12,96,OF,Colton Cowser,BAL,Ball Knower
+2025,9,1,97,SP,Sandy Alcantara,MIA,Ball Knower
+2025,9,2,98,RP,Ryan Helsley,STL,Lightning McLean
+2025,9,3,99,2B,Luis Arraez,SD,Cruz Control
+2025,9,4,100,C,J.T. Realmuto,PHI,X BLADZ
+2025,9,5,101,SP,Jack Flaherty,DET,jd
+2025,9,6,102,SS,Anthony Volpe,NYY,Moonlight Graham
+2025,9,8,104,SS,Nico Hoerner,CHC,The Boss Hogg Brigade
+2025,9,9,105,RP,Andres Munoz,SEA,My Filipina ❤️'s Dried Fish
+2025,9,10,106,2B,Jackson Holliday,BAL,New York No Sox
+2025,9,11,107,3B,Nolan Arenado,STL,Lightning McLean
+2025,9,12,108,SP,Robbie Ray,SF,Acuna & Friends
+2025,10,1,109,OF,Jarren Duran,BOS,Acuna & Friends
+2025,10,2,110,3B,Jake Burger,TEX,For Whom Skubal Tolls
+2025,10,3,111,OF,Lane Thomas,CLE,New York No Sox
+2025,10,4,112,OF,Luis Robert Jr.,CHW,Cruz Control
+2025,10,5,113,OF,Steven Kwan,CLE,The Boss Hogg Brigade
+2025,10,7,115,SS,Willy Adames,SF,Moonlight Graham
+2025,10,8,116,SP,Carlos Rodon,NYY,jd
+2025,10,9,117,RP,Robert Suarez,SD,X BLADZ
+2025,10,10,118,RP,Jeff Hoffman,TOR,Cruz Control
+2025,10,11,119,2B,Brice Turang,MIL,Lightning McLean
+2025,10,12,120,3B,Isaac Paredes,HOU,Ball Knower
+2025,11,1,121,RP,Tanner Scott,LAD,Ball Knower
+2025,11,2,122,SP,Brandon Pfaadt,ARI,New York No Sox
+2025,11,3,123,RP,Pete Fairbanks,TB,Cruz Control
+2025,11,4,124,SP,Tyler Glasnow,LAD,X BLADZ
+2025,11,5,125,1B,Paul Goldschmidt,NYY,jd
+2025,11,6,126,RP,Ryan Walker,SF,Moonlight Graham
+2025,11,8,128,RP,David Bednar,PIT,The Boss Hogg Brigade
+2025,11,9,129,SS,Dansby Swanson,CHC,X BLADZ
+2025,11,10,130,SP,Bryce Miller,SEA,Lightning McLean
+2025,11,11,131,RP,Justin Martinez,ARI,For Whom Skubal Tolls
+2025,11,12,132,SP,Spencer Schwellenbach,ATL,Acuna & Friends
+2025,12,1,133,RP,Clay Holmes,NYM,New York No Sox
+2025,12,2,134,OF,Nick Castellanos,PHI,For Whom Skubal Tolls
+2025,12,3,135,SP,Bryan Woo,SEA,New York No Sox
+2025,12,4,136,OF,Pete Crow-Armstrong,CHC,My Filipina ❤️'s Dried Fish
+2025,12,5,137,2B,Jordan Westburg,BAL,The Boss Hogg Brigade
+2025,12,6,138,SS,Xavier Edwards,MIA,My Filipina ❤️'s Dried Fish
+2025,12,7,139,RP,Nick Martinez,CIN,Moonlight Graham
+2025,12,8,140,SP,Garrett Crochet,BOS,jd
+2025,12,9,141,SP,Michael King,SD,X BLADZ
+2025,12,10,142,C,Logan O'Hoppe,LAA,Cruz Control
+2025,12,11,143,OF,Lawrence Butler,ATH,Lightning McLean
+2025,12,12,144,SP,Seth Lugo,KC,Ball Knower
+2025,13,1,145,SS,Xander Bogaerts,SD,Ball Knower
+2025,13,2,146,2B,Bryson Stott,PHI,Lightning McLean
+2025,13,3,147,1B,Cody Bellinger,NYY,Cruz Control
+2025,13,4,148,SP,Grayson Rodriguez,BAL,X BLADZ
+2025,13,5,149,OF,Jurickson Profar,ATL,jd
+2025,13,6,150,SP,Tanner Houck,BOS,Moonlight Graham
+2025,13,8,152,OF,Lourdes Gurriel Jr.,ARI,The Boss Hogg Brigade
+2025,13,9,153,SP,Kodai Senga,NYM,My Filipina ❤️'s Dried Fish
+2025,13,10,154,2B,Colt Keith,DET,New York No Sox
+2025,13,11,155,RP,Trevor Megill,MIL,For Whom Skubal Tolls
+2025,13,12,156,SS,Jeremy Pena,HOU,Acuna & Friends
+2025,14,1,157,SP,Reynaldo Lopez,ATL,Acuna & Friends
+2025,14,2,158,RP,A.J. Puk,ARI,For Whom Skubal Tolls
+2025,14,3,159,SS,Carlos Correa,MIN,New York No Sox
+2025,14,4,160,3B,Christopher Morel,TB,X BLADZ
+2025,14,5,161,RP,Kenley Jansen,LAA,The Boss Hogg Brigade
+2025,14,7,163,OF,Ceddanne Rafaela,BOS,Moonlight Graham
+2025,14,8,164,SP,Yusei Kikuchi,LAA,jd
+2025,14,9,165,SP,Chris Bassitt,TOR,X BLADZ
+2025,14,10,166,OF,Brent Rooker,ATH,Cruz Control
+2025,14,11,167,OF,Brandon Nimmo,NYM,Lightning McLean
+2025,14,12,168,SP,Sonny Gray,STL,Ball Knower
+2025,15,1,169,OF,Tyler O'Neill,BAL,Ball Knower
+2025,15,2,170,2B,Andres Gimenez,TOR,For Whom Skubal Tolls
+2025,15,3,171,2B,Jonathan India,KC,My Filipina ❤️'s Dried Fish
+2025,15,4,172,OF,Josh Lowe,TB,X BLADZ
+2025,15,5,173,1B,Spencer Steer,CIN,jd
+2025,15,6,174,3B,Maikel Garcia,KC,Moonlight Graham
+2025,15,8,176,C,Shea Langeliers,ATH,The Boss Hogg Brigade
+2025,15,9,177,SP,Sean Manaea,NYM,My Filipina ❤️'s Dried Fish
+2025,15,10,178,SP,Gavin Williams,CLE,New York No Sox
+2025,15,11,179,RP,Jason Foley,DET,For Whom Skubal Tolls
+2025,15,12,180,OF,Michael Toglia,COL,Acuna & Friends
+2025,16,1,181,RP,Kirby Yates,LAD,Acuna & Friends
+2025,16,2,182,RP,Mason Miller,ATH,For Whom Skubal Tolls
+2025,16,3,183,RP,Ryan Pressly,CHC,New York No Sox
+2025,16,4,184,SP,Walker Buehler,BOS,My Filipina ❤️'s Dried Fish
+2025,16,5,185,UT,Jorge Soler,LAA,The Boss Hogg Brigade
+2025,16,7,187,SP,Bowden Francis,TOR,Moonlight Graham
+2025,16,8,188,SP,Ryan Pepiot,TB,jd
+2025,16,9,189,RP,A.J. Minter,NYM,X BLADZ
+2025,16,10,190,SP,Zach Eflin,BAL,Cruz Control
+2025,16,11,191,OF,Kerry Carpenter,DET,Lightning McLean
+2025,16,12,192,SP,Spencer Arrighetti,HOU,Ball Knower
+2025,17,1,193,1B,Yandy Diaz,TB,Ball Knower
+2025,17,2,194,RP,Bryan Abreu,HOU,Lightning McLean
+2025,17,3,195,RP,Jason Adam,SD,Cruz Control
+2025,17,4,196,1B,Nathaniel Lowe,WSH,X BLADZ
+2025,17,5,197,RP,Carlos Estevez,KC,New York No Sox
+2025,17,6,198,1B,Triston Casas,BOS,Moonlight Graham
+2025,17,8,200,OF,Alec Burleson,STL,Moonlight Graham
+2025,17,9,201,RP,Devin Williams,NYY,My Filipina ❤️'s Dried Fish
+2025,17,10,202,RP,Alexis Diaz,CIN,jd
+2025,17,11,203,C,Tyler Stephenson,CIN,For Whom Skubal Tolls
+2025,17,12,204,RP,Lucas Erceg,KC,Acuna & Friends
+2025,18,1,205,2B,Brandon Lowe,TB,Acuna & Friends
+2025,18,2,206,C,Austin Wells,NYY,For Whom Skubal Tolls
+2025,18,3,207,3B,Matt Shaw,CHC,New York No Sox
+2025,18,4,208,3B,Josh Jung,TEX,jd
+2025,18,5,209,1B,Rhys Hoskins,MIL,Lightning McLean
+2025,18,6,210,3B,Eugenio Suarez,ARI,The Boss Hogg Brigade
+2025,18,7,211,SP,Jared Jones,PIT,Moonlight Graham
+2025,18,8,212,SS,Tommy Edman,LAD,jd
+2025,18,9,213,SP,Paul Skenes,PIT,X BLADZ
+2025,18,10,214,OF,George Springer,TOR,My Filipina ❤️'s Dried Fish
+2025,18,11,215,SP,Jacob deGrom,TEX,New York No Sox
+2025,18,12,216,RP,Jordan Romano,PHI,Ball Knower
+2025,19,1,217,SP,MacKenzie Gore,WSH,Ball Knower
+2025,19,2,218,RP,Edwin Diaz,NYM,Lightning McLean
+2025,19,3,219,SP,Cristopher Sanchez,PHI,Cruz Control
+2025,19,4,220,RP,Erik Swanson,TOR,X BLADZ
+2025,19,5,221,1B,Christian Encarnacion-Strand,CIN,New York No Sox
+2025,19,6,222,SP,Brady Singer,CIN,Moonlight Graham
+2025,19,8,224,SP,Nick Pivetta,SD,The Boss Hogg Brigade
+2025,19,9,225,SP,Brandon Woodruff,MIL,My Filipina ❤️'s Dried Fish
+2025,19,10,226,OF,Matt Wallner,MIN,New York No Sox
+2025,19,11,227,SS,Masyn Winn,STL,For Whom Skubal Tolls
+2025,19,12,228,SP,Jose Berrios,TOR,Acuna & Friends
+2025,20,1,229,2B,Willi Castro,MIN,Acuna & Friends
+2025,20,2,230,OF,James Wood,WSH,For Whom Skubal Tolls
+2025,20,3,231,OF,Jackson Merrill,SD,New York No Sox
+2025,20,4,232,RP,Tyler Holton,DET,The Boss Hogg Brigade
+2025,20,5,233,RP,Yennier Cano,BAL,Lightning McLean
+2025,20,8,236,SP,Reese Olson,DET,X BLADZ
+2025,20,9,237,2B,Jake Cronenworth,SD,X BLADZ
+2025,20,10,238,SP,Andrew Painter,PHI,Cruz Control
+2025,20,12,240,3B,Cam Smith,HOU,The Boss Hogg Brigade
+2025,21,1,241,OF,Dylan Crews,WSH,Ball Knower
+2025,21,2,242,3B,Coby Mayo,BAL,Lightning McLean
+2025,21,3,243,OF,Andy Pages,LAD,Cruz Control
+2025,21,4,244,SP,Nestor Cortes Jr.,MIL,X BLADZ
+2025,21,5,245,3B,Matt Chapman,SF,jd
+2025,21,6,246,SP,Taj Bradley,TB,Moonlight Graham
+2025,21,8,248,OF,Jackson Chourio,MIL,The Boss Hogg Brigade
+2025,21,9,249,SP,Shohei Ohtani-P,LAD,My Filipina ❤️'s Dried Fish
+2025,21,10,250,SP,Bubba Chandler,PIT,New York No Sox
+2025,21,11,251,SP,Nick Lodolo,CIN,For Whom Skubal Tolls
+2025,21,12,252,SS,Kristian Campbell,BOS,Acuna & Friends
+2025,22,1,253,C,Gabriel Moreno,ARI,Acuna & Friends
+2025,22,2,254,RP,Griffin Jax,MIN,For Whom Skubal Tolls
+2025,22,3,255,3B,Brett Baty,NYM,New York No Sox
+2025,22,4,256,INF,Royce Lewis,MIN,My Filipina ❤️'s Dried Fish
+2025,22,5,257,RP,Jose Alvarado,PHI,The Boss Hogg Brigade
+2025,22,7,259,SP,Erick Fedde,STL,Moonlight Graham
+2025,22,8,260,OF,Jasson Dominguez,NYY,jd
+2025,22,9,261,OF,Evan Carter,TEX,X BLADZ
+2025,22,10,262,RP,Aroldis Chapman,BOS,Cruz Control
+2025,22,11,263,2B,Gleyber Torres,DET,Lightning McLean
+2025,22,12,264,OF,Cedric Mullins,BAL,Ball Knower
+2025,23,1,265,C,Dalton Rushing,LAD,Ball Knower
+2025,23,2,266,SS,Trevor Story,BOS,Lightning McLean
+2025,23,3,267,SP,Jackson Jobe,DET,Cruz Control
+2025,23,4,268,SP,Ricky Tiedemann,TOR,X BLADZ
+2025,23,5,269,RP,Liam Hendriks,BOS,jd
+2025,23,6,270,SP,Ranger Suarez,PHI,Moonlight Graham
+2025,23,8,272,2B,Luis Rengifo,LAA,My Filipina ❤️'s Dried Fish
+2025,23,9,273,SP,Matthew Boyd,CHC,The Boss Hogg Brigade
+2025,23,10,274,SP,Jack Leiter,TEX,New York No Sox
+2025,23,11,275,1B,Ryan Mountcastle,BAL,For Whom Skubal Tolls
+2025,23,12,276,OF,Garrett Mitchell,MIL,Acuna & Friends
+2025,24,1,277,RP,Kris Bubic,KC,Acuna & Friends
+2025,24,2,278,SP,Kumar Rocker,TEX,For Whom Skubal Tolls
+2025,24,3,279,1B,Ben Rice,NYY,New York No Sox
+2025,24,4,280,C,Francisco Alvarez,NYM,My Filipina ❤️'s Dried Fish
+2025,24,5,281,OF,Chandler Simpson,TB,The Boss Hogg Brigade
+2025,24,7,283,SP,Miles Mikolas,STL,Moonlight Graham
+2025,24,8,284,2B,Travis Bazzana,CLE,jd
+2025,24,9,285,,,,X BLADZ
+2025,24,10,286,OF,Byron Buxton,MIN,For Whom Skubal Tolls
+2025,24,11,287,SP,Shane McClanahan,TB,Lightning McLean
+2025,24,12,288,RP,Luke Weaver,NYY,My Filipina ❤️'s Dried Fish
+2025,25,1,289,OF,Roman Anthony,BOS,Ball Knower
+2025,25,2,290,OF,Walker Jenkins,MIN,The Boss Hogg Brigade
+2025,25,3,291,SP,Luis Gil,NYY,Cruz Control
+2025,25,4,292,,,,X BLADZ
+2025,25,5,293,SP,Chase Burns,CIN,New York No Sox
+2025,25,6,294,SP,Aaron Civale,MIL,Moonlight Graham
+2025,25,8,296,RP,Fernando Cruz,NYY,The Boss Hogg Brigade
+2025,25,9,297,SP,Brandon Sproat,NYM,My Filipina ❤️'s Dried Fish
+2025,25,10,298,1B,Jac Caglianone,KC,New York No Sox
+2025,25,11,299,SP,Jesus Luzardo,PHI,For Whom Skubal Tolls
+2025,25,12,300,SP,Noah Schultz,CHW,Acuna & Friends
+2024,1,1,1,OF,Julio Rodriguez,SEA,X BLADZ
+2024,1,3,3,OF,Fernando Tatis Jr.,SD,Moonlight Graham
+2024,1,4,4,OF,Aaron Judge,NYY,My Filipina ❤️'s Dried Fish
+2024,1,6,6,INF,Bobby Witt Jr.,KC,For Whom Skubal Tolls
+2024,1,7,7,OF,Ronald Acuna Jr.,ATL,Acuna & Friends
+2024,1,8,8,OF,Kyle Tucker,HOU,Lightning McLean
+2024,1,9,9,SS,Trea Turner,PHI,jd
+2024,1,10,10,OF,Juan Soto,NYY,The Boss Hogg Brigade
+2024,1,11,11,3B,Jose Ramirez,CLE,Cruz Control
+2024,1,12,12,OF,Mookie Betts,LAD,New York No Sox
+2024,2,1,13,3B,Austin Riley,ATL,New York No Sox
+2024,2,2,14,1B,Matt Olson,ATL,Cruz Control
+2024,2,3,15,SP,Spencer Strider,ATL,The Boss Hogg Brigade
+2024,2,4,16,OF,Yordan Alvarez,HOU,jd
+2024,2,5,17,1B,Pete Alonso,NYM,Lightning McLean
+2024,2,6,18,SS,Corey Seager,TEX,Acuna & Friends
+2024,2,7,19,SP,Corbin Burnes,BAL,For Whom Skubal Tolls
+2024,2,9,21,3B,Rafael Devers,BOS,My Filipina ❤️'s Dried Fish
+2024,2,10,22,2B,Marcus Semien,TEX,Moonlight Graham
+2024,2,12,24,1B,Vladimir Guerrero Jr.,TOR,X BLADZ
+2024,3,1,25,SS,Bo Bichette,TOR,X BLADZ
+2024,3,3,27,2B,Ozzie Albies,ATL,Moonlight Graham
+2024,3,4,28,SP,Kevin Gausman,TOR,My Filipina ❤️'s Dried Fish
+2024,3,6,30,SS,Elly De La Cruz,CIN,For Whom Skubal Tolls
+2024,3,7,31,SP,George Kirby,SEA,Acuna & Friends
+2024,3,8,32,OF,Kyle Schwarber,PHI,Lightning McLean
+2024,3,9,33,OF,Michael Harris II,ATL,jd
+2024,3,10,34,3B,Manny Machado,SD,The Boss Hogg Brigade
+2024,3,11,35,OF,Randy Arozarena,TB,Cruz Control
+2024,3,12,36,SP,Aaron Nola,PHI,New York No Sox
+2024,4,1,37,OF,Mike Trout,LAA,New York No Sox
+2024,4,2,38,SS,Oneil Cruz,PIT,Cruz Control
+2024,4,3,39,OF,Luis Robert Jr.,CHW,The Boss Hogg Brigade
+2024,4,4,40,SP,Luis Castillo,SEA,jd
+2024,4,5,41,SP,Max Fried,ATL,Lightning McLean
+2024,4,6,42,OF,Corbin Carroll,ARI,Acuna & Friends
+2024,4,7,43,OF,Adolis Garcia,TEX,For Whom Skubal Tolls
+2024,4,9,45,1B,Paul Goldschmidt,STL,My Filipina ❤️'s Dried Fish
+2024,4,10,46,3B,Alex Bregman,HOU,Moonlight Graham
+2024,4,12,48,SP,Logan Gilbert,SEA,X BLADZ
+2024,5,1,49,SP,Jesus Luzardo,MIA,X BLADZ
+2024,5,3,51,SP,Framber Valdez,HOU,Moonlight Graham
+2024,5,4,52,RP,Josh Hader,HOU,My Filipina ❤️'s Dried Fish
+2024,5,6,54,SP,Tarik Skubal,DET,For Whom Skubal Tolls
+2024,5,7,55,SP,Bobby Miller,LAD,Acuna & Friends
+2024,5,8,56,SS,Xander Bogaerts,SD,Lightning McLean
+2024,5,9,57,RP,Emmanuel Clase,CLE,jd
+2024,5,10,58,2B,Gleyber Torres,NYY,The Boss Hogg Brigade
+2024,5,11,59,C,Will Smith,LAD,Cruz Control
+2024,5,12,60,C,Adley Rutschman,BAL,New York No Sox
+2024,6,1,61,3B,Gunnar Henderson,BAL,New York No Sox
+2024,6,2,62,SP,Dylan Cease,SD,Cruz Control
+2024,6,3,63,SP,Justin Steele,CHC,The Boss Hogg Brigade
+2024,6,4,64,OF,Nolan Jones,COL,jd
+2024,6,5,65,INF,Royce Lewis,MIN,Lightning McLean
+2024,6,6,66,SP,Cole Ragans,KC,Acuna & Friends
+2024,6,7,67,1B,Christian Walker,ARI,For Whom Skubal Tolls
+2024,6,9,69,SS,Dansby Swanson,CHC,My Filipina ❤️'s Dried Fish
+2024,6,10,70,OF,George Springer,TOR,Moonlight Graham
+2024,6,12,72,C,J.T. Realmuto,PHI,X BLADZ
+2024,7,1,73,2B,Ketel Marte,ARI,X BLADZ
+2024,7,3,75,SP,Zach Eflin,TB,Moonlight Graham
+2024,7,4,76,OF,Cedric Mullins,BAL,My Filipina ❤️'s Dried Fish
+2024,7,6,78,OF,Christian Yelich,MIL,For Whom Skubal Tolls
+2024,7,7,79,1B,Spencer Torkelson,DET,Acuna & Friends
+2024,7,8,80,RP,Camilo Doval,SF,Lightning McLean
+2024,7,9,81,SP,Joe Musgrove,SD,jd
+2024,7,10,82,RP,Raisel Iglesias,ATL,The Boss Hogg Brigade
+2024,7,11,83,2B,Luis Arraez,MIA,Cruz Control
+2024,7,12,84,3B,Josh Jung,TEX,New York No Sox
+2024,8,1,85,SP,Logan Webb,SF,New York No Sox
+2024,8,2,86,RP,Alexis Diaz,CIN,Cruz Control
+2024,8,3,87,C,Yainer Diaz,HOU,The Boss Hogg Brigade
+2024,8,4,88,RP,David Bednar,PIT,jd
+2024,8,5,89,OF,Teoscar Hernandez,LAD,Lightning McLean
+2024,8,6,90,OF,Wyatt Langford,TEX,Acuna & Friends
+2024,8,7,91,RP,Paul Sewald,ARI,For Whom Skubal Tolls
+2024,8,9,93,SP,Shane Bieber,CLE,My Filipina ❤️'s Dried Fish
+2024,8,10,94,OF,Nick Castellanos,PHI,Moonlight Graham
+2024,8,12,96,OF,Seiya Suzuki,CHC,X BLADZ
+2024,9,1,97,3B,Max Muncy,LAD,X BLADZ
+2024,9,3,99,1B,Spencer Steer,CIN,Moonlight Graham
+2024,9,4,100,UT,Eloy Jimenez,CHW,My Filipina ❤️'s Dried Fish
+2024,9,6,102,OF,Anthony Santander,BAL,For Whom Skubal Tolls
+2024,9,7,103,SP,Chris Sale,ATL,Acuna & Friends
+2024,9,8,104,SP,Blake Snell,SF,Lightning McLean
+2024,9,9,105,2B,Andres Gimenez,CLE,jd
+2024,9,10,106,1B,Bryce Harper,PHI,The Boss Hogg Brigade
+2024,9,11,107,SP,Gerrit Cole,NYY,Cruz Control
+2024,9,12,108,SP,Merrill Kelly,ARI,New York No Sox
+2024,10,1,109,1B,Christian Encarnacion-Strand,CIN,New York No Sox
+2024,10,2,110,OF,Evan Carter,TEX,Cruz Control
+2024,10,3,111,3B,Isaac Paredes,TB,The Boss Hogg Brigade
+2024,10,4,112,SP,Tanner Bibee,CLE,jd
+2024,10,5,113,SP,Bailey Ober,MIN,Lightning McLean
+2024,10,6,114,OF,Riley Greene,DET,Acuna & Friends
+2024,10,7,115,OF,Ian Happ,CHC,For Whom Skubal Tolls
+2024,10,9,117,2B,Thairo Estrada,SF,My Filipina ❤️'s Dried Fish
+2024,10,10,118,UT,Marcell Ozuna,ATL,Moonlight Graham
+2024,10,12,120,1B,Josh Naylor,CLE,X BLADZ
+2024,11,1,121,SP,Yu Darvish,SD,X BLADZ
+2024,11,3,123,SP,Brayan Bello,BOS,Moonlight Graham
+2024,11,4,124,SP,Jose Berrios,TOR,My Filipina ❤️'s Dried Fish
+2024,11,6,126,2B,Nolan Gorman,STL,For Whom Skubal Tolls
+2024,11,7,127,3B,Jake Burger,MIA,Acuna & Friends
+2024,11,8,128,RP,Andres Munoz,SEA,Lightning McLean
+2024,11,9,129,1B,Vinnie Pasquantino,KC,jd
+2024,11,10,130,3B,Junior Caminero,TB,The Boss Hogg Brigade
+2024,11,11,131,SP,Joe Ryan,MIN,Cruz Control
+2024,11,12,132,RP,Ryan Helsley,STL,New York No Sox
+2024,12,1,133,OF,Esteury Ruiz,OAK,New York No Sox
+2024,12,2,134,OF,Masataka Yoshida,BOS,Cruz Control
+2024,12,3,135,RP,Evan Phillips,LAD,The Boss Hogg Brigade
+2024,12,4,136,INF,Zack Gelof,OAK,jd
+2024,12,5,137,2B,Edouard Julien,MIN,Lightning McLean
+2024,12,6,138,OF,Jarren Duran,BOS,Acuna & Friends
+2024,12,7,139,UT,Jorge Soler,SF,For Whom Skubal Tolls
+2024,12,9,141,SP,Carlos Rodon,NYY,My Filipina ❤️'s Dried Fish
+2024,12,10,142,SS,Willy Adames,MIL,Moonlight Graham
+2024,12,12,144,OF,Josh Lowe,TB,X BLADZ
+2024,13,1,145,SP,Tyler Glasnow,LAD,X BLADZ
+2024,13,3,147,SS,Matt McLain,CIN,Moonlight Graham
+2024,13,4,148,SS,Carlos Correa,MIN,My Filipina ❤️'s Dried Fish
+2024,13,6,150,RP,Pete Fairbanks,TB,For Whom Skubal Tolls
+2024,13,7,151,SP,Cristian Javier,HOU,Acuna & Friends
+2024,13,8,152,C,Francisco Alvarez,NYM,Lightning McLean
+2024,13,9,153,OF,Chas McCormick,HOU,jd
+2024,13,10,154,INF,Trevor Story,BOS,The Boss Hogg Brigade
+2024,13,11,155,RP,Jhoan Duran,MIN,Cruz Control
+2024,13,12,156,SP,Bryce Miller,SEA,New York No Sox
+2024,14,1,157,P,Bryan Woo,SEA,New York No Sox
+2024,14,2,158,SP,Justin Verlander,HOU,Cruz Control
+2024,14,3,159,SP,Nick Pivetta,BOS,The Boss Hogg Brigade
+2024,14,4,160,1B,Rhys Hoskins,MIL,jd
+2024,14,5,161,UT,J.D. Martinez,NYM,Lightning McLean
+2024,14,6,162,2B,Nico Hoerner,CHC,Acuna & Friends
+2024,14,7,163,SP,Shota Imanaga,CHC,For Whom Skubal Tolls
+2024,14,9,165,SP,Pablo Lopez,MIN,My Filipina ❤️'s Dried Fish
+2024,14,10,166,SP,Eury Perez,MIA,Moonlight Graham
+2024,14,12,168,RP,Michael King,SD,X BLADZ
+2024,15,1,169,SP,Kodai Senga,NYM,X BLADZ
+2024,15,3,171,RP,Jordan Romano,TOR,Moonlight Graham
+2024,15,4,172,C,Willson Contreras,STL,My Filipina ❤️'s Dried Fish
+2024,15,6,174,SP,Triston McKenzie,CLE,For Whom Skubal Tolls
+2024,15,7,175,1B,Jeimer Candelario,CIN,Acuna & Friends
+2024,15,8,176,2B,Christopher Morel,CHC,Lightning McLean
+2024,15,9,177,3B,Ke'Bryan Hayes,PIT,jd
+2024,15,10,178,SP,Jordan Montgomery,(N/A),The Boss Hogg Brigade
+2024,15,11,179,1B,Cody Bellinger,CHC,Cruz Control
+2024,15,12,180,OF,Kerry Carpenter,DET,New York No Sox
+2024,16,1,181,OF,Byron Buxton,MIN,New York No Sox
+2024,16,2,182,RP,Kenley Jansen,BOS,Cruz Control
+2024,16,3,183,SP,Nick Lodolo,CIN,The Boss Hogg Brigade
+2024,16,4,184,C,Cal Raleigh,SEA,jd
+2024,16,5,185,3B,Ryan McMahon,COL,Lightning McLean
+2024,16,6,186,RP,Adbert Alzolay,CHC,Acuna & Friends
+2024,16,7,187,C,Salvador Perez,KC,For Whom Skubal Tolls
+2024,16,9,189,SS,Jackson Holliday,BAL,My Filipina ❤️'s Dried Fish
+2024,16,10,190,SP,Sonny Gray,STL,Moonlight Graham
+2024,16,12,192,RP,Matt Brash,SEA,X BLADZ
+2024,17,1,193,2B,Jake Cronenworth,SD,X BLADZ
+2024,17,3,195,SP,Gavin Williams,CLE,Moonlight Graham
+2024,17,4,196,OF,Giancarlo Stanton,NYY,My Filipina ❤️'s Dried Fish
+2024,17,6,198,RP,Tanner Scott,MIA,For Whom Skubal Tolls
+2024,17,7,199,RP,Ryan Pressly,HOU,Acuna & Friends
+2024,17,8,200,SP,Nestor Cortes Jr.,NYY,Lightning McLean
+2024,17,9,201,RP,Jose Alvarado,PHI,jd
+2024,17,10,202,UT,Justin Turner,TOR,The Boss Hogg Brigade
+2024,17,11,203,OF,Brent Rooker,OAK,Cruz Control
+2024,17,12,204,SS,Ezequiel Tovar,COL,New York No Sox
+2024,18,1,205,SP,Kyle Bradish,BAL,New York No Sox
+2024,18,2,206,SS,Tim Anderson,MIA,Cruz Control
+2024,18,3,207,SS,Vaughn Grissom,BOS,The Boss Hogg Brigade
+2024,18,4,208,SP,Eduardo Rodriguez,ARI,jd
+2024,18,5,209,SP,Luis Severino,NYM,Lightning McLean
+2024,18,6,210,RP,Yennier Cano,BAL,Acuna & Friends
+2024,18,7,211,SP,Mason Miller,OAK,For Whom Skubal Tolls
+2024,18,9,213,OF,Starling Marte,NYM,My Filipina ❤️'s Dried Fish
+2024,18,10,214,SP,Reid Detmers,LAA,Moonlight Graham
+2024,18,12,216,2B,Jorge Polanco,SEA,X BLADZ
+2024,19,1,217,RP,Will Smith,KC,X BLADZ
+2024,19,3,219,C,MJ Melendez,KC,Moonlight Graham
+2024,19,4,220,RP,Devin Williams,MIL,My Filipina ❤️'s Dried Fish
+2024,19,6,222,RP,Jose Leclerc,TEX,For Whom Skubal Tolls
+2024,19,7,223,1B,Andrew Vaughn,CHW,Acuna & Friends
+2024,19,8,224,OF,Alex Verdugo,NYY,Lightning McLean
+2024,19,9,225,SP,Nathan Eovaldi,TEX,jd
+2024,19,10,226,1B,Triston Casas,BOS,The Boss Hogg Brigade
+2024,19,11,227,2B,Jeff McNeil,NYM,Cruz Control
+2024,19,12,228,RP,Carlos Estevez,LAA,New York No Sox
+2024,20,1,229,SP,Jacob deGrom,TEX,New York No Sox
+2024,20,2,230,RP,Brooks Raley,NYM,Cruz Control
+2024,20,3,231,RP,Bryan Abreu,HOU,The Boss Hogg Brigade
+2024,20,4,232,3B,Colt Keith,DET,jd
+2024,20,5,233,OF,Taylor Ward,LAA,Lightning McLean
+2024,20,6,234,SP,Paul Skenes,PIT,Acuna & Friends
+2024,20,7,235,OF,Tyler O'Neill,BOS,For Whom Skubal Tolls
+2024,20,9,237,SP,Kyle Harrison,SF,My Filipina ❤️'s Dried Fish
+2024,20,10,238,RP,Kutter Crawford,BOS,Moonlight Graham
+2024,20,12,240,OF,Jung Hoo Lee,SF,X BLADZ
+2024,21,1,241,OF,Lars Nootbaar,STL,X BLADZ
+2024,21,3,243,OF,TJ Friedl,CIN,Moonlight Graham
+2024,21,4,244,SS,CJ Abrams,WSH,My Filipina ❤️'s Dried Fish
+2024,21,6,246,P,Cristopher Sanchez,PHI,For Whom Skubal Tolls
+2024,21,7,247,SP,Shane Baz,TB,Acuna & Friends
+2024,21,8,248,3B,Brett Baty,NYM,Lightning McLean
+2024,21,9,249,SP,Braxton Garrett,MIA,jd
+2024,21,10,250,RP,Edwin Diaz,NYM,The Boss Hogg Brigade
+2024,21,11,251,OF,Jarred Kelenic,ATL,Cruz Control
+2024,21,12,252,SP,Clayton Kershaw,LAD,New York No Sox
+2024,22,1,253,SS,Jackson Merrill,SD,New York No Sox
+2024,22,2,254,C,Logan O'Hoppe,LAA,Cruz Control
+2024,22,3,255,RP,Shawn Armstrong,TB,The Boss Hogg Brigade
+2024,22,4,256,OF,Lourdes Gurriel Jr.,ARI,jd
+2024,22,5,257,RP,Hector Neris,CHC,Lightning McLean
+2024,22,6,258,1B,Michael Busch,CHC,Acuna & Friends
+2024,22,7,259,OF,James Wood,WSH,For Whom Skubal Tolls
+2024,22,9,261,2B,Brandon Drury,LAA,My Filipina ❤️'s Dried Fish
+2024,22,10,262,SP,Kenta Maeda,DET,Moonlight Graham
+2024,22,12,264,RP,Robert Suarez,SD,X BLADZ
+2024,23,1,265,SP,Reese Olson,DET,X BLADZ
+2024,23,3,267,SP,Taj Bradley,TB,Moonlight Graham
+2024,23,4,268,RP,Alex Lange,DET,My Filipina ❤️'s Dried Fish
+2024,23,6,270,2B,Brandon Lowe,TB,For Whom Skubal Tolls
+2024,23,7,271,C,Mitch Garver,SEA,Acuna & Friends
+2024,23,8,272,C,Gabriel Moreno,ARI,Lightning McLean
+2024,23,9,273,3B,Matt Chapman,SF,jd
+2024,23,10,274,OF,Jackson Chourio,MIL,The Boss Hogg Brigade
+2024,23,11,275,SP,Ranger Suarez,PHI,Cruz Control
+2024,23,12,276,SP,Jared Jones,PIT,New York No Sox
+2024,24,1,277,RP,Christian Scott,NYM,New York No Sox
+2024,24,2,278,1B,Anthony Rizzo,NYY,Cruz Control
+2024,24,3,279,SS,Jett Williams,NYM,The Boss Hogg Brigade
+2024,24,4,280,OF,Sal Frelick,MIL,jd
+2024,24,5,281,SS,Colson Montgomery,CHW,Lightning McLean
+2024,24,6,282,3B,Coby Mayo,BAL,Acuna & Friends
+2024,24,7,283,C,Henry Davis,PIT,For Whom Skubal Tolls
+2024,24,9,285,OF,Jasson Dominguez,NYY,My Filipina ❤️'s Dried Fish
+2024,24,10,286,SP,John Means,BAL,Moonlight Graham
+2024,24,12,288,SP,Alek Manoah,TOR,X BLADZ
+2024,25,1,289,C,Austin Wells,NYY,X BLADZ
+2024,25,3,291,SP,Jon Gray,TEX,Moonlight Graham
+2024,25,4,292,1B,Nathaniel Lowe,TEX,My Filipina ❤️'s Dried Fish
+2024,25,6,294,SP,Jackson Jobe,DET,For Whom Skubal Tolls
+2024,25,7,295,SP,Griffin Canning,LAA,Acuna & Friends
+2024,25,8,296,1B,Joey Meneses,WSH,Lightning McLean
+2024,25,9,297,SS,Brooks Lee,MIN,jd
+2024,25,10,298,OF,Spencer Jones,NYY,The Boss Hogg Brigade
+2024,25,11,299,RP,A.J. Minter,ATL,Cruz Control
+2024,25,12,300,SP,Max Meyer,MIA,New York No Sox
