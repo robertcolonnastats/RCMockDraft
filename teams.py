@@ -13,3 +13,38 @@ TEAMS = [
     {"team": "Cruz Control", "manager": "Andrew", "years": {2024: "Power Rangers", 2025: "Cruz Control", 2026: "Cruz Control"}},  # same manager all 3 years, team renamed
     {"team": "New York No Sox", "manager": "Rob", "years": {2024: "New York No Sox", 2025: "New York No Sox", 2026: "New York No Sox"}},
 ]
+
+# Fantrax roster-export short codes -> canonical team name
+TEAM_CODE_MAP = {
+    "jd": "jd",
+    "THG": "The Hunter Gatherers",
+    "BHB": "The Boss Hogg Brigade",
+    "NYX": "New York No Sox",
+    "MG": "Moonlight Graham",
+    "AF": "Acuna & Friends",
+    "XBLADZ": "X BLADZ",
+    "iKnoBall": "Ball Knower",
+    "2xChamp": "My Filipina \u2764\ufe0f's Dried Fish",
+    "Ka-Chow": "Lightning McLean",
+    "ThePhils": "Cruz Control",
+    "BVB": "For Whom Skubal Tolls",
+}
+
+# Roster board layout, in display order. Each entry is (slot_id, slot_label).
+# Active spots per your league settings, then bench/IL/MiLB.
+ROSTER_SLOTS = (
+    [("C", "C"), ("1B", "1B"), ("2B", "2B"), ("SS", "SS"), ("3B", "3B"), ("INF", "INF")]
+    + [(f"OF{i}", "OF") for i in range(1, 4)]
+    + [("UT", "UT")]
+    + [(f"SP{i}", "SP") for i in range(1, 3)]
+    + [(f"RP{i}", "RP") for i in range(1, 3)]
+    + [(f"P{i}", "P") for i in range(1, 5)]
+    + [(f"RES{i}", "RES") for i in range(1, 10)]
+    + [(f"IL{i}", "IL") for i in range(1, 4)]
+    + [(f"MILB{i}", "MiLB") for i in range(1, 5)]
+)
+
+SCORING_CATEGORIES = {
+    "Hitting": ["H", "HR", "RBI", "R", "SB", "AVG", "OPS"],
+    "Pitching": ["HLD", "SV", "ERA", "K/9", "BB/BF", "WHIP", "WQCS"],
+}
