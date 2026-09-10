@@ -258,6 +258,18 @@ if st.session_state.adp_all is None:
     st.session_state.adp_all = P.merge_full_pool(st.session_state.adp_ranked, st.session_state.full_player_rows)
 
 
+def file_is_new(upload_key, file_bytes):
+    """Streamlit keeps an uploaded file's value across every rerun until the
+    user removes it, so any upload handler that just checks 'is not None'
+    re-processes (and re-resets the draft) on every unrelated interaction
+    elsewhere in the app. Guard every uploader with this instead."""
+    h = hash(file_bytes)
+    if st.session_state.get(f"_filehash_{upload_key}") == h:
+        return False
+    st.session_state[f"_filehash_{upload_key}"] = h
+    return True
+
+
 def rebuild_pool():
     st.session_state.adp_all = P.merge_full_pool(st.session_state.adp_ranked, st.session_state.full_player_rows)
 
@@ -373,12 +385,29 @@ with tab_keepers:
              "in. Swap any slot to a different player on that same roster.")
 
     kf = st.file_uploader("Replace Keeper Values workbook (.xlsx)", type=["xlsx"], key="kw_upload")
-    if kf is not None:
+    if kf is not None and file_is_new("kw_upload", kf.getvalue()):
         try:
             st.session_state.keeper_workbook_rows = P.parse_keeper_workbook(kf.getvalue())
             st.success(f"Loaded {len(st.session_state.keeper_workbook_rows)} players with computed keeper rounds.")
         except Exception as e:
             st.error(f"Couldn't read that workbook: {e}")
+
+    st.divider()
+    st.caption("Already decided your keepers before? Upload a previously-saved picks file to "
+               "restore them instead of re-picking from the dropdowns below.")
+    saved_kf = st.file_uploader("Saved keeper picks (CSV)", type=["csv"], key="saved_keepers_upload")
+    if saved_kf is not None and file_is_new("saved_keepers_upload", saved_kf.getvalue()):
+        try:
+            loaded = P.parse_saved_keeper_picks(saved_kf.getvalue())
+            if not loaded:
+                st.error("That file didn't have any valid team/round/player rows.")
+            else:
+                st.session_state.keeper_selections = loaded
+                reset_draft(clear_team=False)
+                st.success(f"Restored {len(loaded)} saved keeper picks — draft board reset.")
+                st.rerun()
+        except Exception as e:
+            st.error(f"Couldn't read that file: {e}")
 
     rows = st.session_state.keeper_workbook_rows
     if not rows:
@@ -427,11 +456,23 @@ with tab_keepers:
                 st.warning("You've selected the same player in more than one slot for this team.")
 
     st.divider()
-    if st.button("Apply Keeper Selections", type="primary", disabled=any_duplicates):
-        st.session_state.keeper_selections = new_selection
-        reset_draft(clear_team=False)
-        st.success("Keepers updated — draft board reset.")
-        st.rerun()
+    col_apply, col_export = st.columns(2)
+    with col_apply:
+        if st.button("Apply Keeper Selections", type="primary", disabled=any_duplicates):
+            st.session_state.keeper_selections = new_selection
+            reset_draft(clear_team=False)
+            st.success("Keepers updated — draft board reset.")
+            st.rerun()
+    with col_export:
+        export_buf = io.StringIO()
+        w = csv.writer(export_buf)
+        w.writerow(["team", "round", "player"])
+        for k in new_selection:
+            w.writerow([k["team"], k["round"], k["player"]])
+        st.download_button(
+            "⬇️ Save these keeper picks (CSV)", export_buf.getvalue(),
+            file_name="fundies_keeper_picks.csv", mime="text/csv"
+        )
     if any_duplicates:
         st.caption("Fix the duplicate player(s) above before applying.")
 
@@ -453,7 +494,7 @@ with tab_docs:
     c1, c2 = st.columns(2)
     with c1:
         do_file = st.file_uploader("Draft order (Fantrax 'By Round' PDF export)", type=["pdf"], key="doc_draftorder")
-        if do_file is not None:
+        if do_file is not None and file_is_new("doc_draftorder", do_file.getvalue()):
             try:
                 st.session_state.draft_order = P.parse_draft_order_pdf(do_file.getvalue())
                 st.success("Draft order updated.")
@@ -462,7 +503,7 @@ with tab_docs:
                 st.error(str(e))
 
         adp_file = st.file_uploader("ADP rankings (CSV)", type=["csv"], key="doc_adp")
-        if adp_file is not None:
+        if adp_file is not None and file_is_new("doc_adp", adp_file.getvalue()):
             try:
                 st.session_state.adp_ranked = P.parse_adp_csv(adp_file.getvalue())
                 rebuild_pool()
@@ -473,7 +514,7 @@ with tab_docs:
                 st.error(str(e))
 
         full_list_file = st.file_uploader("All Fantrax players (CSV) — full league player pool", type=["csv"], key="doc_full_players")
-        if full_list_file is not None:
+        if full_list_file is not None and file_is_new("doc_full_players", full_list_file.getvalue()):
             try:
                 st.session_state.full_player_rows = P.parse_full_player_list(full_list_file.getvalue())
                 rebuild_pool()
@@ -484,7 +525,7 @@ with tab_docs:
                 st.error(str(e))
 
         roster_file = st.file_uploader("Current rosters (CSV)", type=["csv"], key="doc_rosters")
-        if roster_file is not None:
+        if roster_file is not None and file_is_new("doc_rosters", roster_file.getvalue()):
             try:
                 st.session_state.rosters = P.parse_rosters_csv(roster_file.getvalue())
                 st.success(f"Rosters updated — {len(st.session_state.rosters)} players.")
@@ -494,7 +535,8 @@ with tab_docs:
     with c2:
         inj_taken = st.file_uploader("Injured — rostered (CSV)", type=["csv"], key="doc_inj_taken")
         inj_avail = st.file_uploader("Injured — free agents (CSV)", type=["csv"], key="doc_inj_avail")
-        if inj_taken is not None or inj_avail is not None:
+        inj_combined = (inj_taken.getvalue() if inj_taken else b"") + b"|" + (inj_avail.getvalue() if inj_avail else b"")
+        if (inj_taken is not None or inj_avail is not None) and file_is_new("doc_injuries", inj_combined):
             try:
                 names = P.parse_injury_csvs(
                     inj_taken.getvalue() if inj_taken else None,
@@ -507,7 +549,8 @@ with tab_docs:
 
         milb_taken = st.file_uploader("MiLB-eligible — rostered (CSV)", type=["csv"], key="doc_milb_taken")
         milb_avail = st.file_uploader("MiLB-eligible — available (CSV)", type=["csv"], key="doc_milb_avail")
-        if milb_taken is not None or milb_avail is not None:
+        milb_combined = (milb_taken.getvalue() if milb_taken else b"") + b"|" + (milb_avail.getvalue() if milb_avail else b"")
+        if (milb_taken is not None or milb_avail is not None) and file_is_new("doc_milb", milb_combined):
             try:
                 names = P.parse_milb_csvs(
                     milb_taken.getvalue() if milb_taken else None,
