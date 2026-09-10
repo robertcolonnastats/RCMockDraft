@@ -260,6 +260,29 @@ def merge_full_pool(adp_rows, full_rows):
         })
     return merged
 
+
+# --------------------------- Saved keeper picks (CSV) --------------------------
+
+def parse_saved_keeper_picks(file_bytes):
+    """Round-trip format for a user's own saved keeper selections — just
+    team, round, player. Exported by the app and re-importable later."""
+    text = file_bytes.decode("utf-8-sig")
+    reader = csv.DictReader(io.StringIO(text))
+    rows = []
+    for row in reader:
+        team = (row.get("team") or "").strip()
+        player = (row.get("player") or "").strip()
+        rnd = row.get("round") or ""
+        if not team or not player:
+            continue
+        try:
+            rnd = int(float(rnd))
+        except ValueError:
+            continue
+        rows.append({"team": team, "round": rnd, "player": player})
+    return rows
+
+
 def parse_keeper_workbook(file_bytes):
     """Reads every row with a Keeper Round value. Returns one row per
     rostered player with their pre-computed keeper round, for the user to
