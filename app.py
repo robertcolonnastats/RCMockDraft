@@ -58,9 +58,30 @@ def default_merged_pool():
 
 
 @st.cache_data
+def default_keeper_workbook_rows():
+    return P.parse_keeper_workbook(open(DIR / "keeper_values.xlsx", "rb").read())
+
+
+@st.cache_data
 def default_keeper_selections():
     rows = list(csv.DictReader(open(DIR / "keepers_resolved.csv", encoding="utf-8")))
     return [{"team": r["team"], "round": int(r["round"]), "player": r["player"]} for r in rows]
+
+
+@st.cache_data
+def default_injured_names():
+    return P.parse_injury_csvs(
+        open(DIR / "injured_taken.csv", "rb").read(),
+        open(DIR / "injured_available.csv", "rb").read(),
+    )
+
+
+@st.cache_data
+def default_milb_names():
+    return P.parse_milb_csvs(
+        open(DIR / "minors_taken.csv", "rb").read(),
+        open(DIR / "minors_available.csv", "rb").read(),
+    )
 
 
 @st.cache_data
@@ -219,9 +240,9 @@ def init_state():
     ss.setdefault("adp_ranked", default_adp_pool())
     ss.setdefault("full_player_rows", default_full_player_list())
     ss.setdefault("adp_all", None)
-    ss.setdefault("injured_names", set())
-    ss.setdefault("milb_names", set())
-    ss.setdefault("keeper_workbook_rows", None)
+    ss.setdefault("injured_names", default_injured_names())
+    ss.setdefault("milb_names", default_milb_names())
+    ss.setdefault("keeper_workbook_rows", default_keeper_workbook_rows())
     ss.setdefault("keeper_selections", default_keeper_selections())
     ss.setdefault("pick_sequence", None)
     ss.setdefault("user_team", None)
@@ -250,26 +271,6 @@ def rebuild_pick_sequence():
     for p in st.session_state.pick_sequence:
         counts[p["team"]] = counts.get(p["team"], 0) + 1
     st.session_state.team_pick_counts = counts
-
-
-def reset_draft(clear_team=False):
-    st.session_state.idx = 0
-    st.session_state.board = []
-    st.session_state.team_rosters = {team: {sid: None for sid, _ in ROSTER_SLOTS} for team in ALL_TEAMS}
-    st.session_state.team_overflow = {team: [] for team in ALL_TEAMS}
-    kept_names = {p["player"] for p in st.session_state.keeper_selections}
-    st.session_state.pool = [p for p in st.session_state.adp_all if p["player"] not in kept_names]
-    if clear_team:
-        st.session_state.user_team = None
-    rebuild_pick_sequence()
-
-
-if st.session_state.pool is None:
-    reset_draft()
-
-
-def remove_from_pool(name):
-    st.session_state.pool = [p for p in st.session_state.pool if p["player"] != name]
 
 
 def is_injured(name, team=None):
@@ -306,15 +307,46 @@ def slot_a_pick(team, player, mlb_team, positions_str):
         roster[slot_id] = {"player": player, "mlb_team": mlb_team}
 
 
+def populate_keeper_rosters():
+    """Slot every keeper onto its team's roster immediately — keepers are
+    locked in before the draft even starts, so they should be visible on
+    Team Rosters right away, not only once the draft sequence reaches them.
+    """
+    for k in st.session_state.keeper_placements:
+        positions_str, mlb_team = lookup_player_meta(k["player"])
+        slot_a_pick(k["team"], k["player"], mlb_team, positions_str)
+
+
+def reset_draft(clear_team=False):
+    st.session_state.idx = 0
+    st.session_state.board = []
+    st.session_state.team_rosters = {team: {sid: None for sid, _ in ROSTER_SLOTS} for team in ALL_TEAMS}
+    st.session_state.team_overflow = {team: [] for team in ALL_TEAMS}
+    kept_names = {p["player"] for p in st.session_state.keeper_selections}
+    st.session_state.pool = [p for p in st.session_state.adp_all if p["player"] not in kept_names]
+    if clear_team:
+        st.session_state.user_team = None
+    rebuild_pick_sequence()
+    populate_keeper_rosters()
+
+
+if st.session_state.pool is None:
+    reset_draft()
+
+
+def remove_from_pool(name):
+    st.session_state.pool = [p for p in st.session_state.pool if p["player"] != name]
+
+
 def advance_auto_and_keepers():
     seq = st.session_state.pick_sequence
     while st.session_state.idx < len(seq):
         pick = seq[st.session_state.idx]
         if pick["is_keeper"]:
+            # Already slotted onto the roster in populate_keeper_rosters() —
+            # just log it to the draft board and move on.
             positions_str, mlb_team = lookup_player_meta(pick["keeper_player"])
             st.session_state.board.append({**pick, "player": pick["keeper_player"], "mlb_team": mlb_team, "positions": positions_str, "adp": None, "source": "keeper"})
-            slot_a_pick(pick["team"], pick["keeper_player"], mlb_team, positions_str)
-            remove_from_pool(pick["keeper_player"])
             st.session_state.idx += 1
             continue
         if pick["team"] == st.session_state.user_team:
@@ -336,46 +368,72 @@ tab_draft, tab_keepers, tab_docs = st.tabs(["Draft", "⭐ Keepers", "📄 League
 
 with tab_keepers:
     st.header("Set Keepers")
-    st.write("Upload your Keeper Values workbook (the one with a pre-computed **Keeper Round** "
-             "column for every rostered player), then pick which players each team is actually "
-             "keeping. This drives where keepers lock into the draft board.")
+    st.write("Each team gets exactly 4 keeper slots. Every dropdown is limited to that team's own "
+             "rostered players (from the Keeper Values workbook) and shows the round they'd be kept "
+             "in. Swap any slot to a different player on that same roster.")
 
-    kf = st.file_uploader("Keeper Values workbook (.xlsx)", type=["xlsx"], key="kw_upload")
+    kf = st.file_uploader("Replace Keeper Values workbook (.xlsx)", type=["xlsx"], key="kw_upload")
     if kf is not None:
         try:
-            rows = P.parse_keeper_workbook(kf.getvalue())
-            st.session_state.keeper_workbook_rows = rows
-            st.success(f"Loaded {len(rows)} players with computed keeper rounds.")
+            st.session_state.keeper_workbook_rows = P.parse_keeper_workbook(kf.getvalue())
+            st.success(f"Loaded {len(st.session_state.keeper_workbook_rows)} players with computed keeper rounds.")
         except Exception as e:
             st.error(f"Couldn't read that workbook: {e}")
 
     rows = st.session_state.keeper_workbook_rows
-    if rows is None:
-        st.info("No workbook uploaded yet — using the keeper set from our earlier conversation as the default "
-                 "(48 players, 4 per team). Upload a workbook above to change selections.")
-    else:
-        current = {(k["team"], k["player"]) for k in st.session_state.keeper_selections}
-        new_selection = []
-        for team in ALL_TEAMS:
-            team_rows = sorted([r for r in rows if r["team"] == team], key=lambda r: -(r["keeper_value"] or 0))
-            if not team_rows:
-                continue
-            n_selected = sum(1 for t2, p in current if t2 == team)
-            with st.expander(f"{team_label(team)} — pick keepers ({n_selected} selected)"):
-                for r in team_rows:
-                    key = f"keep_{team}_{r['player']}"
-                    default_checked = (team, r["player"]) in current
-                    checked = st.checkbox(
-                        f"Round {r['keeper_round']} — {r['player']} ({r['position']}, {r['status']})",
-                        value=default_checked, key=key
-                    )
-                    if checked:
-                        new_selection.append({"team": team, "round": r["keeper_round"], "player": r["player"]})
-        if st.button("Apply Keeper Selections", type="primary"):
-            st.session_state.keeper_selections = new_selection
-            reset_draft(clear_team=False)
-            st.success("Keepers updated — draft board reset.")
-            st.rerun()
+    if not rows:
+        st.error("No keeper workbook loaded — upload one above.")
+        rows = []
+
+    current = {}
+    for k in st.session_state.keeper_selections:
+        current.setdefault(k["team"], []).append(k)
+
+    new_selection = []
+    any_duplicates = False
+    for team in ALL_TEAMS:
+        team_rows = sorted([r for r in rows if r["team"] == team], key=lambda r: r["keeper_round"])
+        if not team_rows:
+            continue
+
+        def opt_label(r):
+            return f"{r['player']} — Round {r['keeper_round']} ({r['position']}, {r['status']})"
+
+        options = [opt_label(r) for r in team_rows]
+        team_current = sorted(current.get(team, []), key=lambda k: k["round"])
+
+        with st.expander(f"{team_label(team)}"):
+            chosen_players = []
+            used_defaults = set()
+            cols = st.columns(4)
+            for i in range(4):
+                default_idx = None
+                if i < len(team_current):
+                    match = next((j for j, r in enumerate(team_rows) if r["player"] == team_current[i]["player"]), None)
+                    if match is not None and match not in used_defaults:
+                        default_idx = match
+                if default_idx is None:
+                    default_idx = next((j for j in range(len(team_rows)) if j not in used_defaults), 0)
+                used_defaults.add(default_idx)
+                with cols[i]:
+                    sel = st.selectbox(f"Keeper {i+1}", options, index=default_idx, key=f"keeper_{team}_{i}")
+                chosen_row = team_rows[options.index(sel)]
+                chosen_players.append(chosen_row)
+                new_selection.append({"team": team, "round": chosen_row["keeper_round"], "player": chosen_row["player"]})
+
+            names = [p["player"] for p in chosen_players]
+            if len(set(names)) != len(names):
+                any_duplicates = True
+                st.warning("You've selected the same player in more than one slot for this team.")
+
+    st.divider()
+    if st.button("Apply Keeper Selections", type="primary", disabled=any_duplicates):
+        st.session_state.keeper_selections = new_selection
+        reset_draft(clear_team=False)
+        st.success("Keepers updated — draft board reset.")
+        st.rerun()
+    if any_duplicates:
+        st.caption("Fix the duplicate player(s) above before applying.")
 
     with st.expander("Current keeper slot assignments"):
         if "keeper_placements" in st.session_state:
@@ -473,76 +531,78 @@ with tab_docs:
 # -------------------------------- Draft tab ---------------------------------
 
 with tab_draft:
-    if st.session_state.user_team is None:
-        st.write("Pick the team you want to control. Every other team auto-drafts using that "
-                 "manager's real draft history, layered on ADP. Keepers lock in automatically.")
-        choice = st.selectbox("Your team", ALL_TEAMS, format_func=team_label)
-        if st.button("Start Draft", type="primary"):
-            st.session_state.user_team = choice
-            st.rerun()
-        st.stop()
-
-    advance_auto_and_keepers()
+    if st.session_state.user_team is not None:
+        advance_auto_and_keepers()
 
     left, right = st.columns([2, 1])
 
     with right:
-        st.subheader("On the Clock")
-        seq = st.session_state.pick_sequence
-        if st.session_state.idx >= len(seq):
-            st.success("Draft complete!")
+        if st.session_state.user_team is None:
+            st.write("Pick the team you want to control. Every other team auto-drafts using that "
+                     "manager's real draft history, layered on ADP. Keepers are already locked in "
+                     "on the rosters to the left — check them out before you start.")
+            choice = st.selectbox("Your team", ALL_TEAMS, format_func=team_label)
+            if st.button("Start Draft", type="primary"):
+                st.session_state.user_team = choice
+                st.rerun()
         else:
-            pick = seq[st.session_state.idx]
-            st.markdown(f"**Round {pick['round']}, Pick {pick['slot']}** (overall #{pick['overall']})")
-            st.markdown(f"**{team_label(pick['team'])}**")
+            st.subheader("On the Clock")
+            seq = st.session_state.pick_sequence
+            if st.session_state.idx >= len(seq):
+                st.success("Draft complete!")
+            else:
+                pick = seq[st.session_state.idx]
+                pick_in_round = pick["overall"] - (pick["round"] - 1) * 12
+                st.markdown(f"**Round {pick['round']}, Pick {pick_in_round}** (overall #{pick['overall']})")
+                st.markdown(f"**{team_label(pick['team'])}**")
 
-            if pick["team"] == st.session_state.user_team:
-                pool = st.session_state.pool
-                pos_options = ["All"] + sorted({primary_position(p["positions"]) for p in pool})
-                pos_filter = st.selectbox("Filter by position", pos_options)
-                status_filter = st.selectbox("Filter by status", ["All", "Injured only", "Minor league eligible only"])
-                search = st.text_input("Search player")
+                if pick["team"] == st.session_state.user_team:
+                    pool = st.session_state.pool
+                    pos_options = ["All"] + sorted({primary_position(p["positions"]) for p in pool})
+                    pos_filter = st.selectbox("Filter by position", pos_options)
+                    status_filter = st.selectbox("Filter by status", ["All", "Injured only", "Minor league eligible only"])
+                    search = st.text_input("Search player")
 
-                filtered = pool
-                if pos_filter != "All":
-                    filtered = [p for p in filtered if primary_position(p["positions"]) == pos_filter]
-                if status_filter == "Injured only":
-                    filtered = [p for p in filtered if is_injured(p["player"], p["mlb_team"])]
-                elif status_filter == "Minor league eligible only":
-                    filtered = [p for p in filtered if is_milb(p["player"], p["mlb_team"])]
-                if search:
-                    filtered = [p for p in filtered if search.lower() in p["player"].lower()]
-                filtered = filtered[:40]
+                    filtered = pool
+                    if pos_filter != "All":
+                        filtered = [p for p in filtered if primary_position(p["positions"]) == pos_filter]
+                    if status_filter == "Injured only":
+                        filtered = [p for p in filtered if is_injured(p["player"], p["mlb_team"])]
+                    elif status_filter == "Minor league eligible only":
+                        filtered = [p for p in filtered if is_milb(p["player"], p["mlb_team"])]
+                    if search:
+                        filtered = [p for p in filtered if search.lower() in p["player"].lower()]
+                    filtered = filtered[:40]
 
-                def opt_label(p):
-                    flag = ("🚩" if is_injured(p["player"], p["mlb_team"]) else "") + ("🟢" if is_milb(p["player"], p["mlb_team"]) else "")
-                    flag = f" {flag}" if flag else ""
-                    return f"{p['player']}{flag} — {p['positions']} — ADP {p['adp']:.1f}"
+                    def opt_label(p):
+                        flag = ("🚩" if is_injured(p["player"], p["mlb_team"]) else "") + ("🟢" if is_milb(p["player"], p["mlb_team"]) else "")
+                        flag = f" {flag}" if flag else ""
+                        return f"{p['player']}{flag} — {p['positions']} — ADP {p['adp']:.1f}"
 
-                if filtered:
-                    sel = st.selectbox("Available players", [opt_label(p) for p in filtered])
-                    sel_player = filtered[[opt_label(p) for p in filtered].index(sel)]
+                    if filtered:
+                        sel = st.selectbox("Available players", [opt_label(p) for p in filtered])
+                        sel_player = filtered[[opt_label(p) for p in filtered].index(sel)]
 
-                    open_slots = [sid for sid, label in ROSTER_SLOTS if st.session_state.team_rosters[st.session_state.user_team][sid] is None]
-                    slot_labels = dict(ROSTER_SLOTS)
-                    p_injured = is_injured(sel_player["player"], sel_player["mlb_team"])
-                    p_milb = is_milb(sel_player["player"], sel_player["mlb_team"])
-                    eligible_slots = [
-                        sid for sid in open_slots
-                        if RL.can_place(slot_labels[sid], sel_player["positions"], injured=p_injured, milb=p_milb)
-                    ]
-                    if not eligible_slots:
-                        st.warning("No open roster slot fits this player.")
+                        open_slots = [sid for sid, label in ROSTER_SLOTS if st.session_state.team_rosters[st.session_state.user_team][sid] is None]
+                        slot_labels = dict(ROSTER_SLOTS)
+                        p_injured = is_injured(sel_player["player"], sel_player["mlb_team"])
+                        p_milb = is_milb(sel_player["player"], sel_player["mlb_team"])
+                        eligible_slots = [
+                            sid for sid in open_slots
+                            if RL.can_place(slot_labels[sid], sel_player["positions"], injured=p_injured, milb=p_milb)
+                        ]
+                        if not eligible_slots:
+                            st.warning("No open roster slot fits this player.")
+                        else:
+                            slot_choice = st.selectbox("Roster slot", eligible_slots, format_func=lambda s: f"{s} ({slot_labels[s]})")
+                            if st.button("Draft this player", type="primary"):
+                                st.session_state.board.append({**pick, "player": sel_player["player"], "mlb_team": sel_player["mlb_team"], "positions": sel_player["positions"], "adp": sel_player["adp"], "source": "user"})
+                                st.session_state.team_rosters[st.session_state.user_team][slot_choice] = {"player": sel_player["player"], "mlb_team": sel_player["mlb_team"]}
+                                remove_from_pool(sel_player["player"])
+                                st.session_state.idx += 1
+                                st.rerun()
                     else:
-                        slot_choice = st.selectbox("Roster slot", eligible_slots, format_func=lambda s: f"{s} ({slot_labels[s]})")
-                        if st.button("Draft this player", type="primary"):
-                            st.session_state.board.append({**pick, "player": sel_player["player"], "mlb_team": sel_player["mlb_team"], "positions": sel_player["positions"], "adp": sel_player["adp"], "source": "user"})
-                            st.session_state.team_rosters[st.session_state.user_team][slot_choice] = {"player": sel_player["player"], "mlb_team": sel_player["mlb_team"]}
-                            remove_from_pool(sel_player["player"])
-                            st.session_state.idx += 1
-                            st.rerun()
-                else:
-                    st.info("No players match your filters.")
+                        st.info("No players match your filters.")
 
         st.divider()
         if st.button("Reset Draft"):
@@ -559,39 +619,40 @@ with tab_draft:
                 w.writerow([b["overall"], b["round"], b["slot"], b["team"], MANAGERS.get(b["team"], ""),
                             b["player"], b.get("mlb_team", ""), b.get("positions", ""), b["source"]])
             st.download_button("⬇️ Draft board (CSV)", board_buf.getvalue(), file_name="fundies_2027_mock_draft.csv", mime="text/csv")
-
-            roster_buf = io.StringIO()
-            w = csv.writer(roster_buf)
-            w.writerow(["team", "manager", "slot_id", "slot_label", "player", "mlb_team"])
-            for team in ALL_TEAMS:
-                for sid, label in ROSTER_SLOTS:
-                    entry = st.session_state.team_rosters[team][sid]
-                    w.writerow([team, MANAGERS.get(team, ""), sid, label,
-                                entry["player"] if entry else "", entry["mlb_team"] if entry else ""])
-                for o in st.session_state.team_overflow.get(team, []):
-                    w.writerow([team, MANAGERS.get(team, ""), "OVERFLOW", "OVERFLOW", o["player"], o["mlb_team"]])
-            st.download_button("⬇️ All team rosters (CSV)", roster_buf.getvalue(), file_name="fundies_2027_rosters.csv", mime="text/csv")
         else:
-            st.caption("Nothing to export yet.")
+            st.caption("No picks made yet.")
+
+        roster_buf = io.StringIO()
+        w = csv.writer(roster_buf)
+        w.writerow(["team", "manager", "slot_id", "slot_label", "player", "mlb_team"])
+        for team in ALL_TEAMS:
+            for sid, label in ROSTER_SLOTS:
+                entry = st.session_state.team_rosters[team][sid]
+                w.writerow([team, MANAGERS.get(team, ""), sid, label,
+                            entry["player"] if entry else "", entry["mlb_team"] if entry else ""])
+            for o in st.session_state.team_overflow.get(team, []):
+                w.writerow([team, MANAGERS.get(team, ""), "OVERFLOW", "OVERFLOW", o["player"], o["mlb_team"]])
+        st.download_button("⬇️ All team rosters (CSV)", roster_buf.getvalue(), file_name="fundies_2027_rosters.csv", mime="text/csv")
 
     with left:
         tabs2 = st.tabs(["Draft Board", "Team Rosters"])
         with tabs2[0]:
             if not st.session_state.board:
-                st.info("Draft hasn't started yet.")
+                st.info("Draft hasn't started yet — keepers are already on the rosters though, check the Team Rosters tab.")
             else:
                 for r in sorted(set(b["round"] for b in st.session_state.board), reverse=True):
                     st.markdown(f"**Round {r}**")
-                    row = sorted([b for b in st.session_state.board if b["round"] == r], key=lambda b: b["slot"])
-                    for b in row:
+                    row = sorted([b for b in st.session_state.board if b["round"] == r], key=lambda b: b["overall"])
+                    for i, b in enumerate(row, start=1):
                         tag = " ⭐ KEEPER" if b["source"] == "keeper" else (" 🧑 YOU" if b["source"] == "user" else "")
                         flag = ("🚩" if is_injured(b["player"], b.get("mlb_team")) else "") + ("🟢" if is_milb(b["player"], b.get("mlb_team")) else "")
                         flag = f" {flag}" if flag else ""
-                        st.write(f"{b['slot']}. **{b['team']}** — {b['player']}{flag}{tag}")
+                        st.write(f"{i}. **{b['team']}** — {b['player']}{flag}{tag}")
 
         with tabs2[1]:
+            default_idx = ALL_TEAMS.index(st.session_state.user_team) if st.session_state.user_team else 0
             view_team = st.selectbox(
-                "View roster for", ALL_TEAMS, index=ALL_TEAMS.index(st.session_state.user_team),
+                "View roster for", ALL_TEAMS, index=default_idx,
                 format_func=team_label, key="roster_view_team"
             )
             roster = st.session_state.team_rosters[view_team]
