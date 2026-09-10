@@ -81,6 +81,45 @@ def parse_draft_order_pdf(file_bytes):
     return draft_order
 
 
+# --------------------------- Manual draft order reordering ---------------------------
+
+def extract_trades(draft_order):
+    """Returns {(round, original_owner_team): current_owner_team} for every
+    pick that was traded away from its original slot-owner. Untraded picks
+    (team == original_owner) aren't included — they default back to whoever
+    owns that slot.
+    """
+    trades = {}
+    for r in draft_order:
+        if r["team"] != r["original_owner"]:
+            trades[(r["round"], r["original_owner"])] = r["team"]
+    return trades
+
+
+def slot_order_from_draft_order(draft_order):
+    """The fixed slot-1..12 -> team mapping (a team's original draft
+    position never changes round to round, only who currently owns a given
+    round's pick does), read off round 1."""
+    round1 = {r["slot"]: r["original_owner"] for r in draft_order if r["round"] == 1}
+    return [round1[s] for s in range(1, 13)]
+
+
+def rebuild_draft_order_with_new_slots(base_draft_order, new_slot_order):
+    """Re-seats teams into new slot 1..12 positions. Every trade stays
+    attached to the team that made it, not the slot number — so if Team A
+    traded away their round 5 pick, Team A's round 5 pick is still traded
+    away no matter which slot Team A now sits in.
+    """
+    trades = extract_trades(base_draft_order)
+    rounds = sorted({r["round"] for r in base_draft_order})
+    new_rows = []
+    for rnd in rounds:
+        for slot, orig in enumerate(new_slot_order, start=1):
+            team = trades.get((rnd, orig), orig)
+            new_rows.append({"round": rnd, "slot": slot, "team": team, "original_owner": orig})
+    return new_rows
+
+
 # ------------------------------- ADP (CSV) --------------------------------
 
 def parse_adp_csv(file_bytes):
