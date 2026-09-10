@@ -567,35 +567,6 @@ with tab_docs:
                 st.error(str(e))
 
     st.divider()
-    st.subheader("Change the Draft Order")
-    st.write("Set who picks 1st through 12th. Every trade stays attached to the team that made "
-             "it — if a team traded away their Round 5 pick, that's still true no matter which "
-             "slot they move to here. This rebuilds every round and restarts the current draft.")
-
-    current_slot_order = st.session_state.slot_order
-    new_slot_order = []
-    cols = st.columns(4)
-    for i in range(12):
-        with cols[i % 4]:
-            pick = st.selectbox(
-                f"Pick {i+1}", ALL_TEAMS,
-                index=ALL_TEAMS.index(current_slot_order[i]),
-                format_func=team_label, key=f"slot_order_{i}"
-            )
-            new_slot_order.append(pick)
-
-    if len(set(new_slot_order)) != 12:
-        st.warning("Every team needs to appear exactly once — you've got a duplicate above.")
-    elif st.button("Apply New Draft Order", type="primary"):
-        st.session_state.draft_order = P.rebuild_draft_order_with_new_slots(
-            st.session_state.base_draft_order, new_slot_order
-        )
-        st.session_state.slot_order = new_slot_order
-        reset_draft(clear_team=True)
-        st.success("Draft order updated — draft board reset.")
-        st.rerun()
-
-    st.divider()
     st.caption(
         "Scoring categories on file (equal weight, all 1.0): "
         + "Hitting — " + ", ".join(SCORING_CATEGORIES["Hitting"])
@@ -608,6 +579,34 @@ with tab_docs:
 # -------------------------------- Draft tab ---------------------------------
 
 with tab_draft:
+    with st.expander("🔀 Change Draft Order"):
+        st.write("Set who picks 1st through 12th. Every trade stays attached to the team that made "
+                 "it — if a team traded away their Round 5 pick, that's still true no matter which "
+                 "slot they move to here. This rebuilds every round and restarts the current draft.")
+
+        current_slot_order = st.session_state.slot_order
+        new_slot_order = []
+        cols = st.columns(4)
+        for i in range(12):
+            with cols[i % 4]:
+                pick = st.selectbox(
+                    f"Pick {i+1}", ALL_TEAMS,
+                    index=ALL_TEAMS.index(current_slot_order[i]),
+                    format_func=team_label, key=f"slot_order_{i}"
+                )
+                new_slot_order.append(pick)
+
+        if len(set(new_slot_order)) != 12:
+            st.warning("Every team needs to appear exactly once — you've got a duplicate above.")
+        elif st.button("Apply New Draft Order", type="primary"):
+            st.session_state.draft_order = P.rebuild_draft_order_with_new_slots(
+                st.session_state.base_draft_order, new_slot_order
+            )
+            st.session_state.slot_order = new_slot_order
+            reset_draft(clear_team=True)
+            st.success("Draft order updated — draft board reset.")
+            st.rerun()
+
     if st.session_state.user_team is not None:
         advance_auto_and_keepers()
 
