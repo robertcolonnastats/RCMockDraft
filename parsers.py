@@ -281,7 +281,7 @@ def parse_keeper_workbook(file_bytes):
         rows.append({
             "manager": manager,
             "team": team,
-            "keeper_round": int(kr),
+            "keeper_round": int(float(kr)),
             "player": vals[idx.get("Player")] if "Player" in idx else None,
             "mlb_team": vals[idx.get("Team")] if "Team" in idx else None,
             "position": vals[idx.get("Position")] if "Position" in idx else None,
