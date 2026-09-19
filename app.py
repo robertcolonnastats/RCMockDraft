@@ -429,6 +429,8 @@ with tab_keepers:
     for k in st.session_state.keeper_selections:
         current.setdefault(k["team"], []).append(k)
 
+    status_by_player = {r["player"]: r["drafted_or_claimed"] for r in rows}
+
     new_selection = []
     any_duplicates = False
     for team in ALL_TEAMS:
@@ -444,6 +446,12 @@ with tab_keepers:
 
         options = [opt_label(r) for r in team_rows]
         team_current = sorted(current.get(team, []), key=lambda k: k["round"])
+        if not team_current:
+            # No real selection applied yet — project a plausible default
+            # instead of just taking the top 4 by round (which can suggest
+            # impossible combinations, like two Round 1 keepers).
+            projected = P.project_likely_keepers(team, team_rows, st.session_state.draft_order, status_by_player)
+            team_current = [{"round": r["keeper_round"], "player": r["player"]} for r in projected]
 
         with st.expander(f"{team_label(team)}"):
             chosen_players = []
@@ -492,8 +500,9 @@ with tab_keepers:
 
     if st.session_state.get("keeper_violations"):
         st.error(
-            "⚠️ These keepers broke a rule and were NOT applied — they're still in the "
-            "draftable pool, not on any roster. Fix your selection above:\n\n"
+            "⚠️ These keeper conflicts must be fixed before a draft can be started — "
+            "the affected players stay in the draftable pool, not on any roster, until "
+            "you resolve them above:\n\n"
             + "\n".join(f"- {v}" for v in st.session_state.keeper_violations)
         )
 
@@ -634,6 +643,12 @@ with tab_draft:
             if not st.session_state.keeper_selections:
                 st.warning("⚠️ Set your keepers in the **Keepers** tab before starting a draft — "
                            "pick each team's 4 keepers there, or upload a saved keeper picks file.")
+            elif st.session_state.get("keeper_violations"):
+                st.error(
+                    f"⚠️ {len(st.session_state.keeper_violations)} keeper conflict(s) need to be "
+                    "fixed in the **Keepers** tab before you can start a draft — see the details "
+                    "there and adjust your selections."
+                )
             else:
                 st.write("Pick the team you want to control. Every other team auto-drafts using that "
                          "manager's real draft history, layered on ADP. Keepers are already locked in "
