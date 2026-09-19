@@ -94,6 +94,11 @@ TRENDS = load_trends()
 POS_MAP = {"LF": "OF", "CF": "OF", "RF": "OF", "OF": "OF", "DH": "UT", "INF": "UT", "UT": "UT",
            "SP": "SP", "RP": "RP", "P": "SP", "C": "C", "1B": "1B", "2B": "2B", "3B": "3B", "SS": "SS"}
 
+POS_COLOR = {
+    "C": "#1f8a70", "1B": "#c0392b", "2B": "#d35400", "3B": "#7d3c98", "SS": "#5b2c6f",
+    "OF": "#2874a6", "UT": "#616a6b", "SP": "#b7950b", "RP": "#935116",
+}
+
 
 def primary_position(positions_str):
     toks = [t.strip() for t in positions_str.split(",") if t.strip()]
@@ -105,6 +110,54 @@ def primary_position(positions_str):
             return POS_MAP[t]
     return "UT"
 
+
+def render_draft_grid():
+    slot_order = st.session_state.slot_order
+    board_by_round_slot = {(b["round"], b["slot"]): b for b in st.session_state.board}
+    max_round = max((b["round"] for b in st.session_state.board), default=0)
+    if max_round == 0:
+        st.info("Draft hasn't started yet — keepers are already on the rosters, check the Team Rosters tab.")
+        return
+
+    html = ['<div style="overflow-x:auto;">']
+    html.append('<table style="border-collapse:separate;border-spacing:4px;font-family:sans-serif;">')
+    html.append("<tr>")
+    for team in slot_order:
+        html.append(
+            f'<th style="background:#2b2b2b;color:#fff;padding:8px;border-radius:6px;'
+            f'min-width:130px;font-size:12px;text-align:left;">{team_label(team)}</th>'
+        )
+    html.append("</tr>")
+
+    for rnd in range(1, max_round + 1):
+        html.append("<tr>")
+        for slot_idx, team in enumerate(slot_order, start=1):
+            b = board_by_round_slot.get((rnd, slot_idx))
+            if b is None:
+                html.append('<td style="background:#1a1a1a;border-radius:6px;min-width:130px;height:60px;"></td>')
+                continue
+            pick_in_round = b["overall"] - (rnd - 1) * 12
+            pos = primary_position(b.get("positions") or "")
+            color = POS_COLOR.get(pos, "#424949")
+            badge = ""
+            if b["team"] != team:
+                badge = (
+                    f'<span style="background:#000;color:#fff;font-size:9px;padding:1px 5px;'
+                    f'border-radius:8px;float:right;">{b["team"][:14]}</span>'
+                )
+            keeper_star = "⭐ " if b["source"] == "keeper" else ""
+            flag = ("🚩" if is_injured(b["player"], b.get("mlb_team")) else "") + ("🟢" if is_milb(b["player"], b.get("mlb_team")) else "")
+            html.append(
+                f'<td style="background:{color};color:#fff;padding:6px;border-radius:6px;'
+                f'min-width:130px;vertical-align:top;font-size:12px;">'
+                f'<div>{rnd}-{pick_in_round}{badge}</div>'
+                f'<div style="font-weight:bold;font-size:13px;">{keeper_star}{b["player"]} {flag}</div>'
+                f'<div style="font-size:11px;opacity:0.85;">{pos} — {b.get("mlb_team") or ""}</div>'
+                f'</td>'
+            )
+        html.append("</tr>")
+    html.append("</table></div>")
+    st.markdown("".join(html), unsafe_allow_html=True)
 
 def round_bucket(r):
     if r <= 5: return "1-5"
@@ -747,7 +800,7 @@ with tab_draft:
         st.download_button("⬇️ All team rosters (CSV)", roster_buf.getvalue(), file_name="fundies_2027_rosters.csv", mime="text/csv")
 
     with left:
-        tabs2 = st.tabs(["Draft Board", "Team Rosters"])
+        tabs2 = st.tabs(["Draft Board", "Grid", "Team Rosters"])
         with tabs2[0]:
             if not st.session_state.board:
                 st.info("Draft hasn't started yet — keepers are already on the rosters though, check the Team Rosters tab.")
@@ -762,6 +815,9 @@ with tab_draft:
                         st.write(f"{i}. **{b['team']}** — {b['player']}{flag}{tag}")
 
         with tabs2[1]:
+            render_draft_grid()
+
+        with tabs2[2]:
             default_idx = ALL_TEAMS.index(st.session_state.user_team) if st.session_state.user_team else 0
             view_team = st.selectbox(
                 "View roster for", ALL_TEAMS, index=default_idx,
