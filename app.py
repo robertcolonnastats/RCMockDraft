@@ -245,7 +245,7 @@ def init_state():
     ss.setdefault("injured_names", default_injured_names())
     ss.setdefault("milb_names", default_milb_names())
     ss.setdefault("keeper_workbook_rows", default_keeper_workbook_rows())
-    ss.setdefault("keeper_selections", default_keeper_selections())
+    ss.setdefault("keeper_selections", [])
     ss.setdefault("pick_sequence", None)
     ss.setdefault("user_team", None)
     ss.setdefault("idx", 0)
@@ -614,13 +614,17 @@ with tab_draft:
 
     with right:
         if st.session_state.user_team is None:
-            st.write("Pick the team you want to control. Every other team auto-drafts using that "
-                     "manager's real draft history, layered on ADP. Keepers are already locked in "
-                     "on the rosters to the left — check them out before you start.")
-            choice = st.selectbox("Your team", ALL_TEAMS, format_func=team_label)
-            if st.button("Start Draft", type="primary"):
-                st.session_state.user_team = choice
-                st.rerun()
+            if not st.session_state.keeper_selections:
+                st.warning("⚠️ Set your keepers in the **Keepers** tab before starting a draft — "
+                           "pick each team's 4 keepers there, or upload a saved keeper picks file.")
+            else:
+                st.write("Pick the team you want to control. Every other team auto-drafts using that "
+                         "manager's real draft history, layered on ADP. Keepers are already locked in "
+                         "on the rosters to the left — check them out before you start.")
+                choice = st.selectbox("Your team", ALL_TEAMS, format_func=team_label)
+                if st.button("Start Draft", type="primary"):
+                    st.session_state.user_team = choice
+                    st.rerun()
         else:
             st.subheader("On the Clock")
             seq = st.session_state.pick_sequence
