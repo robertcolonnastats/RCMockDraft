@@ -357,12 +357,113 @@ def parse_keeper_workbook(file_bytes):
 
 # --------------------------- Keeper slot assignment ---------------------------
 
-def assign_keepers_to_slots(draft_order, keeper_selections):
-    """keeper_selections: list of {team, round, player}. Places each into that
-    team's earliest unused slot for that round; if none (team owns zero picks
-    that round, or it's already taken by another keeper), bumps to the next
-    earlier round the team owns a free slot in. Returns list of
-    {team, intended_round, actual_round, slot, player} plus a bump log.
+# Players nobody in the league is allowed to keep, regardless of round or status.
+INELIGIBLE_KEEPERS = {"Bobby Witt Jr."}
+
+
+def assign_keepers_to_slots(draft_order, keeper_selections, player_status=None):
+    """keeper_selections: list of {team, round, player}.
+
+    Rules:
+    - A drafted player MUST be kept using the team's actual pick in that
+      exact round. If the team doesn't own a pick there, it's invalid —
+      no bumping.
+    - A player claimed off waivers CAN be kept one round earlier than their
+      computed round if the team doesn't own that exact round's pick (but
+      no further than one round).
+    - If two keepers land on the same (team, round) with only one slot,
+      that's a conflict — neither is placed automatically.
+    - Players in INELIGIBLE_KEEPERS are never placed, however they got in.
+
+    player_status: optional {player_name: "Drafted"/"Claimed"/...}. Anyone
+    not found defaults to "Drafted" (the stricter rule — no bump) since we
+    can't safely assume waiver-eligibility for an unknown player.
+
+    Returns (placements, violations). placements is the successful list, in
+    the same shape as before: {team, intended_round, actual_round, slot,
+    player}. violations is a list of human-readable strings explaining any
+    keeper that could NOT be placed and why — those players are simply not
+    treated as keepers (they stay in the draftable pool) rather than
+    blocking anything.
+    """
+    from collections import defaultdict
+    player_status = player_status or {}
+
+    slots_by_team_round = defaultdict(list)
+    for r in draft_order:
+        slots_by_team_round[(r["team"], r["round"])].append(r)
+
+    ineligible = [k for k in keeper_selections if k["player"] in INELIGIBLE_KEEPERS]
+    keeper_selections = [k for k in keeper_selections if k["player"] not in INELIGIBLE_KEEPERS]
+
+    used = set()
+    placements = []
+    violations = [f"{k['team']} — {k['player']}: ineligible to be kept, not applied" for k in ineligible]
+
+    # Pass 1: exact-round claims. Group by (team, round) to catch double-bookings.
+    by_team_round = defaultdict(list)
+    for k in keeper_selections:
+        by_team_round[(k["team"], int(k["round"]))].append(k)
+
+    unresolved_for_bump = []  # claimed keepers who lost/lacked their exact round
+    for (team, rnd), keepers in by_team_round.items():
+        available = [c for c in slots_by_team_round.get((team, rnd), [])
+                     if (team, rnd, c["slot"]) not in used]
+        if len(keepers) <= len(available):
+            for k, slot_row in zip(keepers, available):
+                used.add((team, rnd, slot_row["slot"]))
+                placements.append({"team": team, "intended_round": rnd, "actual_round": rnd,
+                                    "slot": slot_row["slot"], "player": k["player"]})
+        else:
+            # More claims than slots at this exact round — can't cleanly
+            # auto-resolve. Still place the first n_fit so a mock draft can
+            # run while this gets fixed, but flag the WHOLE contested group
+            # (winner included) so it's not mistaken for a clean resolution.
+            n_fit = len(available)
+            names_involved = ", ".join(k["player"] for k in keepers)
+            for k, slot_row in zip(keepers[:n_fit], available):
+                used.add((team, rnd, slot_row["slot"]))
+                placements.append({"team": team, "intended_round": rnd, "actual_round": rnd,
+                                    "slot": slot_row["slot"], "player": k["player"]})
+            violations.append(
+                f"{team} — Round {rnd}: {len(keepers)} keepers ({names_involved}) but only "
+                f"{n_fit} pick(s) that round — {keepers[0]['player']} was arbitrarily kept for "
+                f"this mock, fix your selection to pick which one is actually right"
+            ) if n_fit > 0 else None
+            for k in keepers[n_fit:]:
+                status = player_status.get(k["player"], "Drafted")
+                if status == "Claimed":
+                    unresolved_for_bump.append(k)
+                elif n_fit == 0:
+                    violations.append(
+                        f"{team} — {k['player']}: Round {rnd} conflict — more drafted keepers than "
+                        f"{team} has picks that round, and drafted players can't bump earlier"
+                    )
+
+    # Pass 2: claimed-player bumps, exactly one round earlier, only into
+    # whatever's left after pass 1's exact-round claims.
+    for k in unresolved_for_bump:
+        team, rnd, player = k["team"], int(k["round"]), k["player"]
+        target = rnd - 1
+        available = [c for c in slots_by_team_round.get((team, target), [])
+                     if (team, target, c["slot"]) not in used]
+        if available:
+            slot_row = available[0]
+            used.add((team, target, slot_row["slot"]))
+            placements.append({"team": team, "intended_round": rnd, "actual_round": target,
+                                "slot": slot_row["slot"], "player": player})
+        else:
+            violations.append(
+                f"{team} — {player}: Round {rnd} — no pick that round or Round {target} "
+                f"(waiver one-round-earlier rule) either"
+            )
+
+    return placements, violations
+
+
+def _legacy_assign_keepers_to_slots(draft_order, keeper_selections):
+    """Old behavior (bump repeatedly to any earlier open round, regardless
+    of drafted/claimed status) — kept only for reference, no longer used.
     """
     from collections import defaultdict
     slots_by_team_round = defaultdict(list)
