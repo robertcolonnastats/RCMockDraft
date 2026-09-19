@@ -361,6 +361,48 @@ def parse_keeper_workbook(file_bytes):
 INELIGIBLE_KEEPERS = {"Bobby Witt Jr."}
 
 
+def project_likely_keepers(team, team_candidates, draft_order, player_status=None, n=4):
+    """Picks a plausible default set of N keepers for a team from its
+    candidate list, respecting actual pick availability — a team can't
+    default to two Round 1 keepers if it only owns one Round 1 pick. Greedily
+    takes the highest Keeper Value candidates first, skipping any whose
+    exact round is already claimed by an earlier (better-value) pick in this
+    same projection. Deliberately does NOT reason about waiver one-round-
+    earlier bumps here — that logic lives in assign_keepers_to_slots, which
+    runs for real once a choice is applied; duplicating it here risks the
+    projection and the real placement disagreeing about which round a
+    bumped player actually lands in. Ties/missing values fall back to
+    earliest round first. This only ever pre-fills the UI — it never
+    touches keeper_selections itself.
+    """
+    from collections import defaultdict
+
+    slots_by_team_round = defaultdict(list)
+    for r in draft_order:
+        if r["team"] == team:
+            slots_by_team_round[r["round"]].append(r["slot"])
+
+    def sort_key(r):
+        val = r.get("keeper_value")
+        return (-(val if val is not None else -999), r["keeper_round"])
+
+    candidates = sorted(team_candidates, key=sort_key)
+
+    used_rounds = defaultdict(int)  # round -> slots consumed by this projection so far
+    chosen = []
+    for r in candidates:
+        if len(chosen) >= n:
+            break
+        rnd = r["keeper_round"]
+        capacity = len(slots_by_team_round.get(rnd, []))
+        if used_rounds[rnd] < capacity:
+            used_rounds[rnd] += 1
+            chosen.append(r)
+        # else: exact round already spoken for by a better-value pick in
+        # this projection — skip, try the next candidate
+    return chosen
+
+
 def assign_keepers_to_slots(draft_order, keeper_selections, player_status=None):
     """keeper_selections: list of {team, round, player}.
 
@@ -371,20 +413,27 @@ def assign_keepers_to_slots(draft_order, keeper_selections, player_status=None):
     - A player claimed off waivers CAN be kept one round earlier than their
       computed round if the team doesn't own that exact round's pick (but
       no further than one round).
-    - If two keepers land on the same (team, round) with only one slot,
-      that's a conflict — neither is placed automatically.
+    - Drafted keepers get priority for a round's natural slot(s), since they
+      have no flexibility. Claimed keepers yield their natural slot to a
+      drafted keeper if it's contested, and try a one-round-earlier bump
+      instead — so if two keepers land on the same (team, round) and one of
+      them is a waiver claim that can legally bump, BOTH end up placed with
+      no conflict at all.
+    - If a conflict genuinely can't be resolved this way (e.g. two drafted
+      players want the same single slot, or a claimed player's bump target
+      is also full), it's an unresolved violation — nobody involved gets
+      arbitrarily placed as a "winner."
     - Players in INELIGIBLE_KEEPERS are never placed, however they got in.
 
     player_status: optional {player_name: "Drafted"/"Claimed"/...}. Anyone
     not found defaults to "Drafted" (the stricter rule — no bump) since we
     can't safely assume waiver-eligibility for an unknown player.
 
-    Returns (placements, violations). placements is the successful list, in
-    the same shape as before: {team, intended_round, actual_round, slot,
-    player}. violations is a list of human-readable strings explaining any
-    keeper that could NOT be placed and why — those players are simply not
-    treated as keepers (they stay in the draftable pool) rather than
-    blocking anything.
+    Returns (placements, violations). placements is the successful list:
+    {team, intended_round, actual_round, slot, player}. violations is a list
+    of human-readable strings explaining any keeper that could NOT be
+    placed. The caller should treat any non-empty violations list as
+    blocking — these need to be fixed before a draft can run.
     """
     from collections import defaultdict
     player_status = player_status or {}
@@ -400,49 +449,46 @@ def assign_keepers_to_slots(draft_order, keeper_selections, player_status=None):
     placements = []
     violations = [f"{k['team']} — {k['player']}: ineligible to be kept, not applied" for k in ineligible]
 
-    # Pass 1: exact-round claims. Group by (team, round) to catch double-bookings.
     by_team_round = defaultdict(list)
     for k in keeper_selections:
         by_team_round[(k["team"], int(k["round"]))].append(k)
 
-    unresolved_for_bump = []  # claimed keepers who lost/lacked their exact round
+    bump_candidates = []  # claimed keepers needing a one-round-earlier bump
+
     for (team, rnd), keepers in by_team_round.items():
         available = [c for c in slots_by_team_round.get((team, rnd), [])
                      if (team, rnd, c["slot"]) not in used]
-        if len(keepers) <= len(available):
-            for k, slot_row in zip(keepers, available):
-                used.add((team, rnd, slot_row["slot"]))
-                placements.append({"team": team, "intended_round": rnd, "actual_round": rnd,
-                                    "slot": slot_row["slot"], "player": k["player"]})
-        else:
-            # More claims than slots at this exact round — can't cleanly
-            # auto-resolve. Still place the first n_fit so a mock draft can
-            # run while this gets fixed, but flag the WHOLE contested group
-            # (winner included) so it's not mistaken for a clean resolution.
-            n_fit = len(available)
-            names_involved = ", ".join(k["player"] for k in keepers)
-            for k, slot_row in zip(keepers[:n_fit], available):
-                used.add((team, rnd, slot_row["slot"]))
-                placements.append({"team": team, "intended_round": rnd, "actual_round": rnd,
-                                    "slot": slot_row["slot"], "player": k["player"]})
-            violations.append(
-                f"{team} — Round {rnd}: {len(keepers)} keepers ({names_involved}) but only "
-                f"{n_fit} pick(s) that round — {keepers[0]['player']} was arbitrarily kept for "
-                f"this mock, fix your selection to pick which one is actually right"
-            ) if n_fit > 0 else None
-            for k in keepers[n_fit:]:
-                status = player_status.get(k["player"], "Drafted")
-                if status == "Claimed":
-                    unresolved_for_bump.append(k)
-                elif n_fit == 0:
-                    violations.append(
-                        f"{team} — {k['player']}: Round {rnd} conflict — more drafted keepers than "
-                        f"{team} has picks that round, and drafted players can't bump earlier"
-                    )
+        drafted = [k for k in keepers if player_status.get(k["player"], "Drafted") != "Claimed"]
+        claimed = [k for k in keepers if player_status.get(k["player"], "Drafted") == "Claimed"]
 
-    # Pass 2: claimed-player bumps, exactly one round earlier, only into
-    # whatever's left after pass 1's exact-round claims.
-    for k in unresolved_for_bump:
+        if len(drafted) > len(available):
+            # Can't even fit the inflexible ones — a real conflict that
+            # needs a human decision. Nobody drafted here gets placed;
+            # any claimed keepers in this round still get a shot at bumping.
+            names = ", ".join(k["player"] for k in drafted)
+            violations.append(
+                f"{team} — Round {rnd}: {len(drafted)} drafted keepers ({names}) want "
+                f"only {len(available)} pick(s) that round — drafted players can't bump, "
+                f"so pick which one is actually right"
+            )
+            bump_candidates.extend(claimed)
+            continue
+
+        for k, slot_row in zip(drafted, available):
+            used.add((team, rnd, slot_row["slot"]))
+            placements.append({"team": team, "intended_round": rnd, "actual_round": rnd,
+                                "slot": slot_row["slot"], "player": k["player"]})
+
+        remaining = available[len(drafted):]
+        for k, slot_row in zip(claimed, remaining):
+            used.add((team, rnd, slot_row["slot"]))
+            placements.append({"team": team, "intended_round": rnd, "actual_round": rnd,
+                                "slot": slot_row["slot"], "player": k["player"]})
+        bump_candidates.extend(claimed[len(remaining):])
+
+    # Pass 2: waiver one-round-earlier bumps for anyone who didn't get a
+    # natural slot above.
+    for k in bump_candidates:
         team, rnd, player = k["team"], int(k["round"]), k["player"]
         target = rnd - 1
         available = [c for c in slots_by_team_round.get((team, target), [])
