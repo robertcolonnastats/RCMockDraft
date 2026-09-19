@@ -278,9 +278,12 @@ def rebuild_pool():
 
 
 def rebuild_pick_sequence():
-    placements, bumps = P.assign_keepers_to_slots(st.session_state.draft_order, st.session_state.keeper_selections)
+    status_by_player = {r["player"]: r["drafted_or_claimed"] for r in (st.session_state.keeper_workbook_rows or [])}
+    placements, violations = P.assign_keepers_to_slots(
+        st.session_state.draft_order, st.session_state.keeper_selections, player_status=status_by_player
+    )
     st.session_state.keeper_placements = placements
-    st.session_state.keeper_bump_log = bumps
+    st.session_state.keeper_violations = violations
     st.session_state.pick_sequence = P.build_pick_sequence(st.session_state.draft_order, placements)
     counts = {}
     for p in st.session_state.pick_sequence:
@@ -337,11 +340,14 @@ def reset_draft(clear_team=False):
     st.session_state.board = []
     st.session_state.team_rosters = {team: {sid: None for sid, _ in ROSTER_SLOTS} for team in ALL_TEAMS}
     st.session_state.team_overflow = {team: [] for team in ALL_TEAMS}
-    kept_names = {p["player"] for p in st.session_state.keeper_selections}
-    st.session_state.pool = [p for p in st.session_state.adp_all if p["player"] not in kept_names]
     if clear_team:
         st.session_state.user_team = None
     rebuild_pick_sequence()
+    # Only remove ACTUALLY-placed keepers from the pool — a keeper that
+    # violated a rule (see keeper_violations) never became a real keeper,
+    # so it stays draftable like anyone else.
+    kept_names = {p["player"] for p in st.session_state.keeper_placements}
+    st.session_state.pool = [p for p in st.session_state.adp_all if p["player"] not in kept_names]
     populate_keeper_rosters()
 
 
@@ -426,7 +432,10 @@ with tab_keepers:
     new_selection = []
     any_duplicates = False
     for team in ALL_TEAMS:
-        team_rows = sorted([r for r in rows if r["team"] == team], key=lambda r: r["keeper_round"])
+        team_rows = sorted(
+            [r for r in rows if r["team"] == team and r["player"] not in P.INELIGIBLE_KEEPERS],
+            key=lambda r: r["keeper_round"]
+        )
         if not team_rows:
             continue
 
@@ -481,13 +490,18 @@ with tab_keepers:
     if any_duplicates:
         st.caption("Fix the duplicate player(s) above before applying.")
 
+    if st.session_state.get("keeper_violations"):
+        st.error(
+            "⚠️ These keepers broke a rule and were NOT applied — they're still in the "
+            "draftable pool, not on any roster. Fix your selection above:\n\n"
+            + "\n".join(f"- {v}" for v in st.session_state.keeper_violations)
+        )
+
     with st.expander("Current keeper slot assignments"):
         if "keeper_placements" in st.session_state:
             for k in sorted(st.session_state.keeper_placements, key=lambda x: (x["team"], x["actual_round"])):
-                note = "" if k["actual_round"] == k["intended_round"] else f"  ⚠️ bumped from Round {k['intended_round']}"
+                note = "" if k["actual_round"] == k["intended_round"] else f"  ⚠️ waiver bump from Round {k['intended_round']}"
                 st.write(f"{k['team']} — Round {k['actual_round']}, Slot {k['slot']} — {k['player']}{note}")
-        if st.session_state.get("keeper_bump_log"):
-            st.warning("\n".join(st.session_state.keeper_bump_log))
 
 
 # ---------------------------- League Documents tab ---------------------------
