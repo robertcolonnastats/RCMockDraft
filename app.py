@@ -114,46 +114,81 @@ def primary_position(positions_str):
 def render_draft_grid():
     slot_order = st.session_state.slot_order
     board_by_round_slot = {(b["round"], b["slot"]): b for b in st.session_state.board}
-    max_round = max((b["round"] for b in st.session_state.board), default=0)
-    if max_round == 0:
+    keeper_by_round_slot = {}
+    for k in st.session_state.get("keeper_placements", []):
+        team = k["team"]
+        slot_idx = slot_order.index(team) + 1 if team in slot_order else None
+        if slot_idx is not None:
+            keeper_by_round_slot[(k["actual_round"], slot_idx)] = k
+
+    made_rounds = [b["round"] for b in st.session_state.board]
+    seq = st.session_state.get("pick_sequence", [])
+    idx = st.session_state.get("idx", 0)
+    upcoming_round = seq[idx]["round"] if idx < len(seq) else None
+
+    if not made_rounds and upcoming_round is None:
         st.info("Draft hasn't started yet — keepers are already on the rosters, check the Team Rosters tab.")
         return
 
-    html = ['<div style="overflow-x:auto;">']
-    html.append('<table style="border-collapse:separate;border-spacing:4px;font-family:sans-serif;">')
+    max_made = max(made_rounds, default=0)
+    # Always show at least one full round beyond wherever the draft currently stands.
+    show_through = max(max_made, upcoming_round or 0) + 1
+    show_through = min(show_through, 25)
+
+    html = ['<div style="width:100%;max-width:100%;overflow-x:auto;">']
+    html.append('<table style="border-collapse:separate;border-spacing:3px;font-family:sans-serif;table-layout:fixed;">')
     html.append("<tr>")
     for team in slot_order:
         html.append(
-            f'<th style="background:#2b2b2b;color:#fff;padding:8px;border-radius:6px;'
-            f'min-width:130px;font-size:12px;text-align:left;">{team_label(team)}</th>'
+            f'<th style="background:#2b2b2b;color:#fff;padding:5px;border-radius:5px;'
+            f'width:100px;font-size:10px;text-align:left;">{team_label(team)}</th>'
         )
     html.append("</tr>")
 
-    for rnd in range(1, max_round + 1):
+    for rnd in range(1, show_through + 1):
         html.append("<tr>")
         for slot_idx, team in enumerate(slot_order, start=1):
             b = board_by_round_slot.get((rnd, slot_idx))
-            if b is None:
-                html.append('<td style="background:#1a1a1a;border-radius:6px;min-width:130px;height:60px;"></td>')
-                continue
-            pick_in_round = b["overall"] - (rnd - 1) * 12
-            pos = primary_position(b.get("positions") or "")
-            color = POS_COLOR.get(pos, "#424949")
-            badge = ""
-            if b["team"] != team:
-                badge = (
-                    f'<span style="background:#000;color:#fff;font-size:9px;padding:1px 5px;'
-                    f'border-radius:8px;float:right;">{b["team"][:14]}</span>'
+            pick_num = slot_idx if rnd % 2 == 1 else (13 - slot_idx)
+
+            if b is not None:
+                pos = primary_position(b.get("positions") or "")
+                color = POS_COLOR.get(pos, "#424949")
+                badge = ""
+                if b["team"] != team:
+                    badge = (
+                        f'<span style="background:#000;color:#fff;font-size:8px;padding:1px 4px;'
+                        f'border-radius:6px;float:right;">{b["team"][:10]}</span>'
+                    )
+                keeper_star = "⭐" if b["source"] == "keeper" else ""
+                flag = ("🚩" if is_injured(b["player"], b.get("mlb_team")) else "") + ("🟢" if is_milb(b["player"], b.get("mlb_team")) else "")
+                html.append(
+                    f'<td style="background:{color};color:#fff;padding:4px;border-radius:5px;'
+                    f'width:100px;vertical-align:top;font-size:10px;">'
+                    f'<div>{rnd}-{pick_num}{badge}</div>'
+                    f'<div style="font-weight:bold;font-size:11px;">{keeper_star}{b["player"]} {flag}</div>'
+                    f'<div style="font-size:9px;opacity:0.85;">{pos} — {b.get("mlb_team") or ""}</div>'
+                    f'</td>'
                 )
-            keeper_star = "⭐ " if b["source"] == "keeper" else ""
-            flag = ("🚩" if is_injured(b["player"], b.get("mlb_team")) else "") + ("🟢" if is_milb(b["player"], b.get("mlb_team")) else "")
+                continue
+
+            # Not drafted yet — but a future keeper's identity is already
+            # known in advance, so show it rather than leaving it blank.
+            k = keeper_by_round_slot.get((rnd, slot_idx))
+            if k is not None:
+                html.append(
+                    f'<td style="background:#333;color:#ddd;padding:4px;border-radius:5px;'
+                    f'width:100px;vertical-align:top;font-size:10px;border:1px dashed #666;">'
+                    f'<div>{rnd}-{pick_num}</div>'
+                    f'<div style="font-weight:bold;font-size:11px;">⭐ {k["player"]}</div>'
+                    f'<div style="font-size:9px;opacity:0.7;">upcoming keeper</div>'
+                    f'</td>'
+                )
+                continue
+
             html.append(
-                f'<td style="background:{color};color:#fff;padding:6px;border-radius:6px;'
-                f'min-width:130px;vertical-align:top;font-size:12px;">'
-                f'<div>{rnd}-{pick_in_round}{badge}</div>'
-                f'<div style="font-weight:bold;font-size:13px;">{keeper_star}{b["player"]} {flag}</div>'
-                f'<div style="font-size:11px;opacity:0.85;">{pos} — {b.get("mlb_team") or ""}</div>'
-                f'</td>'
+                f'<td style="background:#1a1a1a;border-radius:5px;width:100px;height:50px;'
+                f'vertical-align:top;font-size:9px;color:#777;padding:4px;">{rnd}-{pick_num}</td>'
             )
         html.append("</tr>")
     html.append("</table></div>")
