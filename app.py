@@ -246,6 +246,7 @@ def init_state():
     ss.setdefault("milb_names", default_milb_names())
     ss.setdefault("keeper_workbook_rows", default_keeper_workbook_rows())
     ss.setdefault("keeper_selections", [])
+    ss.setdefault("keeper_ui_version", 0)
     ss.setdefault("pick_sequence", None)
     ss.setdefault("user_team", None)
     ss.setdefault("idx", 0)
@@ -390,6 +391,7 @@ with tab_keepers:
     if kf is not None and file_is_new("kw_upload", kf.getvalue()):
         try:
             st.session_state.keeper_workbook_rows = P.parse_keeper_workbook(kf.getvalue())
+            st.session_state.keeper_ui_version += 1
             st.success(f"Loaded {len(st.session_state.keeper_workbook_rows)} players with computed keeper rounds.")
         except Exception as e:
             st.error(f"Couldn't read that workbook: {e}")
@@ -405,6 +407,7 @@ with tab_keepers:
                 st.error("That file didn't have any valid team/round/player rows.")
             else:
                 st.session_state.keeper_selections = loaded
+                st.session_state.keeper_ui_version += 1
                 reset_draft(clear_team=False)
                 st.success(f"Restored {len(loaded)} saved keeper picks — draft board reset.")
                 st.rerun()
@@ -447,7 +450,7 @@ with tab_keepers:
                     default_idx = next((j for j in range(len(team_rows)) if j not in used_defaults), 0)
                 used_defaults.add(default_idx)
                 with cols[i]:
-                    sel = st.selectbox(f"Keeper {i+1}", options, index=default_idx, key=f"keeper_{team}_{i}")
+                    sel = st.selectbox(f"Keeper {i+1}", options, index=default_idx, key=f"keeper_{team}_{i}_{st.session_state.keeper_ui_version}")
                 chosen_row = team_rows[options.index(sel)]
                 chosen_players.append(chosen_row)
                 new_selection.append({"team": team, "round": chosen_row["keeper_round"], "player": chosen_row["player"]})
