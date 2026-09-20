@@ -44,6 +44,7 @@ def default_adp_pool():
     for r in rows:
         r["adp"] = float(r["adp"])
         r["adp_round"] = int(r["adp_round"])
+        r["positions"] = P.apply_position_override(r["player"], r["positions"])
     return rows
 
 
@@ -412,6 +413,28 @@ def fandom_multiplier(team, mlb_team):
     return 1.0
 
 
+def adp_exponent(round_num):
+    """Real drafts are near-pure best-player-available in the opening
+    rounds — a rank-7 ADP player essentially never goes ahead of the top
+    few names. The gentle 1/(rank+1) curve alone doesn't suppress that tail
+    enough, so early rounds get a much steeper decay; it relaxes back to
+    the normal curve by the time roster construction genuinely starts
+    mattering more than raw talent."""
+    if round_num <= 3:
+        return 3.5
+    if round_num <= 6:
+        return 2.0
+    return 1.0
+
+
+def flavor_strength(round_num):
+    """How much weight the 'flavor' factors (category fit, fandom) get.
+    0 in the first few rounds — nobody passes on a top-3 player because of
+    team category needs or which team a guy plays for — ramping to full
+    strength by around round 8, where real managers start balancing needs."""
+    return min(1.0, max(0.0, (round_num - 3) / 5.0))
+
+
 def auto_pick(team, round_num, available):
     if team == LINDOR_LOYALTY_TEAM and round_num > 1:
         lindor = next((p for p in available if p["player"] == LINDOR_PLAYER_NAME), None)
@@ -451,14 +474,18 @@ def auto_pick(team, round_num, available):
 
     scored = []
     cat_totals = team_category_totals(team)
+    flavor = flavor_strength(round_num)
+    exponent = adp_exponent(round_num)
     for rank, p in enumerate(window):
         pos = primary_position(p["positions"])
         pos_w = weights.get(pos, 0.03)
         need_w = need_ratio(team_roster, pos)
-        adp_w = 1.0 / (rank + 1)
+        adp_w = 1.0 / ((rank + 1) ** exponent)
         age_w = youth_bonus(p.get("age"), bucket)
-        fandom_w = fandom_multiplier(team, p.get("mlb_team"))
-        cat_w = category_bonus(team, PLAYER_CATEGORY_PROFILES.get(p["player"]), cat_totals)
+        fandom_w_raw = fandom_multiplier(team, p.get("mlb_team"))
+        cat_w_raw = category_bonus(team, PLAYER_CATEGORY_PROFILES.get(p["player"]), cat_totals)
+        fandom_w = 1.0 + flavor * (fandom_w_raw - 1.0)
+        cat_w = 1.0 + flavor * (cat_w_raw - 1.0)
         scored.append(pos_w * need_w * adp_w * age_w * fandom_w * cat_w + 0.0001)
     total = sum(scored)
     probs = [s / total for s in scored]
