@@ -42,8 +42,8 @@ def default_draft_order():
 def default_adp_pool():
     rows = list(csv.DictReader(open(DIR / "adp.csv", encoding="utf-8")))
     for r in rows:
-        r["adp"] = float(r["adp"])
-        r["adp_round"] = int(r["adp_round"])
+        r["adp"] = P.apply_adp_override(r["player"], float(r["adp"]))
+        r["adp_round"] = P.adp_round_for(r["adp"])
         r["positions"] = P.apply_position_override(r["player"], r["positions"])
     return rows
 
@@ -718,6 +718,34 @@ with tab_order:
         reset_draft(clear_team=True)
         st.success("Draft order updated — draft board reset.")
         st.rerun()
+
+    st.divider()
+    st.caption("Already decided your draft order before? Upload a previously-saved order file "
+               "instead of re-clicking through the 12 teams.")
+    saved_order_file = st.file_uploader("Saved draft order (CSV)", type=["csv"], key="saved_draft_order_upload")
+    if saved_order_file is not None and file_is_new("saved_draft_order_upload", saved_order_file.getvalue()):
+        try:
+            loaded_order = P.parse_saved_draft_order(saved_order_file.getvalue(), ALL_TEAMS)
+            st.session_state.draft_order = P.rebuild_draft_order_with_new_slots(
+                st.session_state.base_draft_order, loaded_order
+            )
+            st.session_state.slot_order = loaded_order
+            st.session_state.keeper_ui_version += 1
+            reset_draft(clear_team=True)
+            st.success("Draft order restored — draft board reset.")
+            st.rerun()
+        except Exception as e:
+            st.error(f"Couldn't read that file: {e}")
+
+    order_buf = io.StringIO()
+    w = csv.writer(order_buf)
+    w.writerow(["pick", "team"])
+    for i, team in enumerate(current_slot_order, start=1):
+        w.writerow([i, team])
+    st.download_button(
+        "⬇️ Save this draft order (CSV)", order_buf.getvalue(),
+        file_name="fundies_2027_draft_order.csv", mime="text/csv"
+    )
 
 
 
