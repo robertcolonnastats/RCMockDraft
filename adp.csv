@@ -1,0 +1,501 @@
+player,mlb_team,positions,adp,adp_round
+Pete Crow-Armstrong,CHC,CF,1.8,1
+Fernando Tatis Jr.,SDP,"2B,RF",2.0,1
+Elly De La Cruz,CIN,"SS,DH",3.4,1
+Bobby Witt Jr.,KCR,SS,3.6,1
+Junior Caminero,TBR,3B,5.4,1
+Yordan Alvarez,HOU,"LF,DH",6.0,1
+Shohei Ohtani (Batter),LAD,DH,6.8,1
+Juan Soto,NYM,"LF,RF,DH",7.6,1
+Corbin Carroll,ARI,"CF,RF",9.2,1
+James Wood,WSN,"LF,RF,DH",9.6,1
+Pete Alonso,BAL,"1B,DH",11.4,1
+Cam Schlittler,NYY,SP,12.0,1
+Ben Rice,NYY,1B,13.2,2
+Jackson Chourio,MIL,"LF,CF,RF",13.4,2
+Jacob Misiorowski,MIL,SP,15.4,2
+Aaron Judge,NYY,"LF,CF,RF,DH",15.8,2
+Ronald Acuna Jr.,ATL,"RF,DH",16.6,2
+Kyle Schwarber,PHI,"1B,LF,DH",18.2,2
+Nick Kurtz,ATH,1B,19.0,2
+Jazz Chisholm Jr.,NYY,"2B,3B",19.8,2
+Gunnar Henderson,BAL,"SS,DH",21.6,2
+Julio Rodriguez,SEA,"CF,DH",21.6,2
+Tarik Skubal,- - -,SP,23.4,2
+Cristopher Sanchez,PHI,SP,24.6,2
+Bryce Harper,PHI,"1B,RF,DH",25.0,3
+Dylan Cease,TOR,SP,26.8,3
+Paul Skenes,PIT,SP,27.0,3
+Jesus Luzardo,PHI,SP,27.4,3
+Randy Arozarena,SEA,"LF,CF",30.0,3
+CJ Abrams,WSN,"2B,SS,DH",30.0,3
+Matt Olson,ATL,1B,30.6,3
+Zach Neto,LAA,SS,32.4,3
+Cal Raleigh,SEA,"C,DH",33.0,3
+Yoshinobu Yamamoto,LAD,SP,33.2,3
+Rafael Devers,SFG,"1B,DH",36.2,3
+Jose Ramirez,CLE,"3B,DH",36.4,3
+Brice Turang,MIL,2B,37.2,4
+Chris Sale,ATL,SP,39.4,4
+Kyle Tucker,LAD,"RF,DH",39.4,4
+Jackson Merrill,SDP,CF,41.0,4
+Jacob deGrom,TEX,SP,42.2,4
+Sal Stewart,CIN,"1B,2B,3B,DH",42.4,4
+Chase Burns,CIN,"SP,RP",44.6,4
+Francisco Lindor,NYM,SS,44.8,4
+Ketel Marte,ARI,"2B,DH",45.4,4
+Riley Greene,DET,"LF,CF,RF,DH",45.8,4
+Trea Turner,PHI,SS,46.4,4
+Vladimir Guerrero Jr.,TOR,"1B,DH",47.4,4
+Shohei Ohtani (Pitcher),LAD,SP,49.0,5
+Gavin Williams,CLE,SP,50.2,5
+Kazuma Okamoto,TOR,"1B,3B",50.6,5
+Seiya Suzuki,CHC,"LF,RF,DH",51.2,5
+Michael Harris II,ATL,CF,55.6,5
+Max Fried,NYY,SP,56.4,5
+Drew Rasmussen,TBR,SP,56.4,5
+David Bednar,NYY,RP,56.8,5
+Manny Machado,SDP,"3B,DH",57.4,5
+Cade Smith,CLE,RP,60.6,5
+Drake Baldwin,ATL,"C,DH",61.4,6
+Oneil Cruz,PIT,"CF,DH",62.0,6
+William Contreras,MIL,"C,DH",62.6,6
+Byron Buxton,MIN,"CF,DH",62.6,6
+Zack Wheeler,PHI,SP,63.4,6
+Alex Bregman,CHC,"3B,DH",64.8,6
+Cody Bellinger,NYY,"1B,LF,CF,RF",64.8,6
+Jordan Walker,STL,"LF,RF,DH",65.4,6
+Hunter Goodman,COL,"C,DH",65.4,6
+Bryan Woo,SEA,SP,67.2,6
+Munetaka Murakami,CHW,"1B,3B,DH",67.8,6
+Aroldis Chapman,BOS,RP,69.2,6
+Brandon Lowe,PIT,"2B,DH",71.4,6
+Freddie Freeman,LAD,1B,72.4,6
+Andres Munoz,SEA,RP,73.8,7
+Parker Messick,CLE,SP,74.2,7
+Tyler Glasnow,LAD,SP,74.4,7
+Kevin McGonigle,DET,"3B,SS",75.2,7
+Braxton Ashcraft,PIT,"SP,RP",78.4,7
+Wyatt Langford,TEX,"LF,CF,DH",79.8,7
+Nolan McLean,NYM,SP,83.4,7
+Reid Detmers,LAA,"SP,RP",83.8,7
+Cade Cavalli,WSN,SP,84.6,7
+Jac Caglianone,KCR,"1B,RF,DH",84.8,7
+Alec Burleson,STL,"1B,LF,RF,DH",85.4,8
+Logan Gilbert,SEA,SP,85.4,8
+Miguel Vargas,CHW,"1B,3B,DH",86.8,8
+Shea Langeliers,ATH,"C,DH",87.0,8
+Geraldo Perdomo,ARI,SS,87.2,8
+Mason Miller,SDP,RP,88.0,8
+Mookie Betts,LAD,SS,88.6,8
+Carson Benge,NYM,"LF,CF,RF",88.8,8
+Chase DeLauter,CLE,"CF,RF,DH",89.2,8
+Gabriel Moreno,ARI,"C,DH",91.0,8
+Andy Pages,LAD,"LF,CF,RF",91.6,8
+Willson Contreras,BOS,1B,93.2,8
+Garrett Crochet,BOS,SP,94.6,8
+Jeremy Pena,HOU,SS,95.6,8
+Wilyer Abreu,BOS,"LF,CF,RF",96.0,8
+Kevin Gausman,- - -,SP,96.2,8
+Josh Hader,HOU,RP,97.6,9
+Otto Lopez,MIA,"2B,SS",98.4,9
+Tyler Soderstrom,ATH,"1B,LF,DH",100.4,9
+Jake Bauers,MIL,"1B,LF,RF",101.4,9
+Josh Naylor,SEA,"1B,DH",102.6,9
+Logan Henderson,MIL,SP,103.2,9
+Blake Snell,LAD,SP,103.2,9
+Konnor Griffin,PIT,"SS,CF",105.8,9
+Chandler Simpson,TBR,"LF,CF",106.4,9
+Ceddanne Rafaela,BOS,"2B,CF",107.8,9
+Roman Anthony,BOS,"LF,CF,RF,DH",108.0,9
+Jake McCarthy,COL,"LF,CF,RF,DH",108.0,9
+Maikel Garcia,KCR,"2B,3B,SS,OF",110.8,10
+Sonny Gray,BOS,SP,112.6,10
+Taj Bradley,MIN,SP,113.0,10
+Austin Riley,ATL,3B,113.2,10
+Yandy Diaz,TBR,"1B,DH",114.4,10
+Trevor Megill,MIL,RP,116.4,10
+Jarren Duran,BOS,"LF,CF,DH",117.2,10
+Payton Tolle,BOS,"SP,RP",117.6,10
+Jonathan Aranda,TBR,"1B,DH",118.2,10
+Corey Seager,TEX,SS,120.6,10
+Gerrit Cole,NYY,SP,121.2,11
+Jared Jones,PIT,SP,121.6,11
+Isaac Paredes,HOU,"1B,3B,DH",122.6,11
+Mike Trout,LAA,"CF,RF,DH",123.0,11
+Dillon Dingler,DET,"C,DH",128.4,11
+Luke Keaschall,MIN,"2B,CF,RF",128.4,11
+Sean Burke,CHW,"SP,RP",129.0,11
+George Springer,TOR,"LF,CF,RF,DH",129.4,11
+Jhoan Duran,PHI,RP,129.6,11
+Jakob Marsee,MIA,"LF,CF",129.8,11
+Sandy Alcantara,MIA,SP,130.0,11
+Daylen Lile,WSN,"LF,RF,DH",133.2,12
+Brent Rooker,ATH,"LF,RF,DH",134.0,12
+Logan Webb,SFG,SP,135.2,12
+Bryan Reynolds,PIT,"LF,CF,RF,DH",135.6,12
+Eury Perez,MIA,SP,135.6,12
+Bo Bichette,NYM,"3B,SS,DH",136.4,12
+Shota Imanaga,CHC,SP,138.0,12
+Michael King,SDP,SP,138.0,12
+Luis Garcia,- - -,"1B,2B,DH",139.2,12
+Bryson Stott,PHI,"2B,3B,SS",141.0,12
+Kody Clemens,MIN,"1B,2B,LF,CF,RF",141.4,12
+MacKenzie Gore,TEX,SP,141.6,12
+Shane McClanahan,TBR,SP,142.0,12
+Walbert Ureña,LAA,SP,142.2,12
+Will Smith,LAD,C,146.4,13
+Eugenio Suarez,CIN,"3B,DH",148.0,13
+Devin Williams,NYM,RP,148.4,13
+George Kirby,SEA,SP,148.6,13
+Liam Hicks,- - -,"C,1B,DH",149.2,13
+Steven Kwan,CLE,"LF,CF",149.2,13
+Jeff Hoffman,- - -,RP,149.2,13
+Nico Hoerner,CHC,"2B,SS",149.4,13
+Yainer Diaz,HOU,"C,DH",149.6,13
+Colson Montgomery,CHW,"3B,SS,DH",149.8,13
+Joe Ryan,MIN,SP,150.4,13
+Ivan Herrera,STL,"C,DH",153.4,13
+Ozzie Albies,ATL,2B,154.0,13
+Ranger Suarez,BOS,SP,154.0,13
+Raisel Iglesias,ATL,RP,156.2,13
+Max Muncy,LAD,"2B,3B,SS,DH",160.0,14
+Michael Busch,CHC,1B,162.0,14
+Trevor Rogers,BAL,SP,163.4,14
+Coby Mayo,BAL,"1B,3B,DH",165.8,14
+Jo Adell,- - -,"LF,CF,RF,DH",168.4,14
+JJ Wetherholt,STL,"2B,3B,SS",168.6,14
+Hunter Greene,CIN,SP,168.8,14
+Bryce Eldridge,SFG,"1B,DH",169.0,15
+Kyle Stowers,MIA,"1B,LF,CF,RF,DH",169.6,15
+Brandon Nimmo,TEX,"LF,CF,RF,DH",174.4,15
+Cole Ragans,KCR,SP,174.6,15
+Max Meyer,MIA,SP,175.0,15
+Hunter Brown,HOU,SP,176.0,15
+Luis Arraez,- - -,"1B,2B,DH",177.8,15
+Agustin Ramirez,MIA,"C,DH",178.2,15
+Vinnie Pasquantino,KCR,"1B,DH",178.8,15
+Brandon Woodruff,MIL,SP,179.0,15
+Trey Yesavage,TOR,SP,180.2,15
+Spencer Strider,ATL,SP,181.0,16
+Ryan Weathers,NYY,SP,181.6,16
+Ian Happ,CHC,LF,183.2,16
+Adley Rutschman,- - -,"C,DH",184.2,16
+Carter Jensen,KCR,"C,DH",186.0,16
+Brooks Lee,MIN,"2B,3B,SS",186.6,16
+Salvador Perez,KCR,"C,1B,DH",187.2,16
+Dansby Swanson,CHC,SS,188.2,16
+Teoscar Hernandez,LAD,"LF,RF",188.2,16
+Bubba Chandler,PIT,SP,188.8,16
+Caleb Durbin,BOS,"2B,3B",189.0,16
+Victor Mesa Jr.,TBR,OF,190.0,16
+Ian Seymour,TBR,"SP,RP",191.6,16
+Spencer Torkelson,DET,1B,191.8,16
+Jose Altuve,HOU,"2B,LF,DH",194.6,17
+Willy Adames,SFG,SS,197.8,17
+Taylor Ward,- - -,"LF,RF,DH",198.0,17
+Kyle Bradish,BAL,SP,201.0,17
+Xavier Edwards,MIA,"2B,SS",201.6,17
+Noah Cameron,KCR,SP,201.6,17
+Emmet Sheehan,LAD,SP,202.6,17
+Framber Valdez,DET,SP,202.6,17
+Sam Antonacci,CHW,"2B,3B",202.6,17
+Esmerlyn Valdez,PIT,OF,202.6,17
+Christian Yelich,MIL,"LF,DH",202.8,17
+Travis Bazzana,CLE,"2B,DH",202.8,17
+Alejandro Kirk,TOR,C,203.2,17
+Nick Pivetta,SDP,SP,204.6,17
+Dominic Canzone,SEA,"LF,RF,DH",205.4,18
+Edwin Diaz,LAD,RP,206.0,18
+TJ Rumfield,COL,"1B,INF",206.6,18
+Javier Sanoja,MIA,"2B,3B,SS,LF,CF,RF",207.2,18
+Garrett Mitchell,MIL,"CF,RF",207.8,18
+Nolan Arenado,ARI,"3B,DH",208.8,18
+Casey Schmitt,SFG,"1B,2B,3B,SS,LF,DH",209.6,18
+A.J. Ewing,NYM,OF,210.2,18
+Henry Bolte,ATH,OF,210.8,18
+Matt Chapman,SFG,3B,210.8,18
+Christian Scott,NYM,SP,212.6,18
+Heriberto Hernández,MIA,OF,213.6,18
+Grant Taylor,CHW,"SP,RP",215.0,18
+Freddy Peralta,- - -,SP,219.8,19
+Ezequiel Duran,TEX,"1B,2B,3B,SS,INF,OF",221.6,19
+Cooper Pratt,MIL,"SS,INF",222.0,19
+Michael Wacha,KCR,SP,223.2,19
+Josh Jung,TEX,3B,225.0,19
+Tanner Bibee,CLE,SP,226.0,19
+Cole Carrigg,COL,"SS,INF,OF",227.2,19
+Troy Melton,DET,"SP,RP",227.8,19
+Brayan Rocchio,CLE,"2B,SS,INF",229.2,20
+Ty France,SDP,"1B,INF",229.8,20
+Mason Montgomery,PIT,"SP,RP",230.2,20
+Trevor Story,BOS,SS,231.2,20
+Ryan Jeffers,MIN,"C,DH",232.4,20
+Kyle Karros,COL,"3B,INF",233.2,20
+Tanner Scott,LAD,RP,236.0,20
+Luis Robert Jr.,- - -,"LF,CF",237.6,20
+Nick Martinez,TBR,"SP,RP",238.3,20
+Lawrence Butler,ATH,"CF,RF",238.8,20
+Tristan Peters,CHW,OF,239.4,20
+Louis Varland,TOR,RP,239.8,20
+Chase Meidroth,CHW,"2B,3B,SS",240.8,20
+Adrian Morejon,SDP,RP,242.0,21
+Jose Soriano,- - -,SP,242.6,21
+Christian Walker,HOU,1B,242.8,21
+Jack Flaherty,DET,SP,245.4,21
+Jake Bennett,BOS,SP,247.2,21
+Bryan Baker,TBR,RP,248.0,21
+Jake Burger,TEX,1B,248.2,21
+Griffin Jax,TBR,"SP,RP",249.0,21
+Brendan Donovan,SEA,"2B,3B,SS,LF",251.0,21
+Jacob Wilson,ATH,"SS,DH",251.0,21
+Nathan Eovaldi,TEX,SP,251.6,21
+Emilio Pagan,CIN,RP,253.8,22
+Didier Fuentes,ATL,"SP,RP",257.6,22
+Aaron Nola,PHI,SP,258.2,22
+Ryan Helsley,BAL,RP,259.2,22
+Bryce Miller,SEA,SP,259.8,22
+Casey Mize,- - -,SP,259.8,22
+Gregory Soto,PIT,RP,260.6,22
+Luis Castillo,- - -,SP,260.8,22
+Xander Bogaerts,SDP,SS,261.0,22
+Masyn Winn,STL,SS,261.4,22
+Ben Brown,CHC,"SP,RP",266.2,23
+Mickey Moniak,COL,"LF,CF,RF,DH",266.4,23
+Zack Gelof,ATH,"2B,3B,LF,CF",269.8,23
+Gleyber Torres,DET,"2B,DH",271.4,23
+Colt Keith,DET,"1B,2B,3B,DH",273.6,23
+Abner Uribe,MIL,RP,273.8,23
+Connelly Early,BOS,SP,274.0,23
+Jordan Westburg,BAL,"2B,3B",275.6,23
+Curtis Mead,- - -,"1B,2B,3B,INF",277.6,24
+Joey Cantillo,CLE,"SP,RP",277.6,24
+Kyle Leahy,STL,"SP,RP",277.8,24
+Daulton Varsho,- - -,"LF,CF",279.4,24
+Peter Lambert,HOU,SP,280.4,24
+Cam Smith,HOU,RF,280.4,24
+Foster Griffin,- - -,"SP,RP",281.8,24
+Dalton Rushing,LAD,"C,1B,DH",282.4,24
+Justin Wrobleski,LAD,"SP,RP",283.8,24
+Carlos Correa,HOU,"3B,SS",285.0,24
+Angel Martinez,CLE,"2B,LF,CF",287.0,24
+Emerson Hancock,SEA,"SP,RP",287.2,24
+Shane Baz,BAL,SP,288.2,24
+Trent Grisham,NYY,CF,288.2,24
+Kyle Harrison,MIL,"SP,RP",290.4,25
+Jose Caballero,NYY,"2B,3B,SS,LF,RF",290.4,25
+Dustin May,- - -,SP,290.6,25
+Edgardo Henriquez,LAD,RP,290.8,25
+Ryan O'Hearn,PIT,"1B,LF,RF,DH",292.3,25
+Royce Lewis,MIN,"1B,2B,3B",292.8,25
+Nolan Schanuel,LAA,1B,293.0,25
+Garrett Whitlock,BOS,RP,293.6,25
+Francisco Alvarez,NYM,"C,DH",293.8,25
+Tyler Stephenson,CIN,"C,DH",295.3,25
+Bradgley Rodriguez,SDP,"SP,RP",296.4,25
+Ryan Pepiot,TB,SP,298.4,25
+Tatsuya Imai,HOU,SP,299.0,25
+Andres Gimenez,TOR,"2B,SS",299.2,25
+Will Warren,NYY,SP,300.2,25
+Eduardo Rodriguez,ARI,SP,300.4,25
+Dylan Crews,WSN,"LF,CF,RF",301.2,26
+Nick Lodolo,CIN,SP,302.4,26
+Colton Cowser,BAL,"LF,CF,RF",302.6,26
+Owen Caissie,MIA,"CF,RF,DH",302.8,26
+Robbie Ray,- - -,SP,303.0,26
+Jackson Holliday,BAL,"2B,SS,DH",304.8,26
+Michael Soroka,ARI,"SP,RP",306.2,26
+Trevor Larnach,MIN,"LF,RF,DH",307.6,26
+Noelvi Marte,CIN,"3B,RF",307.8,26
+Ernie Clement,TOR,"1B,2B,3B,SS",308.8,26
+Shane Drohan,MIL,"SP,RP",309.0,26
+Anthony Volpe,NYY,SS,309.0,26
+Carlos Rodon,NYY,SP,309.2,26
+Mauricio Dubon,ATL,"2B,3B,SS,LF,CF",309.2,26
+Kenley Jansen,DET,RP,309.3,26
+Heliot Ramos,- - -,"LF,CF,RF",309.4,26
+Landen Roupp,SFG,SP,312.2,26
+J.T. Realmuto,PHI,C,312.4,26
+Pete Fairbanks,MIA,RP,316.0,27
+Spencer Steer,CIN,"1B,2B,LF,RF",316.7,27
+Marcus Semien,NYM,2B,316.8,27
+Matt McLain,CIN,"2B,SS",317.8,27
+Samuel Basallo,BAL,"C,1B,DH",318.4,27
+Josh Bell,MIN,"1B,DH",319.0,27
+Joc Pederson,TEX,UT,319.2,27
+Carson Kelly,CHC,"C,DH",319.4,27
+Pedro Ramírez,CHC,"2B,3B,SS,INF",319.5,27
+Nick Gonzales,PIT,"2B,3B,SS,DH",320.0,27
+Austin Wells,NYY,C,320.2,27
+Jake Mangum,PIT,"LF,CF,RF",321.2,27
+Spencer Schwellenbach,ATL,SP,322.4,27
+Jung Hoo Lee,SFG,"CF,RF",322.6,27
+Matt Shaw,CHC,"2B,3B,RF,DH",322.8,27
+Zebby Matthews,MIN,SP,324.0,27
+Joey Ortiz,MIL,"3B,SS",325.2,28
+Keibert Ruiz,WSN,C,327.2,28
+Alec Bohm,PHI,"1B,3B",327.4,28
+Riley O'Brien,STL,RP,328.6,28
+Justin Crawford,PHI,CF,329.0,28
+Brandon Pfaadt,ARI,"SP,RP",330.0,28
+Matthew Boyd,CHC,SP,330.4,28
+Kris Bubic,- - -,SP,331.2,28
+Daniel Palencia,CHC,RP,331.3,28
+Brandon Marsh,PHI,"LF,CF,RF",331.6,28
+Bryan Hudson,CHW,"SP,RP",332.5,28
+Keider Montero,DET,"SP,RP",333.4,28
+Cole Young,SEA,2B,334.0,28
+Colt Emerson,SEA,"3B,SS",336.8,28
+Spencer Jones,NYY,"LF,CF,RF,DH",337.0,29
+Rico Garcia,BAL,RP,338.4,29
+Andre Pallante,STL,SP,339.0,29
+Carlos Estevez,KC,RP,339.3,29
+Andrew Vaughn,MIL,"1B,3B",339.4,29
+Andrew Abbott,CIN,SP,339.5,29
+Paul Sewald,- - -,RP,340.3,29
+Michael Massey,KCR,"2B,INF,OF",340.7,29
+Jacob Young,WSN,OF,344.8,29
+Joe Mack,MIA,C,345.8,29
+Tyler Mahle,- - -,SP,346.6,29
+Wade Meckler,LAA,"LF,CF,RF",347.0,29
+J.P. Crawford,SEA,"3B,SS",348.0,29
+Kyle Manzardo,CLE,"1B,DH",351.0,30
+Sal Frelick,MIL,"LF,CF,RF",351.7,30
+Brent Headrick,NYY,RP,352.0,30
+Nathaniel Lowe,- - -,"1B,INF",352.3,30
+Juan Morillo,ARI,RP,353.2,30
+J.T. Ginn,ATH,"SP,RP",354.0,30
+Luis Severino,ATH,SP,354.5,30
+JJ Bleday,CIN,OF,355.0,30
+Nasim Nunez,WSN,"2B,SS",357.4,30
+Brandon Valenzuela,TOR,C,358.3,30
+Cade Horton,CHC,SP,358.8,30
+Willi Castro,COL,"1B,2B,3B,SS,LF,RF",359.0,30
+Tyler Wells,- - -,"SP,RP",359.5,30
+Drew Gilbert,SFG,"CF,RF",361.5,31
+Dylan Lee,ATL,RP,361.7,31
+Justin Foscue,TEX,"1B,2B,INF",362.2,31
+Moises Ballesteros,- - -,"C,DH",362.3,31
+Andrew Alvarez,WSN,"SP,RP",362.3,31
+Ezequiel Tovar,COL,SS,365.0,31
+Griffin Conine,MIA,"1B,INF,OF",365.5,31
+Chad Patrick,MIL,"SP,RP",367.4,31
+Paul Goldschmidt,NYY,"1B,DH",367.7,31
+Ryne Nelson,ARI,"SP,RP",367.7,31
+Addison Barger,TOR,"3B,LF,RF",369.0,31
+Dylan Beavers,BAL,"LF,CF,RF,DH",370.0,31
+Evan Carter,TEX,"LF,CF,RF",370.0,31
+Clay Holmes,- - -,SP,370.3,31
+Zac Thornton,NYM,"SP,RP",370.5,31
+Kyle Teel,CHW,C,371.7,31
+Jonny DeLuca,TBR,"LF,CF,RF",372.0,31
+Jorge Polanco,NYM,"2B,3B,DH",372.3,31
+Brett Baty,NYM,"1B,2B,3B,LF,RF,DH",373.0,32
+Bailey Ober,MIN,SP,373.3,32
+Troy Johnston,COL,"1B,INF,OF",373.3,32
+Anthony Santander,TOR,"LF,RF,DH",373.3,32
+Andrés Chaparro,WSN,"1B,INF",375.0,32
+Edward Cabrera,CHC,SP,376.3,32
+Brady House,WSN,"3B,DH",376.5,32
+Luke Weaver,- - -,RP,377.8,32
+Nathan Lukes,TOR,"LF,CF,RF",378.7,32
+Davis Martin,CHW,SP,378.7,32
+Ramon Laureano,SDP,"LF,CF,RF",378.8,32
+Zac Gallen,ARI,SP,379.3,32
+Alex Vesia,LAD,RP,379.7,32
+Andrew Benintendi,CHW,"LF,DH",381.8,32
+Ryan Waldschmidt,ARI,"LF,CF,RF",382.0,32
+Cedric Mullins II,TBR,CF,382.0,32
+Luis Campusano,SDP,C,382.3,32
+Corbin Burnes,ARI,SP,382.3,32
+Yusei Kikuchi,LAA,SP,382.5,32
+Ryan Vilade,TBR,"1B,2B,INF,OF",382.7,32
+Zach McKinstry,DET,"2B,3B,SS,LF,CF,RF",383.0,32
+Braden Montgomery,CHW,OF,384.8,32
+Kerry Carpenter,DET,"LF,RF,DH",385.2,33
+Brandyn Garcia,ARI,RP,389.0,33
+Grant Holmes,ATL,SP,391.5,33
+Miguel Amaya,CHC,C,393.5,33
+Marcell Ozuna,PIT,DH,396.3,33
+Joe Musgrove,SD,SP,396.7,33
+Connor Norby,- - -,"1B,2B,3B,DH",398.0,34
+David Peterson,- - -,"SP,RP",398.5,34
+Jose Fernandez,ARI,"1B,3B,SS,INF",398.7,34
+Patrick Bailey,- - -,C,401.0,34
+Jonathan Bowlan,PHI,RP,403.0,34
+Josh Smith,- - -,"1B,2B,3B,SS,LF,RF",405.5,34
+Isaac Collins,KCR,"2B,LF,RF",405.7,34
+Brandon Young,BAL,SP,407.0,34
+Grayson Rodriguez,LAA,SP,407.0,34
+Giancarlo Stanton,NYY,"LF,RF,DH",408.3,34
+Gavin Sheets,SDP,"1B,LF,RF,DH",409.3,35
+Marcelo Mayer,BOS,"2B,3B,SS",410.0,35
+Dennis Santana,- - -,RP,411.3,35
+Adolis Garcia,PHI,RF,413.0,35
+Seth Lugo,KCR,SP,413.3,35
+Esteury Ruiz,MIA,OF,414.0,35
+Mike Yastrzemski,ATL,"LF,CF,RF",415.0,35
+Denzer Guzman,LAA,"3B,SS,INF",419.0,35
+Luis Torrens,NYM,C,421.5,36
+Cal Quantrill,TEX,"SP,RP",421.7,36
+Brenton Doyle,- - -,CF,423.0,36
+Jack Leiter,TEX,SP,424.0,36
+Hao-Yu Lee,DET,"2B,3B,INF",424.0,36
+Blaze Alexander,BAL,"2B,3B,SS,INF,OF",429.5,36
+Chase Dollander,COL,"SP,RP",430.0,36
+Tommy Edman,LAD,"2B,3B,LF,CF",430.5,36
+Michael McGreevy,STL,SP,431.5,36
+Jasson Dominguez,NYY,"LF,CF,RF,DH",431.5,36
+Victor Caratini,MIN,"C,1B,DH",435.0,37
+Matthew Liberatore,STL,SP,437.0,37
+Brady Singer,CIN,SP,437.7,37
+Spencer Arrighetti,- - -,SP,441.0,37
+Lane Thomas,- - -,"LF,CF,RF,DH",441.0,37
+Lars Nootbaar,- - -,"LF,CF,RF,DH",442.0,37
+Jeff McNeil,ATH,"1B,2B,LF,CF,RF",442.5,37
+Richie Palacios,TBR,"IF,LF",444.5,37
+Vaughn Grissom,LAA,"1B,2B,3B,INF",445.5,38
+Randal Grichuk,- - -,"OF,UT",448.3,38
+Brayan Bello,BOS,"SP,RP",448.6,38
+Mark Vientos,NYM,"1B,3B,DH",453.0,38
+Jacob Gonzalez,- - -,"1B,2B,3B,SS,INF",454.0,38
+Max Clark,DET,CF,461.5,39
+Randy Vásquez,SDP,"SP,RP",463.4,39
+Nick Sogard,BOS,"1B,2B",464.5,39
+Jake Cronenworth,SDP,"1B,2B,SS",466.5,39
+Spencer Miles,TOR,"SP,RP",468.0,39
+Steven Okert,HOU,RP,473.5,40
+Jacob Lopez,ATH,SP,483.3,41
+David Hamilton,MIL,"2B,3B,SS,INF",495.5,42
+Edgar Quero,CHW,"C,DH",498.0,42
+Aaron Ashby,MIL,RP,509.0,43
+Merrill Kelly,ARI,SP,516.3,43
+Josh Lowe,LAA,"LF,CF,RF",526.0,44
+Kristian Campbell,BOS,"2B,CF",529.5,45
+José Fermín,STL,RP,536.0,45
+Martín Pérez,ATL,SP,536.0,45
+Shane Bieber,TOR,SP,541.0,46
+Jesus Sanchez,- - -,"LF,CF,RF,DH",541.0,46
+TJ Friedl,CIN,"LF,CF",552.3,46
+Logan O'Hoppe,- - -,"C,DH",556.0,47
+Hogan Harris,ATH,RP,556.0,47
+Mitch Keller,PIT,SP,563.0,47
+Tyrone Taylor,- - -,OF,567.7,48
+Tyler O'Neill,BAL,"LF,RF,DH",569.5,48
+Lazaro Montes,SEA,OF,571.0,48
+Chris Bassitt,BAL,SP,573.5,48
+Drew Anderson,DET,"SP,RP",573.7,48
+Sean Newcomb,CHW,"SP,RP",575.0,48
+Nathan Church,STL,OF,578.5,49
+Bryce Elder,ATL,SP,580.0,49
+Spencer Horwitz,PIT,1B,582.0,49
+Brett Bateman,TOR,OF,582.3,49
+Mickey Gasper,BOS,"C,1B,INF",590.5,50
+Michael Conforto,CHC,"LF,RF,DH",591.5,50
+Carmen Mlodzinski,PIT,"SP,RP",595.0,50
+Leo Bernal,STL,C,595.3,50
+Ryan McMahon,NYY,3B,599.5,50
+Roki Sasaki,LAD,SP,602.0,51
+Dane Myers,CIN,OF,602.3,51
+Miles Mikolas,WSN,"SP,RP",603.0,51
+Kodai Senga,NYM,"SP,RP",605.7,51
