@@ -89,7 +89,21 @@ def load_trends():
     return json.load(open(DIR / "team_trends.json", encoding="utf-8"))
 
 
+@st.cache_data
+def load_player_category_profiles():
+    return json.load(open(DIR / "player_category_profiles.json", encoding="utf-8"))
+
+
+@st.cache_data
+def load_manager_category_priority():
+    return json.load(open(DIR / "manager_category_priority.json", encoding="utf-8"))
+
+
 TRENDS = load_trends()
+PLAYER_CATEGORY_PROFILES = load_player_category_profiles()
+MANAGER_CATEGORY_PRIORITY = load_manager_category_priority()
+HIT_CATEGORY_LIST = ["HR", "R", "RBI", "SB", "AVG", "OPS"]
+PIT_CATEGORY_LIST = ["HLD", "SV", "ERA", "K/9", "BB/BF", "WHIP", "WQCS"]
 
 POS_MAP = {"LF": "OF", "CF": "OF", "RF": "OF", "OF": "OF", "DH": "UT", "INF": "UT", "UT": "UT",
            "SP": "SP", "RP": "RP", "P": "SP", "C": "C", "1B": "1B", "2B": "2B", "3B": "3B", "SS": "SS"}
@@ -232,6 +246,79 @@ def open_active_count(team_roster):
     return sum(1 for sid, label in ROSTER_SLOTS if label not in ("IL", "MiLB") and team_roster.get(sid) is None)
 
 
+# --------------------- Category-based drafting (guides everyone) ---------------------
+# Real 2024-2026 draft history, recency-weighted (3x/2x/1x), shows each manager
+# leans toward certain scoring categories (see MANAGER_CATEGORY_PRIORITY). Every
+# team's live category coverage — starting from their keepers, updated as picks
+# happen — is tracked here and used to pull auto-picks toward categories a team
+# still needs and away from ones already well covered, the same way roster-slot
+# need already works for positions.
+CATEGORY_NEED_SCALE = 0.5   # how strongly need+priority alignment shifts a pick's odds
+CATEGORY_BONUS_FLOOR = 0.2
+CATEGORY_BONUS_CEILING = 4.0
+
+
+def team_category_totals(team):
+    """Live cumulative category z-score for everything currently on this
+    team's roster (keepers included) — recomputed on demand so it's always
+    in sync with team_rosters, no separate state to keep updated by hand.
+    """
+    totals = {}
+    roster = st.session_state.team_rosters.get(team, {})
+    for entry in roster.values():
+        if not entry:
+            continue
+        prof = PLAYER_CATEGORY_PROFILES.get(entry["player"])
+        if not prof:
+            continue
+        for cat, val in prof["z"].items():
+            totals[cat] = totals.get(cat, 0.0) + val
+    return totals
+
+
+def category_need_factor(cumulative):
+    """1.0 when a category is still weak/uncovered, shrinking toward 0 the
+    more a team has already stacked in it — same diminishing-returns shape
+    as positional need_ratio, just continuous instead of slot-counted.
+    """
+    return 1.0 / (1.0 + max(0.0, cumulative))
+
+
+def category_bonus(team, candidate_profile, totals):
+    """How well a candidate's own category strengths line up with what this
+    manager historically prioritizes AND what their roster still needs.
+    Returns a multiplier: >1 encourages the pick, <1 discourages it, 1.0
+    if we simply don't have a profile for this player (no opinion).
+    """
+    if not candidate_profile:
+        return 1.0
+    priorities = MANAGER_CATEGORY_PRIORITY.get(team, {})
+    weighted = 0.0
+    for cat, player_z in candidate_profile["z"].items():
+        pri = priorities.get(cat, 0.0)
+        need = category_need_factor(totals.get(cat, 0.0))
+        weighted += pri * need * player_z
+    return min(CATEGORY_BONUS_CEILING, max(CATEGORY_BONUS_FLOOR, 1.0 + CATEGORY_NEED_SCALE * weighted))
+
+
+def category_coverage_labels(team):
+    """For the on-screen guidance panel: a Strong/Average/Weak read on each
+    category this team's own manager actually cares about, so a human
+    picking can see the same signal the auto-draft logic uses."""
+    totals = team_category_totals(team)
+    priorities = MANAGER_CATEGORY_PRIORITY.get(team, {})
+    rows = []
+    for cat_list, kind in [(HIT_CATEGORY_LIST, "Hitting"), (PIT_CATEGORY_LIST, "Pitching")]:
+        for cat in cat_list:
+            pri = priorities.get(cat, 0.0)
+            if abs(pri) < 0.15:
+                continue  # not a category this manager has shown a real lean on
+            total = totals.get(cat, 0.0)
+            label = "Strong" if total > 1.5 else ("Building" if total > 0 else "Weak")
+            rows.append((kind, cat, pri, total, label))
+    return rows
+
+
 def open_count_for_label(team_roster, target_label):
     return sum(1 for sid, label in ROSTER_SLOTS if label == target_label and team_roster.get(sid) is None)
 
@@ -363,6 +450,7 @@ def auto_pick(team, round_num, available):
         window = available[:15]
 
     scored = []
+    cat_totals = team_category_totals(team)
     for rank, p in enumerate(window):
         pos = primary_position(p["positions"])
         pos_w = weights.get(pos, 0.03)
@@ -370,7 +458,8 @@ def auto_pick(team, round_num, available):
         adp_w = 1.0 / (rank + 1)
         age_w = youth_bonus(p.get("age"), bucket)
         fandom_w = fandom_multiplier(team, p.get("mlb_team"))
-        scored.append(pos_w * need_w * adp_w * age_w * fandom_w + 0.0001)
+        cat_w = category_bonus(team, PLAYER_CATEGORY_PROFILES.get(p["player"]), cat_totals)
+        scored.append(pos_w * need_w * adp_w * age_w * fandom_w * cat_w + 0.0001)
     total = sum(scored)
     probs = [s / total for s in scored]
     return random.choices(window, weights=probs, k=1)[0]
@@ -875,6 +964,16 @@ with tab_draft:
                 st.markdown(f"**{team_label(pick['team'])}**")
 
                 if pick["team"] == st.session_state.user_team:
+                    with st.expander("📊 Your category coverage", expanded=False):
+                        rows = category_coverage_labels(st.session_state.user_team)
+                        if not rows:
+                            st.caption("No strong category leans on file for your team yet.")
+                        else:
+                            for kind, cat, pri, total, label in rows:
+                                icon = {"Strong": "🟢", "Building": "🟡", "Weak": "🔴"}[label]
+                                lean = "you lean into this" if pri > 0 else "you lean away from this"
+                                st.write(f"{icon} **{cat}** ({kind}) — {label}, current total {total:+.1f}  _{lean}_")
+
                     pool = st.session_state.pool
                     pos_options = ["All"] + sorted({primary_position(p["positions"]) for p in pool})
                     pos_filter = st.selectbox("Filter by position", pos_options)
