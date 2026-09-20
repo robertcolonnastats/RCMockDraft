@@ -541,7 +541,30 @@ def advance_auto_and_keepers():
 
 # ---------------------------------- Tabs -----------------------------------
 
-tab_draft, tab_keepers, tab_docs = st.tabs(["Draft", "⭐ Keepers", "📄 League Documents"])
+with st.expander("📋 How to use this app / things to know", expanded=False):
+    st.markdown(
+        "**Order of operations:**\n"
+        "1. **Keepers tab** — set each team's 4 keepers (or upload a saved keeper picks file). "
+        "A draft can't start until every keeper conflict is resolved.\n"
+        "2. **Draft tab** — optionally reorder the draft (click teams in the order you want them "
+        "to pick), then choose your team and hit Start. Every other team auto-drafts using real "
+        "manager tendencies — position history, roster need, ADP, a late-round keeper-stash bias, "
+        "and (for a few managers where the data actually backs it up) real MLB team fandom.\n"
+        "3. **League Documents tab** — only needed if something changed: a new draft order PDF, "
+        "updated ADP, new injury/MiLB lists, etc. Uploading any of these restarts the draft.\n\n"
+        "**Good to know:**\n"
+        "- Keepers pull the top ADP-ranked players out of the draftable pool *before* the draft "
+        "starts — so early live picks that look like reaches (e.g. a player going 3rd overall "
+        "despite an ADP in the high teens) are usually just the best player left once several "
+        "true top-15 players are already someone's keeper.\n"
+        "- 🚩 = injured, 🟢 = MiLB-eligible, ⭐ = keeper pick.\n"
+        "- The Grid tab shows the board Fantrax-style — fixed draft-slot columns, with a badge "
+        "whenever a pick has actually been traded to a different team.\n"
+        "- Export buttons (bottom of the Draft tab) save the full board and every team's roster "
+        "as CSV once you're done."
+    )
+
+tab_keepers, tab_draft, tab_docs = st.tabs(["⭐ Keepers", "Draft", "📄 League Documents"])
 
 # ------------------------------- Keepers tab --------------------------------
 
