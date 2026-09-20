@@ -136,12 +136,13 @@ def parse_adp_csv(file_bytes):
         if adp is None:
             continue
         display_name = "Shohei Ohtani (Pitcher)" if name == "Shohei Ohtani" else name
+        adp = apply_adp_override(display_name, adp)
         rows.append({
             "player": display_name,
             "mlb_team": row.get("Team", ""),
             "positions": apply_position_override(display_name, row.get("Positions", "")),
             "adp": adp,
-            "adp_round": int((adp - 1) // 12) + 1,
+            "adp_round": adp_round_for(adp),
         })
 
     # The source file occasionally has more than one row resolving to the
@@ -322,6 +323,31 @@ def parse_saved_keeper_picks(file_bytes):
     return rows
 
 
+def parse_saved_draft_order(file_bytes, valid_teams):
+    """Round-trip format for a saved draft order — pick, team. Exported by
+    the app and re-importable later. Returns the 12 teams in pick order.
+    Raises ValueError with a clear message if the file doesn't contain
+    exactly the 12 expected teams, once each.
+    """
+    text = file_bytes.decode("utf-8-sig")
+    reader = csv.DictReader(io.StringIO(text))
+    rows = sorted(reader, key=lambda r: int(float(r["pick"])))
+    order = [(row.get("team") or "").strip() for row in rows]
+    order = [t for t in order if t]
+
+    valid_set = set(valid_teams)
+    seen = set()
+    duplicates = [t for t in order if t in seen or seen.add(t)]
+    unknown = [t for t in order if t not in valid_set]
+    if unknown:
+        raise ValueError(f"Unrecognized team name(s): {', '.join(unknown)}")
+    if duplicates:
+        raise ValueError(f"Duplicate team(s): {', '.join(duplicates)}")
+    if len(order) != len(valid_set):
+        raise ValueError(f"Expected {len(valid_set)} teams, found {len(order)}")
+    return order
+
+
 def parse_keeper_workbook(file_bytes):
     """Reads every row with a Keeper Round value. Returns one row per
     rostered player with their pre-computed keeper round, for the user to
@@ -373,6 +399,22 @@ POSITION_OVERRIDES = {
 
 def apply_position_override(name, positions_str):
     return POSITION_OVERRIDES.get(name, positions_str)
+
+
+# Manual ADP corrections for players whose listed ADP is stale relative to
+# current real rankings — applied wherever ADP gets set, same pattern as
+# POSITION_OVERRIDES above.
+ADP_OVERRIDES = {
+    "Julio Rodriguez": 21.6,
+}
+
+
+def apply_adp_override(name, adp_value):
+    return ADP_OVERRIDES.get(name, adp_value)
+
+
+def adp_round_for(adp_value):
+    return int((adp_value - 1) // 12) + 1
 
 
 def project_likely_keepers(team, team_candidates, draft_order, player_status=None, n=4):
