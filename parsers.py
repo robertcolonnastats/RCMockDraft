@@ -139,7 +139,7 @@ def parse_adp_csv(file_bytes):
         rows.append({
             "player": display_name,
             "mlb_team": row.get("Team", ""),
-            "positions": row.get("Positions", ""),
+            "positions": apply_position_override(display_name, row.get("Positions", "")),
             "adp": adp,
             "adp_round": int((adp - 1) // 12) + 1,
         })
@@ -178,7 +178,7 @@ def parse_rosters_csv(file_bytes):
         rows.append({
             "player": row.get("Player", ""),
             "mlb_team": row.get("Team", ""),
-            "position": row.get("Position", ""),
+            "position": apply_position_override(row.get("Player", ""), row.get("Position", "")),
             "team_code": code,
             "canonical_team": team,
             "roster_status": row.get("Roster Status", ""),
@@ -261,7 +261,7 @@ def parse_full_player_list(file_bytes):
         rows.append({
             "player": name,
             "mlb_team": row.get("Team", ""),
-            "positions": row.get("Position", ""),
+            "positions": apply_position_override(name, row.get("Position", "")),
             "rank_ov": rank_ov,
             "age": age,
         })
@@ -340,13 +340,15 @@ def parse_keeper_workbook(file_bytes):
             continue
         manager = vals[idx.get("Manager")] if "Manager" in idx else None
         team = next((t["team"] for t in TEAMS if t["manager"] == manager), None)
+        player_name = vals[idx.get("Player")] if "Player" in idx else None
+        raw_position = vals[idx.get("Position")] if "Position" in idx else None
         rows.append({
             "manager": manager,
             "team": team,
             "keeper_round": int(float(kr)),
-            "player": vals[idx.get("Player")] if "Player" in idx else None,
+            "player": player_name,
             "mlb_team": vals[idx.get("Team")] if "Team" in idx else None,
-            "position": vals[idx.get("Position")] if "Position" in idx else None,
+            "position": apply_position_override(player_name, raw_position),
             "status": vals[idx.get("Status") ] if "Status" in idx else None,
             "drafted_or_claimed": vals[idx.get("Drafted vs Claimed")] if "Drafted vs Claimed" in idx else None,
             "adp_round": vals[idx.get("ADP Round")] if "ADP Round" in idx else None,
@@ -359,6 +361,18 @@ def parse_keeper_workbook(file_bytes):
 
 # Players nobody in the league is allowed to keep, regardless of round or status.
 INELIGIBLE_KEEPERS = {"Bobby Witt Jr."}
+
+# Manual position corrections for players whose listed eligibility is wrong
+# for the upcoming season (e.g. losing catcher eligibility) — applied
+# wherever a player's position string gets read, so it's consistent across
+# the draftable pool, the keeper workbook, and rosters.
+POSITION_OVERRIDES = {
+    "Ben Rice": "1B",  # loses catcher eligibility for 2027
+}
+
+
+def apply_position_override(name, positions_str):
+    return POSITION_OVERRIDES.get(name, positions_str)
 
 
 def project_likely_keepers(team, team_candidates, draft_order, player_status=None, n=4):
@@ -603,3 +617,165 @@ def build_pick_sequence(draft_order, keeper_placements):
                 "is_keeper": kp is not None, "keeper_player": kp or ""
             })
     return sequence
+
+
+# --------------------------- Category stats (FanGraphs) ---------------------------
+
+HIT_CATS = ["HR", "R", "RBI", "SB", "AVG", "OPS"]
+PIT_CATS = ["SV", "W", "ERA", "WHIP", "K9"]  # W stands in for WQCS (no QS/CG/SHO data available)
+
+# Recency weighting for category bias, matching the position-trend weighting
+# used elsewhere in this app.
+CATEGORY_YEAR_WEIGHT = {2026: 3, 2025: 2, 2024: 1}
+
+HIT_QUALIFY_PA = 300
+PIT_QUALIFY_IP = 50.0
+
+
+def parse_fangraphs_hitting(file_bytes):
+    text = file_bytes.decode("utf-8-sig")
+    reader = csv.DictReader(io.StringIO(text))
+    rows = []
+    for row in reader:
+        try:
+            rows.append({
+                "season": row["Season"], "name": row["Name"],
+                "pa": int(row["PA"]), "hr": float(row["HR"]), "r": float(row["R"]),
+                "rbi": float(row["RBI"]), "sb": float(row["SB"]), "avg": float(row["AVG"]),
+                "ops": float(row["OBP"]) + float(row["SLG"]),
+            })
+        except (ValueError, KeyError):
+            continue
+    return rows
+
+
+def parse_fangraphs_pitching(file_bytes):
+    text = file_bytes.decode("utf-8-sig")
+    reader = csv.DictReader(io.StringIO(text))
+    rows = []
+    for row in reader:
+        try:
+            rows.append({
+                "season": row["Season"], "name": row["Name"],
+                "ip": float(row["IP"]), "sv": float(row["SV"]), "w": float(row["W"]),
+                "era": float(row["ERA"]), "whip": float(row["WHIP"]), "k9": float(row["K/9"]),
+            })
+        except (ValueError, KeyError):
+            continue
+    return rows
+
+
+def _mean_sd(values):
+    import statistics
+    if not values:
+        return (0.0, 0.0)
+    return (statistics.mean(values), statistics.pstdev(values))
+
+
+def build_season_pop_stats(hitting_rows, pitching_rows):
+    """Per-season (mean, stdev) for every category, computed over a
+    qualified population only (min PA / min IP), so a September call-up
+    doesn't skew the baseline. Returns (hit_stats, pit_stats), each
+    {season: {cat: (mean, sd)}}.
+    """
+    from collections import defaultdict
+    hit_pop = defaultdict(lambda: defaultdict(list))
+    for r in hitting_rows:
+        if r["pa"] < HIT_QUALIFY_PA:
+            continue
+        hit_pop[r["season"]]["HR"].append(r["hr"])
+        hit_pop[r["season"]]["R"].append(r["r"])
+        hit_pop[r["season"]]["RBI"].append(r["rbi"])
+        hit_pop[r["season"]]["SB"].append(r["sb"])
+        hit_pop[r["season"]]["AVG"].append(r["avg"])
+        hit_pop[r["season"]]["OPS"].append(r["ops"])
+    hit_stats = {s: {c: _mean_sd(v) for c, v in cats.items()} for s, cats in hit_pop.items()}
+
+    pit_pop = defaultdict(lambda: defaultdict(list))
+    for r in pitching_rows:
+        if r["ip"] < PIT_QUALIFY_IP:
+            continue
+        pit_pop[r["season"]]["SV"].append(r["sv"])
+        pit_pop[r["season"]]["W"].append(r["w"])
+        pit_pop[r["season"]]["ERA"].append(r["era"])
+        pit_pop[r["season"]]["WHIP"].append(r["whip"])
+        pit_pop[r["season"]]["K9"].append(r["k9"])
+    pit_stats = {s: {c: _mean_sd(v) for c, v in cats.items()} for s, cats in pit_pop.items()}
+    return hit_stats, pit_stats
+
+
+def _z(val, mean_sd):
+    mean, sd = mean_sd
+    return (val - mean) / sd if sd else 0.0
+
+
+def build_player_category_index(hitting_rows, pitching_rows):
+    """{(name, season): {"is_pitcher": bool, "pa_or_ip": float, "z": {cat: z}}}
+    for every player-season with enough playing time to trust, using the
+    population stats above. Players below the qualify threshold are left
+    out entirely — not enough signal to say what they're good at yet.
+    """
+    hit_stats, pit_stats = build_season_pop_stats(hitting_rows, pitching_rows)
+    index = {}
+    for r in hitting_rows:
+        if r["pa"] < 100 or r["season"] not in hit_stats:
+            continue
+        st = hit_stats[r["season"]]
+        z = {
+            "HR": _z(r["hr"], st["HR"]), "R": _z(r["r"], st["R"]), "RBI": _z(r["rbi"], st["RBI"]),
+            "SB": _z(r["sb"], st["SB"]), "AVG": _z(r["avg"], st["AVG"]), "OPS": _z(r["ops"], st["OPS"]),
+        }
+        index[(r["name"], r["season"])] = {"is_pitcher": False, "z": z}
+    for r in pitching_rows:
+        if r["ip"] < 20 or r["season"] not in pit_stats:
+            continue
+        st = pit_stats[r["season"]]
+        z = {
+            "SV": _z(r["sv"], st["SV"]), "W": _z(r["w"], st["W"]),
+            "ERA": -_z(r["era"], st["ERA"]), "WHIP": -_z(r["whip"], st["WHIP"]), "K9": _z(r["k9"], st["K9"]),
+        }
+        index[(r["name"], r["season"])] = {"is_pitcher": True, "z": z}
+    return index
+
+
+def latest_player_category_z(player_index, name, seasons_desc=("2026", "2025", "2024")):
+    """Best-effort z-score profile for a player using their most recent
+    qualifying season out of the ones given. Returns {cat: z} or None.
+    """
+    for season in seasons_desc:
+        entry = player_index.get((name, season))
+        if entry:
+            return entry["z"]
+    return None
+
+
+def build_team_category_bias(historical_drafts, player_index, max_round=12):
+    """Recency-weighted {team: {cat: bias}} — how strongly a manager's
+    rounds-1-to-max_round picks have skewed toward each category, using
+    the SAME player-season z-score index (looked up at draft_year - 1, the
+    most recent complete season at the time of that draft). Only uses
+    years actually present in historical_drafts for that team, so a
+    manager who's only had the team one year isn't compared unfairly.
+    """
+    from collections import defaultdict
+    weighted_sum = defaultdict(lambda: defaultdict(float))
+    weight_total = defaultdict(lambda: defaultdict(float))
+
+    for r in historical_drafts:
+        if int(r["round"]) > max_round:
+            continue
+        year = int(r["year"])
+        weight = CATEGORY_YEAR_WEIGHT.get(year, 1)
+        lookup_season = str(year - 1)
+        entry = player_index.get((r["player"], lookup_season))
+        if not entry:
+            continue
+        team = r["canonical_team"]
+        for cat, val in entry["z"].items():
+            weighted_sum[team][cat] += val * weight
+            weight_total[team][cat] += weight
+
+    bias = {}
+    for team, cats in weighted_sum.items():
+        bias[team] = {cat: round(v / weight_total[team][cat], 3) for cat, v in cats.items() if weight_total[team][cat] > 0}
+    return bias
