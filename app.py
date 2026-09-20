@@ -285,6 +285,38 @@ FANDOM_BIAS = {
 LINDOR_LOYALTY_TEAM = "My Filipina \u2764\ufe0f's Dried Fish"
 LINDOR_PLAYER_NAME = "Francisco Lindor"
 
+# Players who've been kept at Round 1 three years running (the round-1
+# "floor" — can't move up further) — but a manager holding the literal
+# 1st-overall pick himself has no reason to spend a keeper slot on a player
+# he'd draft with that pick anyway. He only actually keeps them when he
+# ISN'T picking 1st overall that year (verified against 2024-2026 history:
+# Ronald Acuna Jr. for Acuna & Friends, drafted Round 1 by that team all
+# three years). Note: Bobby Witt Jr. shows the same 3-year Round-1 pattern
+# for For Whom Skubal Tolls, but he's separately marked as an ineligible
+# keeper league-wide (see INELIGIBLE_KEEPERS in parsers.py) — that rule
+# wins, so he's deliberately left out here.
+ROUND1_KEEPER_LOYALTY = {
+    "Acuna & Friends": "Ronald Acuna Jr.",
+}
+
+
+def should_keep_round1_loyalty_player(team):
+    """True if this team's round-1 loyalty player (see above) should be
+    kept this year — i.e. the team does NOT hold the literal 1st overall
+    pick themselves. If they traded their own 1-1 pick away entirely,
+    they still need the keeper since they have no natural path to that
+    player otherwise.
+    """
+    if team not in ROUND1_KEEPER_LOYALTY:
+        return False
+    slot_order = st.session_state.slot_order
+    if team not in slot_order:
+        return True
+    if slot_order.index(team) != 0:
+        return True  # not assigned the 1st overall slot at all
+    r1_slot1 = next((r for r in st.session_state.draft_order if r["round"] == 1 and r["slot"] == 1), None)
+    return not (r1_slot1 and r1_slot1["team"] == team)
+
 
 def fandom_multiplier(team, mlb_team):
     bias = FANDOM_BIAS.get(team)
@@ -577,6 +609,20 @@ with tab_keepers:
             # instead of just taking the top 4 by round (which can suggest
             # impossible combinations, like two Round 1 keepers).
             projected = P.project_likely_keepers(team, team_rows, st.session_state.draft_order, status_by_player)
+
+            # A round-1 loyalty player (see ROUND1_KEEPER_LOYALTY) isn't
+            # about Keeper Value at all — force them in when the condition
+            # applies, dropping the current lowest-value projected pick to
+            # make room, unless they're not even a valid candidate this year.
+            if should_keep_round1_loyalty_player(team):
+                loyalty_player = ROUND1_KEEPER_LOYALTY[team]
+                already_in = any(r["player"] == loyalty_player for r in projected)
+                loyalty_row = next((r for r in team_rows if r["player"] == loyalty_player), None)
+                if loyalty_row and not already_in:
+                    if len(projected) >= 4:
+                        projected = projected[:3]
+                    projected = [loyalty_row] + projected
+
             team_current = [{"round": r["keeper_round"], "player": r["player"]} for r in projected]
 
         with st.expander(f"{team_label(team)}"):
@@ -752,6 +798,11 @@ with tab_draft:
                 st.session_state.base_draft_order, new_slot_order
             )
             st.session_state.slot_order = new_slot_order
+            # A new draft order can change who should default to a round-1
+            # loyalty keeper (see should_keep_round1_loyalty_player) — bump
+            # this so any keeper dropdowns still on their default (never
+            # explicitly applied) re-render instead of keeping stale values.
+            st.session_state.keeper_ui_version += 1
             reset_draft(clear_team=True)
             st.success("Draft order updated — draft board reset.")
             st.rerun()
