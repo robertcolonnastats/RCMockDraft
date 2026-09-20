@@ -260,8 +260,45 @@ IL_QUALITY_ADP_THRESHOLD = 150
 # a speculative IL stash — only teams with real pick depth bother.
 IL_MIN_TEAM_PICKS_TO_BOTHER = 24
 
+# Real-world MLB team fandom, but ONLY where 2024-2026 draft history actually
+# shows a manager over-drafting that team's players vs. league rate — not
+# just where the manager says they're a fan. Several stated fans (Joe/Mets,
+# John/Mets, Blake/Yankees, Kody/Diamondbacks) draft that team at or below
+# league rate and are deliberately left out. Ratio = that manager's rate of
+# drafting the team's players, pooled across all 3 years, divided by the
+# league-wide rate for that team over the same years.
+FANDOM_BIAS = {
+    "Acuna & Friends": {"mlb_team": "ATL", "ratio": 3.99},
+    "Lightning McLean": {"mlb_team": "NYM", "ratio": 3.57},
+    "Cruz Control": {"mlb_team": "PHI", "ratio": 2.68},
+    "Ball Knower": {"mlb_team": "SD", "ratio": 2.98},
+    "Moonlight Graham": {"mlb_team": "BOS", "ratio": 2.86},
+    "My Filipina \u2764\ufe0f's Dried Fish": {"mlb_team": "NYM", "ratio": 3.37},
+    "New York No Sox": {"mlb_team": "NYM", "ratio": 1.81},
+}
+
+# Billy's specific attachment to Francisco Lindor is stronger and more
+# specific than general Mets fandom (Lindor only shows up once in 3 years
+# of history — Round 2, 2026 — consistent with already owning him as a
+# long-standing keeper before that and re-drafting him when lost). He'll
+# take Lindor almost any time available, but never with his own Round 1 pick.
+LINDOR_LOYALTY_TEAM = "My Filipina \u2764\ufe0f's Dried Fish"
+LINDOR_PLAYER_NAME = "Francisco Lindor"
+
+
+def fandom_multiplier(team, mlb_team):
+    bias = FANDOM_BIAS.get(team)
+    if bias and mlb_team == bias["mlb_team"]:
+        return bias["ratio"]
+    return 1.0
+
 
 def auto_pick(team, round_num, available):
+    if team == LINDOR_LOYALTY_TEAM and round_num > 1:
+        lindor = next((p for p in available if p["player"] == LINDOR_PLAYER_NAME), None)
+        if lindor is not None:
+            return lindor
+
     bucket = round_bucket(round_num)
     weights = TRENDS["teams"].get(team, {}).get(bucket) or TRENDS["league"].get(bucket, {})
     team_roster = st.session_state.team_rosters[team]
@@ -300,7 +337,8 @@ def auto_pick(team, round_num, available):
         need_w = need_ratio(team_roster, pos)
         adp_w = 1.0 / (rank + 1)
         age_w = youth_bonus(p.get("age"), bucket)
-        scored.append(pos_w * need_w * adp_w * age_w + 0.0001)
+        fandom_w = fandom_multiplier(team, p.get("mlb_team"))
+        scored.append(pos_w * need_w * adp_w * age_w * fandom_w + 0.0001)
     total = sum(scored)
     probs = [s / total for s in scored]
     return random.choices(window, weights=probs, k=1)[0]
@@ -694,24 +732,21 @@ with tab_docs:
 
 with tab_draft:
     with st.expander("🔀 Change Draft Order"):
-        st.write("Set who picks 1st through 12th. Every trade stays attached to the team that made "
-                 "it — if a team traded away their Round 5 pick, that's still true no matter which "
-                 "slot they move to here. This rebuilds every round and restarts the current draft.")
+        st.write("Click teams below in the order you want them to draft — 1st, then 2nd, then 3rd, "
+                 "and so on. Every trade stays attached to the team that made it — if a team traded "
+                 "away their Round 5 pick, that's still true no matter which slot they move to here. "
+                 "This rebuilds every round and restarts the current draft.")
 
         current_slot_order = st.session_state.slot_order
-        new_slot_order = []
-        cols = st.columns(4)
-        for i in range(12):
-            with cols[i % 4]:
-                pick = st.selectbox(
-                    f"Pick {i+1}", ALL_TEAMS,
-                    index=ALL_TEAMS.index(current_slot_order[i]),
-                    format_func=team_label, key=f"slot_order_{i}"
-                )
-                new_slot_order.append(pick)
+        new_slot_order = st.multiselect(
+            "Draft order (1st pick first)", ALL_TEAMS, default=current_slot_order,
+            format_func=team_label, key="slot_order_multiselect"
+        )
 
-        if len(set(new_slot_order)) != 12:
-            st.warning("Every team needs to appear exactly once — you've got a duplicate above.")
+        if len(new_slot_order) < 12:
+            remaining = 12 - len(new_slot_order)
+            st.info(f"Pick {remaining} more team{'s' if remaining != 1 else ''} to complete the order "
+                    f"(remove one by clicking its ✕ to fix a mistake).")
         elif st.button("Apply New Draft Order", type="primary"):
             st.session_state.draft_order = P.rebuild_draft_order_with_new_slots(
                 st.session_state.base_draft_order, new_slot_order
