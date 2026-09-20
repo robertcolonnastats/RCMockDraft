@@ -544,13 +544,15 @@ def advance_auto_and_keepers():
 with st.expander("📋 How to use this app / things to know", expanded=False):
     st.markdown(
         "**Order of operations:**\n"
-        "1. **Keepers tab** — set each team's 4 keepers (or upload a saved keeper picks file). "
+        "1. **Draft Order tab** — set this first, since it can change who's projected to be kept "
+        "(e.g. a manager who'd draft their favorite player anyway with the 1st overall pick won't "
+        "keep them there, but will if picking anywhere else).\n"
+        "2. **Keepers tab** — set each team's 4 keepers (or upload a saved keeper picks file). "
         "A draft can't start until every keeper conflict is resolved.\n"
-        "2. **Draft tab** — optionally reorder the draft (click teams in the order you want them "
-        "to pick), then choose your team and hit Start. Every other team auto-drafts using real "
+        "3. **Draft tab** — choose your team and hit Start. Every other team auto-drafts using real "
         "manager tendencies — position history, roster need, ADP, a late-round keeper-stash bias, "
         "and (for a few managers where the data actually backs it up) real MLB team fandom.\n"
-        "3. **League Documents tab** — only needed if something changed: a new draft order PDF, "
+        "4. **League Documents tab** — only needed if something changed: a new draft order PDF, "
         "updated ADP, new injury/MiLB lists, etc. Uploading any of these restarts the draft.\n\n"
         "**Good to know:**\n"
         "- Keepers pull the top ADP-ranked players out of the draftable pool *before* the draft "
@@ -564,7 +566,44 @@ with st.expander("📋 How to use this app / things to know", expanded=False):
         "as CSV once you're done."
     )
 
-tab_keepers, tab_draft, tab_docs = st.tabs(["⭐ Keepers", "Draft", "📄 League Documents"])
+tab_order, tab_keepers, tab_draft, tab_docs = st.tabs(["🔀 Draft Order", "⭐ Keepers", "Draft", "📄 League Documents"])
+
+# ---------------------------- Draft Order tab -------------------------------
+
+with tab_order:
+    st.header("Set Draft Order")
+    st.write("Click teams below in the order you want them to draft — 1st, then 2nd, then 3rd, "
+             "and so on. Every trade stays attached to the team that made it — if a team traded "
+             "away their Round 5 pick, that's still true no matter which slot they move to here. "
+             "Set this first: it affects who's projected to be kept (e.g. a manager who'd draft "
+             "their favorite player anyway with the 1st overall pick won't keep them there, but "
+             "will if picking anywhere else) — so get the order right before setting keepers.")
+
+    current_slot_order = st.session_state.slot_order
+    new_slot_order = st.multiselect(
+        "Draft order (1st pick first)", ALL_TEAMS, default=current_slot_order,
+        format_func=team_label, key="slot_order_multiselect"
+    )
+
+    if len(new_slot_order) < 12:
+        remaining = 12 - len(new_slot_order)
+        st.info(f"Pick {remaining} more team{'s' if remaining != 1 else ''} to complete the order "
+                f"(remove one by clicking its ✕ to fix a mistake).")
+    elif st.button("Apply New Draft Order", type="primary"):
+        st.session_state.draft_order = P.rebuild_draft_order_with_new_slots(
+            st.session_state.base_draft_order, new_slot_order
+        )
+        st.session_state.slot_order = new_slot_order
+        # A new draft order can change who should default to a round-1
+        # loyalty keeper (see should_keep_round1_loyalty_player) — bump
+        # this so any keeper dropdowns still on their default (never
+        # explicitly applied) re-render instead of keeping stale values.
+        st.session_state.keeper_ui_version += 1
+        reset_draft(clear_team=True)
+        st.success("Draft order updated — draft board reset.")
+        st.rerun()
+
+
 
 # ------------------------------- Keepers tab --------------------------------
 
@@ -800,36 +839,6 @@ with tab_docs:
 # -------------------------------- Draft tab ---------------------------------
 
 with tab_draft:
-    with st.expander("🔀 Change Draft Order"):
-        st.write("Click teams below in the order you want them to draft — 1st, then 2nd, then 3rd, "
-                 "and so on. Every trade stays attached to the team that made it — if a team traded "
-                 "away their Round 5 pick, that's still true no matter which slot they move to here. "
-                 "This rebuilds every round and restarts the current draft.")
-
-        current_slot_order = st.session_state.slot_order
-        new_slot_order = st.multiselect(
-            "Draft order (1st pick first)", ALL_TEAMS, default=current_slot_order,
-            format_func=team_label, key="slot_order_multiselect"
-        )
-
-        if len(new_slot_order) < 12:
-            remaining = 12 - len(new_slot_order)
-            st.info(f"Pick {remaining} more team{'s' if remaining != 1 else ''} to complete the order "
-                    f"(remove one by clicking its ✕ to fix a mistake).")
-        elif st.button("Apply New Draft Order", type="primary"):
-            st.session_state.draft_order = P.rebuild_draft_order_with_new_slots(
-                st.session_state.base_draft_order, new_slot_order
-            )
-            st.session_state.slot_order = new_slot_order
-            # A new draft order can change who should default to a round-1
-            # loyalty keeper (see should_keep_round1_loyalty_player) — bump
-            # this so any keeper dropdowns still on their default (never
-            # explicitly applied) re-render instead of keeping stale values.
-            st.session_state.keeper_ui_version += 1
-            reset_draft(clear_team=True)
-            st.success("Draft order updated — draft board reset.")
-            st.rerun()
-
     if st.session_state.user_team is not None:
         advance_auto_and_keepers()
 
